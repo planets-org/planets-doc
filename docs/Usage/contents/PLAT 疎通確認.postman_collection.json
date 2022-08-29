@@ -1,0 +1,487 @@
+{
+	"info": {
+		"_postman_id": "4a8d0b79-09a6-4ee6-a5a0-2c87316ffe92",
+		"name": "PLAT 疎通確認",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LocalX",
+			"item": [
+				{
+					"name": "①COM_ATH_001.【認証】認証エンドポイント",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{KC_Path}}/auth/realms/{{KC_Realm}}/protocol/openid-connect/auth?client_id={{KC_ClientName_Open}}&scope=openid&response_type=code&redirect_uri={{GW_Server}}/callback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256",
+							"host": [
+								"{{KC_Path}}"
+							],
+							"path": [
+								"auth",
+								"realms",
+								"{{KC_Realm}}",
+								"protocol",
+								"openid-connect",
+								"auth"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "{{KC_ClientName_Open}}"
+								},
+								{
+									"key": "scope",
+									"value": "openid"
+								},
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{GW_Server}}/callback"
+								},
+								{
+									"key": "code_challenge",
+									"value": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "S256"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "②COM_ATH_003.【認証】トークン取得",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"KC_AccessToken\" + pm.environment.get(\"CurrentTarget\"), data.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{KC_ClientName_Open}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "!!!replace_me!!!",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{GW_Server}}/callback",
+									"type": "text"
+								},
+								{
+									"key": "code_verifier",
+									"value": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
+									"type": "text"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "S256",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{KC_Path}}/auth/realms/{{KC_Realm}}/protocol/openid-connect/token",
+							"host": [
+								"{{KC_Path}}"
+							],
+							"path": [
+								"auth",
+								"realms",
+								"{{KC_Realm}}",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "③PRV_STF_001. 【登録】スタッフ管理（認証情報まで一括登録）",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"DoctorAStaffId\", data.identifier[0].value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{KC_AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ORGANIZATION-ID",
+								"value": "{{OrganizationId}}",
+								"type": "text"
+							},
+							{
+								"key": "X-PLAT-ID",
+								"value": "{{PlatId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"localclinicx.doctor0001\",\n    \"password\": \"localclinicx.doctor0001\",\n    \"email\": \"localclinicx.doctor0001@example.com\",\n    \"organizationId\": \"1310000001\",\n    \"departmentId\": \"00001\",\n    \"occupation\": \"A\",\n    \"staffResource\": {\n        \"resourceType\": \"Staff\",\n        \"emergencyFlg\": false,\n        \"name\": [\n            {\n                \"extension\": [\n                    {\n                        \"url\": \"http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation\",\n                        \"valueCode\": \"IDE\"\n                    }\n                ],\n                \"family\": \"田中\",\n                \"given\": [\n                    \"一郎\"\n                ]\n            },\n            {\n                \"extension\": [\n                    {\n                        \"url\": \"http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation\",\n                        \"valueCode\": \"SYL\"\n                    }\n                ],\n                \"family\": \"タナカ\",\n                \"given\": [\n                    \"イチロウ\"\n                ]\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GW_Path}}/providers/staffs/accounts",
+							"host": [
+								"{{GW_Path}}"
+							],
+							"path": [
+								"providers",
+								"staffs",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "④COM_ATH_001.【認証】認証エンドポイント",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{KC_Path}}/auth/realms/{{KC_Realm}}/protocol/openid-connect/auth?client_id={{KC_ClientName_Open}}&scope=openid&response_type=code&redirect_uri={{GW_Server}}/callback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256",
+							"host": [
+								"{{KC_Path}}"
+							],
+							"path": [
+								"auth",
+								"realms",
+								"{{KC_Realm}}",
+								"protocol",
+								"openid-connect",
+								"auth"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "{{KC_ClientName_Open}}"
+								},
+								{
+									"key": "scope",
+									"value": "openid"
+								},
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{GW_Server}}/callback"
+								},
+								{
+									"key": "code_challenge",
+									"value": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "S256"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "⑤COM_ATH_003.【認証】トークン取得",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"KC_AccessToken\" + pm.environment.get(\"CurrentTarget\"), data.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{KC_ClientName_Open}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "!!!replace_me!!!",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{GW_Server}}/callback",
+									"type": "text"
+								},
+								{
+									"key": "code_verifier",
+									"value": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
+									"type": "text"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "S256",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{KC_Path}}/auth/realms/{{KC_Realm}}/protocol/openid-connect/token",
+							"host": [
+								"{{KC_Path}}"
+							],
+							"path": [
+								"auth",
+								"realms",
+								"{{KC_Realm}}",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "⑥PRV_ORG_001.【取得】文書情報が存在する医療機関リスト",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{KC_AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "医療機関ID",
+								"key": "X-SELF-ORGANIZATION-ID",
+								"type": "text",
+								"value": "{{OrganizationId}}",
+								"disabled": true
+							},
+							{
+								"key": "X-ORGANIZATION-ID",
+								"type": "text",
+								"value": "{{OrganizationId}}",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "text/html",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GW_Path}}/providers/organizations/{{OrganizationId}}?location=remote",
+							"host": [
+								"{{GW_Path}}"
+							],
+							"path": [
+								"providers",
+								"organizations",
+								"{{OrganizationId}}"
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "remote"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.set(\"CurrentTarget\", \"_LocalX\");",
+							"pm.environment.set(\"KC_UserNameAdmin\", \"localclinicx.admin\"); // 実行時に調整",
+							"pm.environment.set(\"KC_UserName\", \"localclinicx.doctor0001\"); // 実行時に調整",
+							"pm.environment.set(\"StaffId\", pm.environment.get(\"ClinicXDoctor01StaffId\")); // 実行時に調整",
+							"",
+							"pm.environment.set(\"GW_Server\", pm.environment.get(\"GW_Server\" + pm.environment.get(\"CurrentTarget\")));",
+							"pm.environment.set(\"GW_Path\", pm.environment.get(\"GW_Server\")  + pm.environment.get(\"API_Context\"));",
+							"pm.environment.set(\"KC_Server\", pm.environment.get(\"KC_Server\" + pm.environment.get(\"CurrentTarget\")));",
+							"pm.environment.set(\"KC_Path\", pm.environment.get(\"KC_Server\") + pm.environment.get(\"KC_Context\"));",
+							"pm.environment.set(\"KC_Realm\", pm.environment.get(\"KC_Realm\" + pm.environment.get(\"CurrentTarget\")));",
+							"pm.environment.set(\"KC_ClientSecret\", pm.environment.get(\"KC_ClientSecret\" + pm.environment.get(\"CurrentTarget\")));",
+							"pm.environment.set(\"KC_AccessToken\", pm.environment.get(\"KC_AccessToken\" + pm.environment.get(\"CurrentTarget\")));",
+							"",
+							"pm.environment.set(\"OrganizationId\", pm.environment.get(\"OrganizationId\" + pm.environment.get(\"CurrentTarget\")));",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

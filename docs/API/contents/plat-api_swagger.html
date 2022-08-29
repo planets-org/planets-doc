@@ -1,0 +1,4738 @@
+<!doctype html>
+<html>
+  <head>
+    <title>PLAT API</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>PLAT API</h1>
+    <div class="app-desc">PLATのAPI一覧</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="app-desc">Version: 0.1.0</div>
+    
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#ParticipantsAccountController">ParticipantsAccountController</a></h4>
+  <ul>
+  <li><a href="#createAccountParticipants"><code><span class="http-method">put</span> /cloudEHR/participants/accounts</code></a></li>
+  </ul>
+  <h4><a href="#ParticipantsDocumentController">ParticipantsDocumentController</a></h4>
+  <ul>
+  <li><a href="#createDocuments1"><code><span class="http-method">post</span> /cloudEHR/participants/patients/documents</code></a></li>
+  <li><a href="#deleteDocuments"><code><span class="http-method">delete</span> /cloudEHR/participants/patients/documents</code></a></li>
+  <li><a href="#updateDocuments"><code><span class="http-method">put</span> /cloudEHR/participants/patients/documents</code></a></li>
+  </ul>
+  <h4><a href="#ParticipantsDocumentSearchController">ParticipantsDocumentSearchController</a></h4>
+  <ul>
+  <li><a href="#findPatientDocument1"><code><span class="http-method">get</span> /cloudEHR/participants/patients/documents/{documentKey}</code></a></li>
+  <li><a href="#findPatientResource1"><code><span class="http-method">get</span> /cloudEHR/participants/patients/documents/{documentKey}/resources/{resourceType}</code></a></li>
+  <li><a href="#searchPatientCompositions1"><code><span class="http-method">get</span> /cloudEHR/participants/patients/{patientId}/compositions</code></a></li>
+  <li><a href="#searchPatientDocuments1"><code><span class="http-method">get</span> /cloudEHR/participants/patients/{patientId}/documents</code></a></li>
+  <li><a href="#searchPatientResources1"><code><span class="http-method">get</span> /cloudEHR/participants/patients/{patientId}/documents/resources</code></a></li>
+  </ul>
+  <h4><a href="#ParticipantsOrganizationsController">ParticipantsOrganizationsController</a></h4>
+  <ul>
+  <li><a href="#findOrganization1"><code><span class="http-method">get</span> /cloudEHR/participants/organizations/{organizationId}</code></a></li>
+  <li><a href="#searchOrganizations1"><code><span class="http-method">get</span> /cloudEHR/participants/organizations</code></a></li>
+  </ul>
+  <h4><a href="#ParticipantsPermissionController">ParticipantsPermissionController</a></h4>
+  <ul>
+  <li><a href="#createPermissions1"><code><span class="http-method">post</span> /cloudEHR/participants/permissions</code></a></li>
+  <li><a href="#createPermissionsApproved1"><code><span class="http-method">post</span> /cloudEHR/participants/permissions/approval</code></a></li>
+  <li><a href="#deletePermissions1"><code><span class="http-method">delete</span> /cloudEHR/participants/permission/{id}</code></a></li>
+  <li><a href="#findPermissionApproval1"><code><span class="http-method">get</span> /cloudEHR/participants/permission/approval/{id}</code></a></li>
+  <li><a href="#findPermissionRequest1"><code><span class="http-method">get</span> /cloudEHR/participants/permission/requests/{id}</code></a></li>
+  <li><a href="#searchPermissionApprovals1"><code><span class="http-method">get</span> /cloudEHR/participants/permission/approval</code></a></li>
+  <li><a href="#searchPermissionRequests1"><code><span class="http-method">get</span> /cloudEHR/participants/permission/requests</code></a></li>
+  <li><a href="#updatePermissionApproval1"><code><span class="http-method">put</span> /cloudEHR/participants/permission/approval/{id}</code></a></li>
+  <li><a href="#updatePermissionApprovalPartial1"><code><span class="http-method">put</span> /cloudEHR/participants/permission/partialapproval/{id}</code></a></li>
+  <li><a href="#updatePermissionRequests1"><code><span class="http-method">put</span> /cloudEHR/participants/permission/requests/{id}</code></a></li>
+  <li><a href="#updatePermissions1"><code><span class="http-method">put</span> /cloudEHR/participants/permissions</code></a></li>
+  </ul>
+  <h4><a href="#ParticipantsUserController">ParticipantsUserController</a></h4>
+  <ul>
+  <li><a href="#createUserParticipants"><code><span class="http-method">post</span> /cloudEHR/participants/users</code></a></li>
+  </ul>
+  <h4><a href="#ParticipantsUserSearchController">ParticipantsUserSearchController</a></h4>
+  <ul>
+  <li><a href="#profilesUsers"><code><span class="http-method">get</span> /cloudEHR/participants/profiles</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersAccountController">ProvidersAccountController</a></h4>
+  <ul>
+  <li><a href="#createAccountProviders"><code><span class="http-method">put</span> /cloudEHR/providers/accounts</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersApproveController">ProvidersApproveController</a></h4>
+  <ul>
+  <li><a href="#approveDocumentsManual"><code><span class="http-method">post</span> /cloudEHR/providers/patients/documents/approval</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersBackorderController">ProvidersBackorderController</a></h4>
+  <ul>
+  <li><a href="#copyDocument"><code><span class="http-method">post</span> /cloudEHR/providers/patients/document/copy/{patientId}/{startDate}</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersDocumentController">ProvidersDocumentController</a></h4>
+  <ul>
+  <li><a href="#createDocuments"><code><span class="http-method">post</span> /cloudEHR/providers/patients/documents</code></a></li>
+  <li><a href="#deleteDocumemnts"><code><span class="http-method">delete</span> /cloudEHR/providers/patients/documents</code></a></li>
+  <li><a href="#updateDocumemnts"><code><span class="http-method">put</span> /cloudEHR/providers/patients/documents</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersDocumentSearchController">ProvidersDocumentSearchController</a></h4>
+  <ul>
+  <li><a href="#findPatientDocument"><code><span class="http-method">get</span> /cloudEHR/providers/patients/documents/{documentKey}</code></a></li>
+  <li><a href="#findPatientResource"><code><span class="http-method">get</span> /cloudEHR/providers/patients/documents/{documentKey}/resources/{resourceType}</code></a></li>
+  <li><a href="#searchDocumentPatients"><code><span class="http-method">get</span> /cloudEHR/providers/documents/patients</code></a></li>
+  <li><a href="#searchPatientCompositions"><code><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}/compositions</code></a></li>
+  <li><a href="#searchPatientDocuments"><code><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}/documents</code></a></li>
+  <li><a href="#searchPatientOrganizations"><code><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}/organizations</code></a></li>
+  <li><a href="#searchPatientResources"><code><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}/documents/resources</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersOrganizationsController">ProvidersOrganizationsController</a></h4>
+  <ul>
+  <li><a href="#findOrganization"><code><span class="http-method">get</span> /cloudEHR/providers/organizations/{organizationId}</code></a></li>
+  <li><a href="#searchOrganizations"><code><span class="http-method">get</span> /cloudEHR/providers/organizations</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersPatientController">ProvidersPatientController</a></h4>
+  <ul>
+  <li><a href="#createPatient"><code><span class="http-method">post</span> /cloudEHR/providers/patients</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersPatientSearchController">ProvidersPatientSearchController</a></h4>
+  <ul>
+  <li><a href="#findPatient"><code><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}</code></a></li>
+  <li><a href="#searchPatients"><code><span class="http-method">get</span> /cloudEHR/providers/patients</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersPermissionController">ProvidersPermissionController</a></h4>
+  <ul>
+  <li><a href="#createPermissions"><code><span class="http-method">post</span> /cloudEHR/providers/permissions</code></a></li>
+  <li><a href="#createPermissionsApproved"><code><span class="http-method">post</span> /cloudEHR/providers/permissions/approval</code></a></li>
+  <li><a href="#deletePermissions"><code><span class="http-method">delete</span> /cloudEHR/providers/permission/{id}</code></a></li>
+  <li><a href="#findPermission"><code><span class="http-method">get</span> /cloudEHR/providers/permissions/{id}</code></a></li>
+  <li><a href="#findPermissionApproval"><code><span class="http-method">get</span> /cloudEHR/providers/permission/approval/{id}</code></a></li>
+  <li><a href="#findPermissionRequest"><code><span class="http-method">get</span> /cloudEHR/providers/permission/requests/{id}</code></a></li>
+  <li><a href="#searchPermissionApprovals"><code><span class="http-method">get</span> /cloudEHR/providers/permission/approval</code></a></li>
+  <li><a href="#searchPermissionRequests"><code><span class="http-method">get</span> /cloudEHR/providers/permission/requests</code></a></li>
+  <li><a href="#searchPermissions"><code><span class="http-method">get</span> /cloudEHR/providers/permissions</code></a></li>
+  <li><a href="#updatePermissionApproval"><code><span class="http-method">put</span> /cloudEHR/providers/permission/approval/{id}</code></a></li>
+  <li><a href="#updatePermissionApprovalPartial"><code><span class="http-method">put</span> /cloudEHR/providers/permission/partialapproval/{id}</code></a></li>
+  <li><a href="#updatePermissionRequests"><code><span class="http-method">put</span> /cloudEHR/providers/permission/requests/{id}</code></a></li>
+  <li><a href="#updatePermissions"><code><span class="http-method">put</span> /cloudEHR/providers/permissions</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersShareController">ProvidersShareController</a></h4>
+  <ul>
+  <li><a href="#shareDocument"><code><span class="http-method">post</span> /cloudEHR/providers/patients/document/{documentKey}/share</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersStaffAccountController">ProvidersStaffAccountController</a></h4>
+  <ul>
+  <li><a href="#createStaffAccount"><code><span class="http-method">post</span> /cloudEHR/providers/staffs/accounts</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersStaffController">ProvidersStaffController</a></h4>
+  <ul>
+  <li><a href="#createStaff"><code><span class="http-method">post</span> /cloudEHR/providers/staffs</code></a></li>
+  <li><a href="#findStaff"><code><span class="http-method">get</span> /cloudEHR/providers/staffs/{staffId}</code></a></li>
+  <li><a href="#searchStaffs"><code><span class="http-method">get</span> /cloudEHR/providers/staffs</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersUserController">ProvidersUserController</a></h4>
+  <ul>
+  <li><a href="#createUserProviders"><code><span class="http-method">post</span> /cloudEHR/providers/users</code></a></li>
+  </ul>
+  <h4><a href="#ProvidersUserSearchController">ProvidersUserSearchController</a></h4>
+  <ul>
+  <li><a href="#findUser"><code><span class="http-method">get</span> /cloudEHR/providers/users/{platId}</code></a></li>
+  <li><a href="#searchUsers"><code><span class="http-method">get</span> /cloudEHR/providers/users</code></a></li>
+  </ul>
+
+  <h1><a name="ParticipantsAccountController">ParticipantsAccountController</a></h1>
+  <div class="method"><a name="createAccountParticipants"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/participants/accounts</code></pre></div>
+    <div class="method-summary">PTP_ATH_001 【更新】認証情報管理（患者用） (<span class="nickname">createAccountParticipants</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ParticipantsDocumentController">ParticipantsDocumentController</a></h1>
+  <div class="method"><a name="createDocuments1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/participants/patients/documents</code></pre></div>
+    <div class="method-summary">PTP_DOC_006 【登録】特定文書　（※一括登録含む）（患者用） (<span class="nickname">createDocuments1</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteDocuments"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /cloudEHR/participants/patients/documents</code></pre></div>
+    <div class="method-summary">PTP_DOC_008 【削除】特定文書　（※一括削除含む）（患者用） (<span class="nickname">deleteDocuments</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateDocuments"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/participants/patients/documents</code></pre></div>
+    <div class="method-summary">PTP_DOC_007 【更新】特定文書　（※一括更新含む）（患者用） (<span class="nickname">updateDocuments</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ParticipantsDocumentSearchController">ParticipantsDocumentSearchController</a></h1>
+  <div class="method"><a name="findPatientDocument1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/patients/documents/{documentKey}</code></pre></div>
+    <div class="method-summary">PTP_DOC_002 【取得】患者文書情報　※１文書（患者用） (<span class="nickname">findPatientDocument1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">documentKey (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentResponse">DocumentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "organization" : {
+    "asByte" : "",
+    "asBigInteger" : 5,
+    "asCharacter" : "asCharacter",
+    "jsonPrimitive" : true,
+    "asNumber" : 6.519180951018382,
+    "asBigDecimal" : 2.3021358869347655,
+    "jsonNull" : true,
+    "asFloat" : 7.0614014,
+    "asLong" : 6,
+    "asInt" : 1,
+    "asJsonNull" : {
+      "asByte" : "",
+      "asBigInteger" : 4,
+      "asCharacter" : "asCharacter",
+      "jsonPrimitive" : true,
+      "asNumber" : 1.4894159098541704,
+      "asBigDecimal" : 1.2315135367772556,
+      "jsonNull" : true,
+      "asFloat" : 1.0246457,
+      "asLong" : 3,
+      "asInt" : 2,
+      "asJsonPrimitive" : {
+        "asByte" : "",
+        "asBigInteger" : 4,
+        "asJsonObject" : {
+          "asByte" : "",
+          "asBigInteger" : 3,
+          "asCharacter" : "asCharacter",
+          "jsonPrimitive" : true,
+          "asNumber" : 6.778324963048013,
+          "asBigDecimal" : 1.284659006116532,
+          "jsonNull" : true,
+          "asFloat" : 2.8841622,
+          "asLong" : 9,
+          "asInt" : 6,
+          "asShort" : 6,
+          "asDouble" : 8.762042012749001,
+          "asJsonArray" : {
+            "asByte" : "",
+            "asBigInteger" : 3,
+            "asCharacter" : "asCharacter",
+            "jsonPrimitive" : true,
+            "asNumber" : 7.058770351582356,
+            "asBigDecimal" : 7.143538047012306,
+            "jsonNull" : true,
+            "asFloat" : 0.8851375,
+            "empty" : true,
+            "asLong" : 5,
+            "asInt" : 6,
+            "asShort" : 3,
+            "asDouble" : 6.878052220127876,
+            "asString" : "asString",
+            "jsonObject" : true,
+            "jsonArray" : true,
+            "asBoolean" : true
+          },
+          "jsonObject" : true,
+          "asString" : "asString",
+          "jsonArray" : true,
+          "asBoolean" : true
+        },
+        "asCharacter" : "asCharacter",
+        "string" : true,
+        "jsonPrimitive" : true,
+        "asNumber" : 6.683562403749608,
+        "asBigDecimal" : 9.965781217890562,
+        "jsonNull" : true,
+        "asFloat" : 9.36931,
+        "asLong" : 7,
+        "number" : true,
+        "asInt" : 1,
+        "boolean" : true,
+        "asShort" : 5,
+        "asDouble" : 6.84685269835264,
+        "asString" : "asString",
+        "jsonObject" : true,
+        "jsonArray" : true,
+        "asBoolean" : true
+      },
+      "asShort" : 7,
+      "asDouble" : 9.301444243932576,
+      "jsonObject" : true,
+      "asString" : "asString",
+      "jsonArray" : true,
+      "asBoolean" : true
+    },
+    "asShort" : 5,
+    "asDouble" : 0.8008281904610115,
+    "jsonObject" : true,
+    "asString" : "asString",
+    "jsonArray" : true,
+    "asBoolean" : true
+  },
+  "version" : "version"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#DocumentResponse">DocumentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findPatientResource1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/patients/documents/{documentKey}/resources/{resourceType}</code></pre></div>
+    <div class="method-summary">PTP_DOC_004 【取得】患者文書情報　※１文書中の指定1リソース（患者用） (<span class="nickname">findPatientResource1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">documentKey (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">resourceType (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentResourceResponse">DocumentResourceResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "organization" : {
+    "asByte" : "",
+    "asBigInteger" : 5,
+    "asCharacter" : "asCharacter",
+    "jsonPrimitive" : true,
+    "asNumber" : 6.519180951018382,
+    "asBigDecimal" : 2.3021358869347655,
+    "jsonNull" : true,
+    "asFloat" : 7.0614014,
+    "asLong" : 6,
+    "asInt" : 1,
+    "asJsonNull" : {
+      "asByte" : "",
+      "asBigInteger" : 4,
+      "asCharacter" : "asCharacter",
+      "jsonPrimitive" : true,
+      "asNumber" : 1.4894159098541704,
+      "asBigDecimal" : 1.2315135367772556,
+      "jsonNull" : true,
+      "asFloat" : 1.0246457,
+      "asLong" : 3,
+      "asInt" : 2,
+      "asJsonPrimitive" : {
+        "asByte" : "",
+        "asBigInteger" : 4,
+        "asJsonObject" : {
+          "asByte" : "",
+          "asBigInteger" : 3,
+          "asCharacter" : "asCharacter",
+          "jsonPrimitive" : true,
+          "asNumber" : 6.778324963048013,
+          "asBigDecimal" : 1.284659006116532,
+          "jsonNull" : true,
+          "asFloat" : 2.8841622,
+          "asLong" : 9,
+          "asInt" : 6,
+          "asShort" : 6,
+          "asDouble" : 8.762042012749001,
+          "asJsonArray" : {
+            "asByte" : "",
+            "asBigInteger" : 3,
+            "asCharacter" : "asCharacter",
+            "jsonPrimitive" : true,
+            "asNumber" : 7.058770351582356,
+            "asBigDecimal" : 7.143538047012306,
+            "jsonNull" : true,
+            "asFloat" : 0.8851375,
+            "empty" : true,
+            "asLong" : 5,
+            "asInt" : 6,
+            "asShort" : 3,
+            "asDouble" : 6.878052220127876,
+            "asString" : "asString",
+            "jsonObject" : true,
+            "jsonArray" : true,
+            "asBoolean" : true
+          },
+          "jsonObject" : true,
+          "asString" : "asString",
+          "jsonArray" : true,
+          "asBoolean" : true
+        },
+        "asCharacter" : "asCharacter",
+        "string" : true,
+        "jsonPrimitive" : true,
+        "asNumber" : 6.683562403749608,
+        "asBigDecimal" : 9.965781217890562,
+        "jsonNull" : true,
+        "asFloat" : 9.36931,
+        "asLong" : 7,
+        "number" : true,
+        "asInt" : 1,
+        "boolean" : true,
+        "asShort" : 5,
+        "asDouble" : 6.84685269835264,
+        "asString" : "asString",
+        "jsonObject" : true,
+        "jsonArray" : true,
+        "asBoolean" : true
+      },
+      "asShort" : 7,
+      "asDouble" : 9.301444243932576,
+      "jsonObject" : true,
+      "asString" : "asString",
+      "jsonArray" : true,
+      "asBoolean" : true
+    },
+    "asShort" : 5,
+    "asDouble" : 0.8008281904610115,
+    "jsonObject" : true,
+    "asString" : "asString",
+    "jsonArray" : true,
+    "asBoolean" : true
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#DocumentResourceResponse">DocumentResourceResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPatientCompositions1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/patients/{patientId}/compositions</code></pre></div>
+    <div class="method-summary">PTP_DOC_001 【取得】患者全文書（見出し）情報（患者用） (<span class="nickname">searchPatientCompositions1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">consultationDayFrom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">consultationDayTo (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPatientDocuments1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/patients/{patientId}/documents</code></pre></div>
+    <div class="method-summary">PTP_DOC_003 【取得】患者文書情報　※リスト、文書タイプ、カテゴリ絞り込み（患者用） (<span class="nickname">searchPatientDocuments1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">consultationDayFrom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">consultationDayTo (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">title (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentListSearchResponse">DocumentListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#DocumentListSearchResponse">DocumentListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPatientResources1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/patients/{patientId}/documents/resources</code></pre></div>
+    <div class="method-summary">PTP_DOC_005 【取得】患者文書情報　※リスト、特定条件、特定リソース（患者用） (<span class="nickname">searchPatientResources1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">consultationDayFrom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">consultationDayTo (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">conditions (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">resourceType (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentListSearchResponse">DocumentListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#DocumentListSearchResponse">DocumentListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ParticipantsOrganizationsController">ParticipantsOrganizationsController</a></h1>
+  <div class="method"><a name="findOrganization1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/organizations/{organizationId}</code></pre></div>
+    <div class="method-summary">PTP_ORG_002 【取得】医療機関管理（患者用） (<span class="nickname">findOrganization1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">organizationId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchOrganizations1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/organizations</code></pre></div>
+    <div class="method-summary">PTP_ORG_002 【取得】医療機関管理（患者用） (<span class="nickname">searchOrganizations1</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">name (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">address (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">telecom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ParticipantsPermissionController">ParticipantsPermissionController</a></h1>
+  <div class="method"><a name="createPermissions1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/participants/permissions</code></pre></div>
+    <div class="method-summary">PTP_ROL_002 【登録】権限の要求（承認要求）（患者用） (<span class="nickname">createPermissions1</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createPermissionsApproved1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/participants/permissions/approval</code></pre></div>
+    <div class="method-summary">PTP_ROL_003 【登録】権限の要求（承認済み）（患者用） (<span class="nickname">createPermissionsApproved1</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deletePermissions1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /cloudEHR/participants/permission/{id}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deletePermissions1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PermissionDeleteResponse">PermissionDeleteResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : "data",
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#PermissionDeleteResponse">PermissionDeleteResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findPermissionApproval1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/permission/approval/{id}</code></pre></div>
+    <div class="method-summary">PTP_ROL_006 【取得】権限の被要求状態（患者用） (<span class="nickname">findPermissionApproval1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findPermissionRequest1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/permission/requests/{id}</code></pre></div>
+    <div class="method-summary">PTP_ROL_004 【取得】権限の要求状態（患者用） (<span class="nickname">findPermissionRequest1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPermissionApprovals1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/permission/approval</code></pre></div>
+    <div class="method-summary">PTP_ROL_006 【取得】権限の被要求状態（患者用） (<span class="nickname">searchPermissionApprovals1</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPermissionRequests1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/permission/requests</code></pre></div>
+    <div class="method-summary">PTP_ROL_004 【取得】権限の要求状態（患者用） (<span class="nickname">searchPermissionRequests1</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePermissionApproval1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/participants/permission/approval/{id}</code></pre></div>
+    <div class="method-summary">PTP_ROL_007 【更新】権限の被要求状態の承認・拒否（患者用） (<span class="nickname">updatePermissionApproval1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePermissionApprovalPartial1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/participants/permission/partialapproval/{id}</code></pre></div>
+    <div class="method-summary">PTP_ROL_008 【更新】権限の部分承認（患者用） (<span class="nickname">updatePermissionApprovalPartial1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePermissionRequests1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/participants/permission/requests/{id}</code></pre></div>
+    <div class="method-summary">PTP_ROL_005 【更新】権限の要求取消（患者用） (<span class="nickname">updatePermissionRequests1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePermissions1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/participants/permissions</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updatePermissions1</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PermissionUpdateResponse">PermissionUpdateResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : "data",
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#PermissionUpdateResponse">PermissionUpdateResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ParticipantsUserController">ParticipantsUserController</a></h1>
+  <div class="method"><a name="createUserParticipants"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/participants/users</code></pre></div>
+    <div class="method-summary">PTP_USR_001 【登録】ユーザ管理（患者用） (<span class="nickname">createUserParticipants</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ParticipantsUserSearchController">ParticipantsUserSearchController</a></h1>
+  <div class="method"><a name="profilesUsers"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/participants/profiles</code></pre></div>
+    <div class="method-summary">PTP_USR_002 【取得】ユーザ管理（患者用） (<span class="nickname">profilesUsers</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersAccountController">ProvidersAccountController</a></h1>
+  <div class="method"><a name="createAccountProviders"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/providers/accounts</code></pre></div>
+    <div class="method-summary">PRV_ATH_001 【更新】認証情報管理（医療機関用） (<span class="nickname">createAccountProviders</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersApproveController">ProvidersApproveController</a></h1>
+  <div class="method"><a name="approveDocumentsManual"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/patients/documents/approval</code></pre></div>
+    <div class="method-summary">PRV_DOC_009 【明示的承認】文書の承認　（※一括承認含む） (<span class="nickname">approveDocumentsManual</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersBackorderController">ProvidersBackorderController</a></h1>
+  <div class="method"><a name="copyDocument"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/patients/document/copy/{patientId}/{startDate}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">copyDocument</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">startDate (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersDocumentController">ProvidersDocumentController</a></h1>
+  <div class="method"><a name="createDocuments"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/patients/documents</code></pre></div>
+    <div class="method-summary">PRV_DOC_006 【登録】特定文書　（※一括登録含む）（医療機関用） (<span class="nickname">createDocuments</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteDocumemnts"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /cloudEHR/providers/patients/documents</code></pre></div>
+    <div class="method-summary">PRV_DOC_008 【削除】特定文書　（※一括削除含む）（医療機関用） (<span class="nickname">deleteDocumemnts</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateDocumemnts"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/providers/patients/documents</code></pre></div>
+    <div class="method-summary">PRV_DOC_007 【更新】特定文書　（※一括更新含む）（医療機関用） (<span class="nickname">updateDocumemnts</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersDocumentSearchController">ProvidersDocumentSearchController</a></h1>
+  <div class="method"><a name="findPatientDocument"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/patients/documents/{documentKey}</code></pre></div>
+    <div class="method-summary">PRV_DOC_002 【取得】患者文書情報　※１文書（医療機関用） (<span class="nickname">findPatientDocument</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">documentKey (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentResponse">DocumentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "organization" : {
+    "asByte" : "",
+    "asBigInteger" : 5,
+    "asCharacter" : "asCharacter",
+    "jsonPrimitive" : true,
+    "asNumber" : 6.519180951018382,
+    "asBigDecimal" : 2.3021358869347655,
+    "jsonNull" : true,
+    "asFloat" : 7.0614014,
+    "asLong" : 6,
+    "asInt" : 1,
+    "asJsonNull" : {
+      "asByte" : "",
+      "asBigInteger" : 4,
+      "asCharacter" : "asCharacter",
+      "jsonPrimitive" : true,
+      "asNumber" : 1.4894159098541704,
+      "asBigDecimal" : 1.2315135367772556,
+      "jsonNull" : true,
+      "asFloat" : 1.0246457,
+      "asLong" : 3,
+      "asInt" : 2,
+      "asJsonPrimitive" : {
+        "asByte" : "",
+        "asBigInteger" : 4,
+        "asJsonObject" : {
+          "asByte" : "",
+          "asBigInteger" : 3,
+          "asCharacter" : "asCharacter",
+          "jsonPrimitive" : true,
+          "asNumber" : 6.778324963048013,
+          "asBigDecimal" : 1.284659006116532,
+          "jsonNull" : true,
+          "asFloat" : 2.8841622,
+          "asLong" : 9,
+          "asInt" : 6,
+          "asShort" : 6,
+          "asDouble" : 8.762042012749001,
+          "asJsonArray" : {
+            "asByte" : "",
+            "asBigInteger" : 3,
+            "asCharacter" : "asCharacter",
+            "jsonPrimitive" : true,
+            "asNumber" : 7.058770351582356,
+            "asBigDecimal" : 7.143538047012306,
+            "jsonNull" : true,
+            "asFloat" : 0.8851375,
+            "empty" : true,
+            "asLong" : 5,
+            "asInt" : 6,
+            "asShort" : 3,
+            "asDouble" : 6.878052220127876,
+            "asString" : "asString",
+            "jsonObject" : true,
+            "jsonArray" : true,
+            "asBoolean" : true
+          },
+          "jsonObject" : true,
+          "asString" : "asString",
+          "jsonArray" : true,
+          "asBoolean" : true
+        },
+        "asCharacter" : "asCharacter",
+        "string" : true,
+        "jsonPrimitive" : true,
+        "asNumber" : 6.683562403749608,
+        "asBigDecimal" : 9.965781217890562,
+        "jsonNull" : true,
+        "asFloat" : 9.36931,
+        "asLong" : 7,
+        "number" : true,
+        "asInt" : 1,
+        "boolean" : true,
+        "asShort" : 5,
+        "asDouble" : 6.84685269835264,
+        "asString" : "asString",
+        "jsonObject" : true,
+        "jsonArray" : true,
+        "asBoolean" : true
+      },
+      "asShort" : 7,
+      "asDouble" : 9.301444243932576,
+      "jsonObject" : true,
+      "asString" : "asString",
+      "jsonArray" : true,
+      "asBoolean" : true
+    },
+    "asShort" : 5,
+    "asDouble" : 0.8008281904610115,
+    "jsonObject" : true,
+    "asString" : "asString",
+    "jsonArray" : true,
+    "asBoolean" : true
+  },
+  "version" : "version"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#DocumentResponse">DocumentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findPatientResource"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/patients/documents/{documentKey}/resources/{resourceType}</code></pre></div>
+    <div class="method-summary">PRV_DOC_004 【取得】患者文書情報　※１文書中の指定1リソース（医療機関用） (<span class="nickname">findPatientResource</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">documentKey (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>      <div class="param">resourceType (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentResourceResponse">DocumentResourceResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "organization" : {
+    "asByte" : "",
+    "asBigInteger" : 5,
+    "asCharacter" : "asCharacter",
+    "jsonPrimitive" : true,
+    "asNumber" : 6.519180951018382,
+    "asBigDecimal" : 2.3021358869347655,
+    "jsonNull" : true,
+    "asFloat" : 7.0614014,
+    "asLong" : 6,
+    "asInt" : 1,
+    "asJsonNull" : {
+      "asByte" : "",
+      "asBigInteger" : 4,
+      "asCharacter" : "asCharacter",
+      "jsonPrimitive" : true,
+      "asNumber" : 1.4894159098541704,
+      "asBigDecimal" : 1.2315135367772556,
+      "jsonNull" : true,
+      "asFloat" : 1.0246457,
+      "asLong" : 3,
+      "asInt" : 2,
+      "asJsonPrimitive" : {
+        "asByte" : "",
+        "asBigInteger" : 4,
+        "asJsonObject" : {
+          "asByte" : "",
+          "asBigInteger" : 3,
+          "asCharacter" : "asCharacter",
+          "jsonPrimitive" : true,
+          "asNumber" : 6.778324963048013,
+          "asBigDecimal" : 1.284659006116532,
+          "jsonNull" : true,
+          "asFloat" : 2.8841622,
+          "asLong" : 9,
+          "asInt" : 6,
+          "asShort" : 6,
+          "asDouble" : 8.762042012749001,
+          "asJsonArray" : {
+            "asByte" : "",
+            "asBigInteger" : 3,
+            "asCharacter" : "asCharacter",
+            "jsonPrimitive" : true,
+            "asNumber" : 7.058770351582356,
+            "asBigDecimal" : 7.143538047012306,
+            "jsonNull" : true,
+            "asFloat" : 0.8851375,
+            "empty" : true,
+            "asLong" : 5,
+            "asInt" : 6,
+            "asShort" : 3,
+            "asDouble" : 6.878052220127876,
+            "asString" : "asString",
+            "jsonObject" : true,
+            "jsonArray" : true,
+            "asBoolean" : true
+          },
+          "jsonObject" : true,
+          "asString" : "asString",
+          "jsonArray" : true,
+          "asBoolean" : true
+        },
+        "asCharacter" : "asCharacter",
+        "string" : true,
+        "jsonPrimitive" : true,
+        "asNumber" : 6.683562403749608,
+        "asBigDecimal" : 9.965781217890562,
+        "jsonNull" : true,
+        "asFloat" : 9.36931,
+        "asLong" : 7,
+        "number" : true,
+        "asInt" : 1,
+        "boolean" : true,
+        "asShort" : 5,
+        "asDouble" : 6.84685269835264,
+        "asString" : "asString",
+        "jsonObject" : true,
+        "jsonArray" : true,
+        "asBoolean" : true
+      },
+      "asShort" : 7,
+      "asDouble" : 9.301444243932576,
+      "jsonObject" : true,
+      "asString" : "asString",
+      "jsonArray" : true,
+      "asBoolean" : true
+    },
+    "asShort" : 5,
+    "asDouble" : 0.8008281904610115,
+    "jsonObject" : true,
+    "asString" : "asString",
+    "jsonArray" : true,
+    "asBoolean" : true
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#DocumentResourceResponse">DocumentResourceResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchDocumentPatients"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/documents/patients</code></pre></div>
+    <div class="method-summary">PRV_PAT_004 【取得】特定文書を持つ患者情報 (<span class="nickname">searchDocumentPatients</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">conditions (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPatientCompositions"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}/compositions</code></pre></div>
+    <div class="method-summary">PRV_DOC_001 【取得】患者全文書（見出し）情報（医療機関用） (<span class="nickname">searchPatientCompositions</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">consultationDayFrom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">consultationDayTo (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPatientDocuments"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}/documents</code></pre></div>
+    <div class="method-summary">PRV_DOC_003 【取得】患者文書情報　※リスト、文書タイプ、カテゴリ絞り込み（医療機関用） (<span class="nickname">searchPatientDocuments</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">consultationDayFrom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">consultationDayTo (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">title (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentListSearchResponse">DocumentListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#DocumentListSearchResponse">DocumentListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPatientOrganizations"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}/organizations</code></pre></div>
+    <div class="method-summary">PRV_ORG_001 【取得】文書情報が存在する医療機関リスト (<span class="nickname">searchPatientOrganizations</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">consultationDayFrom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">consultationDayTo (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">conditions (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPatientResources"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}/documents/resources</code></pre></div>
+    <div class="method-summary">PRV_DOC_005 【取得】患者文書情報　※リスト、特定条件、特定リソース（医療機関用） (<span class="nickname">searchPatientResources</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">consultationDayFrom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">consultationDayTo (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">conditions (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">resourceType (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DocumentListSearchResponse">DocumentListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#DocumentListSearchResponse">DocumentListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersOrganizationsController">ProvidersOrganizationsController</a></h1>
+  <div class="method"><a name="findOrganization"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/organizations/{organizationId}</code></pre></div>
+    <div class="method-summary">PRV_ORG_002 【取得】医療機関管理（医療機関用） (<span class="nickname">findOrganization</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">organizationId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchOrganizations"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/organizations</code></pre></div>
+    <div class="method-summary">PRV_ORG_002 【取得】医療機関管理（医療機関用） (<span class="nickname">searchOrganizations</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">name (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">address (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">telecom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersPatientController">ProvidersPatientController</a></h1>
+  <div class="method"><a name="createPatient"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/patients</code></pre></div>
+    <div class="method-summary">PRV_PAT_001 【登録】PLAT患者管理（医療機関用） (<span class="nickname">createPatient</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersPatientSearchController">ProvidersPatientSearchController</a></h1>
+  <div class="method"><a name="findPatient"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/patients/{patientId}</code></pre></div>
+    <div class="method-summary">PRV_PAT_002【取得】PLAT患者管理（医療機関用） (<span class="nickname">findPatient</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">patientId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPatients"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/patients</code></pre></div>
+    <div class="method-summary">PRV_PAT_002【取得】PLAT患者管理（医療機関用） (<span class="nickname">searchPatients</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">name (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">address (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">telecom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">gender (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">birthDate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersPermissionController">ProvidersPermissionController</a></h1>
+  <div class="method"><a name="createPermissions"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/permissions</code></pre></div>
+    <div class="method-summary">PRV_ROL_002 【登録】権限の要求（承認要求）（医療機関用） (<span class="nickname">createPermissions</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createPermissionsApproved"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/permissions/approval</code></pre></div>
+    <div class="method-summary">PRV_ROL_003 【登録】権限の要求（承認済み）（医療機関用） (<span class="nickname">createPermissionsApproved</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deletePermissions"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /cloudEHR/providers/permission/{id}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deletePermissions</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PermissionDeleteResponse">PermissionDeleteResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : "data",
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#PermissionDeleteResponse">PermissionDeleteResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findPermission"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/permissions/{id}</code></pre></div>
+    <div class="method-summary">PRV_ROL_001 【取得】権限情報 (<span class="nickname">findPermission</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">defaultDate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findPermissionApproval"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/permission/approval/{id}</code></pre></div>
+    <div class="method-summary">PRV_ROL_006 【取得】権限の被要求状態（医療機関用） (<span class="nickname">findPermissionApproval</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findPermissionRequest"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/permission/requests/{id}</code></pre></div>
+    <div class="method-summary">PRV_ROL_004 【取得】権限の要求状態（医療機関用） (<span class="nickname">findPermissionRequest</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPermissionApprovals"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/permission/approval</code></pre></div>
+    <div class="method-summary">PRV_ROL_006 【取得】権限の被要求状態（医療機関用） (<span class="nickname">searchPermissionApprovals</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPermissionRequests"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/permission/requests</code></pre></div>
+    <div class="method-summary">PRV_ROL_004 【取得】権限の要求状態（医療機関用） (<span class="nickname">searchPermissionRequests</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">status (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchPermissions"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/permissions</code></pre></div>
+    <div class="method-summary">PRV_ROL_001 【取得】権限情報 (<span class="nickname">searchPermissions</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">classification (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">permissionId (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">defaultDate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePermissionApproval"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/providers/permission/approval/{id}</code></pre></div>
+    <div class="method-summary">PRV_ROL_007 【更新】権限の被要求状態の承認・拒否（医療機関用） (<span class="nickname">updatePermissionApproval</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePermissionApprovalPartial"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/providers/permission/partialapproval/{id}</code></pre></div>
+    <div class="method-summary">PRV_ROL_008 【更新】権限の部分承認（医療機関用） (<span class="nickname">updatePermissionApprovalPartial</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePermissionRequests"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/providers/permission/requests/{id}</code></pre></div>
+    <div class="method-summary">PRV_ROL_005 【更新】権限の要求取消（医療機関用） (<span class="nickname">updatePermissionRequests</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePermissions"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/providers/permissions</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updatePermissions</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PermissionUpdateResponse">PermissionUpdateResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : "data",
+  "errorMessage" : "errorMessage",
+  "errorCode" : "errorCode"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#PermissionUpdateResponse">PermissionUpdateResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersShareController">ProvidersShareController</a></h1>
+  <div class="method"><a name="shareDocument"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/patients/document/{documentKey}/share</code></pre></div>
+    <div class="method-summary">PRV_ROL_009 検討記録・伝達記録を共有 (<span class="nickname">shareDocument</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">documentKey (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BundleListResponseDto">BundleListResponseDto</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bundleResultList" : [ {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  }, {
+    "organizationId" : "organizationId",
+    "diagnostics" : "diagnostics",
+    "documentKey" : "documentKey",
+    "id" : "id",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#BundleListResponseDto">BundleListResponseDto</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersStaffAccountController">ProvidersStaffAccountController</a></h1>
+  <div class="method"><a name="createStaffAccount"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/staffs/accounts</code></pre></div>
+    <div class="method-summary">PRV_STF_003 【登録】スタッフ管理（認証情報まで一括登録） (<span class="nickname">createStaffAccount</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersStaffController">ProvidersStaffController</a></h1>
+  <div class="method"><a name="createStaff"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/staffs</code></pre></div>
+    <div class="method-summary">PRV_STF_001 【登録】スタッフ管理 (<span class="nickname">createStaff</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="findStaff"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/staffs/{staffId}</code></pre></div>
+    <div class="method-summary">PRV_STF_002 【取得】スタッフ管理 (<span class="nickname">findStaff</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">staffId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchStaffs"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/staffs</code></pre></div>
+    <div class="method-summary">PRV_STF_002 【取得】スタッフ管理 (<span class="nickname">searchStaffs</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">emergencyFlg (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">name (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersUserController">ProvidersUserController</a></h1>
+  <div class="method"><a name="createUserProviders"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/users</code></pre></div>
+    <div class="method-summary">PRV_USR_001 【登録】ユーザ管理（医療機関用） (<span class="nickname">createUserProviders</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProvidersUserSearchController">ProvidersUserSearchController</a></h1>
+  <div class="method"><a name="findUser"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/users/{platId}</code></pre></div>
+    <div class="method-summary">PRV_USR_002 【取得】ユーザ管理（医療機関用） (<span class="nickname">findUser</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">platId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="searchUsers"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /cloudEHR/providers/users</code></pre></div>
+    <div class="method-summary">PRV_USR_002 【取得】ユーザ管理（医療機関用） (<span class="nickname">searchUsers</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">name (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">address (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">telecom (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">gender (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">birthDate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSearchResponse">ListSearchResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "searchResults" : {
+    "count" : 0,
+    "results" : [ { }, { } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSearchResponse">ListSearchResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#BaseResponseBean"><code>BaseResponseBean</code></a></li>
+    <li><a href="#BundleListResponseDto"><code>BundleListResponseDto</code></a></li>
+    <li><a href="#BundleStatusResultDto"><code>BundleStatusResultDto</code></a></li>
+    <li><a href="#DocumentListSearchResponse"><code>DocumentListSearchResponse</code></a></li>
+    <li><a href="#DocumentListSearchResults"><code>DocumentListSearchResults</code></a></li>
+    <li><a href="#DocumentResourceResponse"><code>DocumentResourceResponse</code></a></li>
+    <li><a href="#DocumentResponse"><code>DocumentResponse</code></a></li>
+    <li><a href="#JsonArray"><code>JsonArray</code></a></li>
+    <li><a href="#JsonElement"><code>JsonElement</code></a></li>
+    <li><a href="#JsonNull"><code>JsonNull</code></a></li>
+    <li><a href="#JsonObject"><code>JsonObject</code></a></li>
+    <li><a href="#JsonPrimitive"><code>JsonPrimitive</code></a></li>
+    <li><a href="#ListSearchResponse"><code>ListSearchResponse</code></a></li>
+    <li><a href="#ListSearchResults"><code>ListSearchResults</code></a></li>
+    <li><a href="#PermissionDeleteResponse"><code>PermissionDeleteResponse</code></a></li>
+    <li><a href="#PermissionUpdateResponse"><code>PermissionUpdateResponse</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="BaseResponseBean"><code>BaseResponseBean</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">errorCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">errorMessage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BundleListResponseDto"><code>BundleListResponseDto</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">bundleResultList (optional)</div><div class="param-desc"><span class="param-type"><a href="#BundleStatusResultDto">array[BundleStatusResultDto]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BundleStatusResultDto"><code>BundleStatusResultDto</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">organizationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">diagnostics (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">documentKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DocumentListSearchResponse"><code>DocumentListSearchResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">searchResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#DocumentListSearchResults">DocumentListSearchResults</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DocumentListSearchResults"><code>DocumentListSearchResults</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">count (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DocumentResourceResponse"><code>DocumentResourceResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">organization (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonElement">JsonElement</a></span>  </div>
+<div class="param">contents (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonElement">JsonElement</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DocumentResponse"><code>DocumentResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">organization (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonElement">JsonElement</a></span>  </div>
+<div class="param">contents (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonElement">JsonElement</a></span>  </div>
+<div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JsonArray"><code>JsonArray</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">empty (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JsonElement"><code>JsonElement</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
+<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JsonNull"><code>JsonNull</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
+<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JsonObject"><code>JsonObject</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
+<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JsonPrimitive"><code>JsonPrimitive</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
+<div class="param">boolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">string (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSearchResponse"><code>ListSearchResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">searchResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListSearchResults">ListSearchResults</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSearchResults"><code>ListSearchResults</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">count (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PermissionDeleteResponse"><code>PermissionDeleteResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">errorCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">errorMessage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PermissionUpdateResponse"><code>PermissionUpdateResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">errorCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">errorMessage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
