@@ -26,7 +26,7 @@ function HomepageHeader() {
                   </div>
               </div>
               <div className="col margin--lg">
-                  <img alt="logo" src="/img/top_img.jpg" />
+                  <img alt="logo" src="./img/top_img.jpg" />
               </div>
           </div>
       </div>

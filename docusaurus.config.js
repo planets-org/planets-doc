@@ -8,9 +8,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "PLAneTs Docs",
   tagline: "PLAneTsは、健康医療情報の利活用を総合的に実現するプラットフォームです。",
-  url: "https://planets-org.github.io/planets-doc/",
-  baseUrl: "/",
-  onBrokenLinks: "throw",
+  url: "https://planets-org.github.io/",
+  baseUrl: "/planets-doc/",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
