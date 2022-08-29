@@ -14,11 +14,26 @@ sidebar_position: 1
 - Docker for Windows のインストール ※ Mac の場合は Docker Desktop をインストール
 - Docker Compose のインストール
 - Git for Windows のインストール ※ Windows のみ。Mac の場合は GNU Bash を利用
-- Docker for Windows(Mac 版の場合は Docker Desktop)を立ち上げる。
-- Mac で構築する際の追加対応事項 - Docker Desktop の[Preferences][resources][Advanced]
-  を開き、下記の値を設定する - CPUs : 5 - Memory : 14.50 GB - Swap : 3.5 GB - docker-compose ファイルを Mac 用にチューニングされたものに書き換える - `etc/docker-compose-for-mac`にあるファイルを、localX, localY, remote フォルダにある docker-compose ファイルにそれぞれコピーする  
-   例：localX の場合  
-   `# cp etc/docker-compose-for-mac/docker-compose-localX.yml localX/docker-compose.yml`
+- 下記のコマンドを実行して、planets-libにある資材をローカル環境にクローンする  
+  (容量の大きい`*.jar`, `*.war`ファイルはGit LFSを用いて管理している。)
+    ```
+    # git clone https://github.com/planets-org/planets-lib.git
+    # cd planets-lib
+    # git lfs install
+    # git lfs pull
+    ```
+- Docker for Windows(Mac 版の場合は Docker Desktop)をコマンドを叩く前に立ち上げておく
+- Mac で構築する際の追加対応事項
+  - Docker Desktop の[Preferences][resources][Advanced]を開き、下記の値を設定する
+    - CPUs : 5
+    - Memory : 14.50 GB
+    - Swap : 3.5 GB
+  - docker-compose ファイルを Mac 用にチューニングされたものに書き換える
+    - `etc/docker-compose-for-mac`にあるファイルを、localX, localY, remote フォルダにある docker-compose ファイルにそれぞれコピーする  
+      例：localX の場合  
+        ```
+        # cp etc/docker-compose-for-mac/docker-compose-localX.yml localX/docker-compose.yml
+        ```
 
 ## 3. 構成
 
