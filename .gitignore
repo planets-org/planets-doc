@@ -1,11 +1,4 @@
 backup/
-json/*.registered
-*/plat-db/data/
-*/keycloak-db/data/
-*/openfructos-db/data/
-*/openfructos-audit-db/data/
-*/rabbitmq/data/
-*/openfructos-tomcat/logs/
 
 # Dependencies
 /node_modules
