@@ -170,7 +170,13 @@ PLANETS 上で管理しているユーザの[Patient リソース](../../../../P
         "district": "大阪府",
         "postalCode": "5820001"
       }
-    ]
+    ],
+    "managingOrganization": {
+        "identifier": {
+        "system": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo",
+        "value": "0000000000"
+        }
+    } 
   },
   "version": "2"
 }

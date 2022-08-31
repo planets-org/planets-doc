@@ -65,64 +65,76 @@ PLANETS 上で管理しているユーザの[Patient リソース](../../../../P
     "results": [
       {
         "user": {
-          "resourceType": "Patient",
-          "text": {
-            "status": "generated",
-            "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;～～～&lt;/div&gt;"
-          },
-          "identifier": [
-            {
-              "system": "https://www.plat.org/",
-              "value": "d2db2727-eb07-2e54-fcbd-5ed011499cb7"
-            },
-            {
-              "system": "urn:oid:1.2.392.100495.20.3.51.11310000001",
-              "value": "clinicX_p00001"
-            }
-          ],
-          "active": true,
-          "name": [
-            {
-              "extension": [
+            "fullUrl": "http://localhost:19081/of1/Patient/35",
+            "resource": {
+                "resourceType": "Patient",
+                "text": {
+                "status": "generated",
+                "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;～～～&lt;/div&gt;"
+                },
+                "identifier": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-                  "valueCode": "IDE"
-                }
-              ],
-              "family": "山田",
-              "given": ["太郎"]
-            },
-            {
-              "extension": [
+                    "system": "https://www.plat.org/",
+                    "value": "d2db2727-eb07-2e54-fcbd-5ed011499cb7"
+                },
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-                  "valueCode": "SYL"
+                    "system": "urn:oid:1.2.392.100495.20.3.51.11310000001",
+                    "value": "clinicX_p00001"
                 }
-              ],
-              "family": "ヤマダ",
-              "given": ["タロウ"]
+                ],
+                "active": true,
+                "name": [
+                    {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                                "valueCode": "IDE"
+                            }
+                        ],
+                        "family": "山田",
+                        "given": ["太郎"]
+                    },
+                    {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                                "valueCode": "SYL"
+                            }
+                        ],
+                        "family": "ヤマダ",
+                        "given": ["タロウ"]
+                    }
+                    ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "09099999999",
+                        "use": "mobile"
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1974-12-25",
+                "deceasedBoolean": false,
+                "address": [
+                    {
+                        "use": "home",
+                        "line": ["玉手町 18-50"],
+                        "city": "柏原市",
+                        "district": "大阪府",
+                        "postalCode": "5820001"
+                    }
+                ],
+                "managingOrganization": {
+                    "identifier": {
+                        "system": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo",
+                        "value": "0000000000"
+                    }
+                }
+            },
+            "search": {
+                "mode": "match"
             }
-          ],
-          "telecom": [
-            {
-              "system": "phone",
-              "value": "09099999999",
-              "use": "mobile"
-            }
-          ],
-          "gender": "male",
-          "birthDate": "1974-12-25",
-          "deceasedBoolean": false,
-          "address": [
-            {
-              "use": "home",
-              "line": ["玉手町 18-50"],
-              "city": "柏原市",
-              "district": "大阪府",
-              "postalCode": "5820001"
-            }
-          ]
-        },
+        },        
         "version": "1"
       }
     ]
