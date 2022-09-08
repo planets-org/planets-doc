@@ -46,7 +46,7 @@ PLANETS 上で管理しているユーザの[Patient リソース](../../../../P
       "status": "generated",
       "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;～～～&lt;/div&gt;"
     },
-        "identifier": [
+    "identifier": [
       {
         "system": "https://www.plat.org/",
         "value": "025a20e7-f68c-40ad-8bce-2afcc69cc8bd"
