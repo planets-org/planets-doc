@@ -20,11 +20,11 @@ PLAT 環境の構築後に動作確認をするための手順を記載する。
 1. Postman を起動し[File] [Import] を押下する。  
    ![image.png](../.attachments/image-1b663dd4-3541-409a-bf16-64ffc8dda1d7.png)
 
-1. [Upload Files] を押下し、処理定義（2.セットアップ手順/3.利用手順/contents 配下）のファイルをインポートする。
+1. [Upload Files] を押下し、処理定義（planets-lib/postman/collection 配下）のファイルをインポートする。
 
    - PLAT 疎通確認.postman_collection.json
 
-1. [Upload Files] を押下し、環境変数（2.セットアップ手順/3.利用手順/contents 配下）のファイルをインポートする。
+1. [Upload Files] を押下し、環境変数（planets-lib/postman/environment 配下）のファイルをインポートする。
    - PLAT リリース環境.postman_environment.json
 
 ### 3.2. KeyCloak の設定
@@ -82,3 +82,5 @@ PLAT 環境の構築後に動作確認をするための手順を記載する。
 4. 組織一覧を取得  
    Postman の [PLAT 疎通確認] - [LocalX] - [⑥PRV_ORG_001.【取得】文書情報が存在する医療機関リスト] を開き、Send ボタンを押下する。  
    ※ここで正常にレスポンスが返ってくれば plat-gateway → KeyCloak → plat-api(LocalX) → plat-api(Remote) → OpenFRUCtoS(Remote)の一気通貫が確認完了。
+   
+※以上の手順を行うと、KeyCloak(Realm = 1310000001L) にadminユーザとスタッフが1人ずつ登録され、PLATのDBにスタッフが1人登録される。
