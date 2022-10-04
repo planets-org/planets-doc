@@ -34,6 +34,11 @@ sidebar_position: 2
 
 ![image.png](.attachments/image-9cccddd2-45b1-4469-822b-1da946e5888c.png)
 
+| 区分    | 対象      | DNS名/サーバ名                                        | パブリックIP  | プライベートIP |
+|:----|---------|--------------------------------------------------| ------- |----------|
+| Local | ClinicX | plat-poc-local-vm01.japaneast.cloudapp.azure.com |  20.89.137.82  | 10.1.0.4 |
+|       | ClinicY | plat-poc-local-vm02.japaneast.cloudapp.azure.com |  20.78.67.124  | 10.1.0.6 |
+
 ## 4. ミドルウェアの役割
 
 ### 4.1. Keycloak
