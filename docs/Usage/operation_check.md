@@ -86,4 +86,4 @@ PLAT 環境の構築後に動作確認をするための手順を記載する。
    
 ※上記の手順を行うと、クリニックXにadminユーザとスタッフが1人ずつ登録される。
 ※クリニックYにおいて上記の手順を行う場合、管理コンソールからユーザを登録（KeyCloakのレルムは1310000002）し、
- Postman の [PLAT 疎通確認] - [LocalX]のPre-request Scripts にLocalX , ClinixXと記載があるパラメタ名をLocalY, ClinixYに変更する。
+ Postman の [PLAT 疎通確認] - [LocalX]のPre-request Scripts にLocalX , ClinicXと記載があるパラメタ名をLocalY, ClinicYに変更する。
