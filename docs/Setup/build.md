@@ -56,13 +56,9 @@ sidebar_position: 1
 
 ## 5. 手順
 
+本手順はplanets-lib フォルダにて行う。
+
 ### 5.1. Docker の実行（remote）
-
-1.  GitBash(Mac 版の場合はターミナル)を起動し、plat-release フォルダに移動
-
-    ```
-    # cd ./plat-release
-    ```
 
 1.  シェルを起動し、Docker の起動を行う
 

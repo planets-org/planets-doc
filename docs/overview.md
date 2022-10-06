@@ -34,6 +34,16 @@ sidebar_position: 2
 
 ![image.png](.attachments/image-9cccddd2-45b1-4469-822b-1da946e5888c.png)
 
+| 区分     | 対象      | APIサーバ                | Gatewayサーバ            | OpenFRUCtoSサーバ        | KeyCloakサーバ            |
+|:-------|---------|-----------------------|-----------------------|-----------------------|------------------------|
+| Local  | ClinicX | http://localhost:8181 | http://localhost:8182 | http://localhost:9083 | http://localhost:8184  |
+|        | ClinicY | http://localhost:8281 | http://localhost:8282 | http://localhost:9085 | http://localhost:8284  |
+| Remote | Remote  | http://localhost:8081 | http://localhost:8082 |                       | http://localhost:8084  |
+|        | RemoteX |                       |                       | http://localhost:9082 |                        |
+|        | RemoteY |                       |                       | http://localhost:9084 |                        |
+|        | Patient |                       |                       | http://localhost:9081 |                        |
+
+
 ## 4. ミドルウェアの役割
 
 ### 4.1. Keycloak

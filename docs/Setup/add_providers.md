@@ -29,13 +29,9 @@ sidebar_position: 2
 
 ## 4. 手順
 
+本手順はplanets-lib フォルダにて行う。
+
 ### 4.1. Docker の実行（localY）
-
-1.  GitBash(Mac 版の場合はターミナル)を起動し、plat-release フォルダに移動
-
-    ```
-    # cd ./plat-release
-    ```
 
 1.  シェルを起動し、Docker のデータ初期化を行う
 
