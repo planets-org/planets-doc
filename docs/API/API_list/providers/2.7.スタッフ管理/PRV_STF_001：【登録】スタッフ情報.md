@@ -1,14 +1,14 @@
 ### 処理概要
 
-PLAT 上にスタッフ情報を登録し、同時に認証情報を作成し紐付ける。
+PLAT 上にスタッフ情報を登録する。
 
-| 機能 ID     | API 論理名                                   | HTTP メソッド | URI                                         |
-| :---------- | :------------------------------------------- | :------------ | :------------------------------------------ |
-| PRV_STF_003 | 【登録】スタッフ管理（認証情報まで一括登録） | POST          | {applicationPath}/providers/staffs/accounts |
+| 機能 ID     | API 論理名    | HTTP メソッド | URI                                |
+| :---------- |:-----------| :------------ | :--------------------------------- |
+| PRV_STF_001 | 【登録】スタッフ情報 | POST          | {applicationPath}/providers/staffs |
 
-| 連携方式 | データ形式                           | 利用可能な接続先 |
-| :------- | :----------------------------------- | :--------------- |
-| REST API | JSON 形式（エンコーディング：utf-8） | ローカル         |
+| 連携方式 | データ形式                           | 利用可能な接続先   |
+| :------- | :----------------------------------- | :----------------- |
+| REST API | JSON 形式（エンコーディング：utf-8） | ローカル、リモート |
 
 ### リクエスト（認証）
 
@@ -32,30 +32,24 @@ PLAT 上にスタッフ情報を登録し、同時に認証情報を作成し紐
 
 | No. | 項目名                   | 物理名         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | リクエスト設定要領                                  |
 | :-- | :----------------------- | :------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :-------------------------------------------------- |
-| 1   | ユーザ名                 | username       |  ○  |     |     |     |     |     |        | string | -        | KeyCloak に登録する username                        |
-| 2   | 仮パスワード             | password       |  ○  |     |     |     |     |     |        | string | -        | KeyCloak の認証用仮パスワード                       |
-| 3   | メールアドレス           | email          |  ○  |     |     |     |     |     |        | string | -        | KeyCloak に登録するメールアドレス情報               |
-| 4   | 組織 ID                  | organizationId |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 5   | 診療科 ID                | departmentId   |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 6   | 職業                     | occupation     |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 7   | スタッフ情報オブジェクト | staffResource  |  ○  |     |     |     |     |     |        | object | -        |                                                     |
-| 8   | リソース種別             | resourceType   |     |  ○  |     |     |     |     |        | string | -        | "Staff"固定                                         |
-| 9   | 救急フラグ               | emergencyFlg   |     |  ○  |     |     |     |     |        | string | -        | 0:通常、1:救急                                      |
-| 10  | 名称リスト               | name           |     |  ○  |     |     |     |     |        | object | -        |                                                     |
-| 11  | 拡張リスト               | extension      |     |     |  ○  |     |     |     |        | object | -        |                                                     |
-| 12  | URL                      | url            |     |     |     |  ○  |     |     |        | string | -        |                                                     |
-| 13  | 値コード                 | valueCode      |     |     |     |  ○  |     |     |        | string | -        | IDE：漢字、SYL：カナ　※認証情報には漢字が登録される |
-| 14  | 姓                       | family         |     |     |  ○  |     |     |     |        | string | -        |                                                     |
-| 15  | 名リスト                 | given          |     |     |  ○  |     |     |     |        | object | -        |                                                     |
-| 16  | 名                       | -              |     |     |     |  ○  |     |     |        | string | -        |                                                     |
+| 1   | 組織 ID                  | organizationId |  ○  |     |     |     |     |     |        | string | -        |                                                     |
+| 2   | 診療科 ID                | departmentId   |  ○  |     |     |     |     |     |        | string | -        |                                                     |
+| 3   | 職業                     | occupation     |  ○  |     |     |     |     |     |        | string | -        |                                                     |
+| 4   | スタッフ情報オブジェクト | staffResource  |  ○  |     |     |     |     |     |        | object | -        |                                                     |
+| 5   | リソース種別             | resourceType   |     |  ○  |     |     |     |     |        | string | -        | "Staff"固定                                         |
+| 6   | 救急フラグ               | emergencyFlg   |     |  ○  |     |     |     |     |        | string | -        | 0:通常、1:救急                                      |
+| 7   | 名称リスト               | name           |     |  ○  |     |     |     |     |        | object | -        |                                                     |
+| 8   | 拡張リスト               | extension      |     |     |  ○  |     |     |     |        | object | -        |                                                     |
+| 9   | URL                      | url            |     |     |     |  ○  |     |     |        | string | -        |                                                     |
+| 10  | 値コード                 | valueCode      |     |     |     |  ○  |     |     |        | string | -        | IDE：漢字、SYL：カナ　※認証情報には漢字が登録される |
+| 11  | 姓                       | family         |     |     |  ○  |     |     |     |        | string | -        |                                                     |
+| 12  | 名リスト                 | given          |     |     |  ○  |     |     |     |        | object | -        |                                                     |
+| 13  | 名                       | -              |     |     |     |  ○  |     |     |        | string | -        |                                                     |
 
 ### サンプル（リクエスト）
 
 ```json
 {
-  "username": "yamamoto.taro",
-  "password": "plat0001",
-  "email": "yamamoto.taro@example.com",
   "organizationId": "1310000001",
   "departmentId": "00001",
   "occupation": "A",

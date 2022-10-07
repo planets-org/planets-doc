@@ -1,14 +1,14 @@
 ### 処理概要
 
-リモートに対して PLAT の新規ユーザ登録をする。
+PLAT 共通 ID を自病院の患者 ID と紐づける。
 
-| 機能 ID     | API 論理名                   | HTTP メソッド | URI                                  |
-| :---------- | :--------------------------- | :------------ | :----------------------------------- |
-| PTP_USR_001 | 【登録】ユーザ管理（患者用） | POST          | {applicationPath}/participants/users |
+| 機能 ID     | API 論理名              | HTTP メソッド | URI                                  |
+| :---------- |:---------------------| :------------ | :----------------------------------- |
+| PRV_PAT_001 | 【登録】PLAT 患者情報（医療機関用） | POST          | {applicationPath}/providers/patients |
 
-| 連携方式 | データ形式                           | 利用可能な接続先 |
-| :------- | :----------------------------------- | :--------------- |
-| REST API | JSON 形式（エンコーディング：utf-8） | リモート         |
+| 連携方式 | データ形式                           | 利用可能な接続先   |
+| :------- | :----------------------------------- | :----------------- |
+| REST API | JSON 形式（エンコーディング：utf-8） | ローカル、リモート |
 
 ### リクエスト（認証）
 
@@ -39,55 +39,71 @@
 
 ```json
 {
-  "patientResource": {
-    "resourceType": "Patient",
-    "text": {
-      "status": "generated",
-      "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;～～～&lt;/div&gt;"
-    },
-    "active": true,
-    "name": [
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-            "valueCode": "IDE"
-          }
-        ],
-        "family": "山田",
-        "given": ["太郎"]
-      },
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-            "valueCode": "SYL"
-          }
-        ],
-        "family": "ヤマダ",
-        "given": ["タロウ"]
-      }
-    ],
-    "telecom": [
-      {
-        "system": "phone",
-        "value": "09099999999",
-        "use": "mobile"
-      }
-    ],
-    "gender": "male",
-    "birthDate": "1974-12-25",
-    "deceasedBoolean": false,
-    "address": [
-      {
-        "use": "home",
-        "line": ["玉手町 18-50"],
-        "city": "柏原市",
-        "district": "大阪府",
-        "postalCode": "5820001"
-      }
-    ]
-  }
+　　"patientResource": {
+　　　　"resourceType": "Patient",
+　　　　"text": {
+　　　　　　"status": "generated",
+　　　　　　"div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;～～～&lt;/div&gt;"
+　　　　},
+　　　　"identifier": [　
+　　　　　　{
+　　　　　　　　"system": "https://www.plat.org/",　<font color="red">→PLAT 共通 ID 用の値（固定）</font>
+　　　　　　　　"value": "d2db2727-eb07-2e54-fcbd-5ed011499cb7"　<font color="red">→PLAT 共通 ID を設定</font>
+　　　　　　},
+　　　　　　{
+　　　　　　　　"system": "urn:oid:1.2.392.100495.20.3.51.11310000001",　<font color="red">→"1.2.392.100495.20.3.51." は固定。11310000001 は"1"(固定値) + 対象医療機関の医療機関コードを設定</font>
+　　　　　　　　"value": "clinicX_p00001"　<font color="red">→ 病院ごとの患者 ID を設定</font>
+　　　　　　}
+　　　　],
+　　　　"active": true,
+　　　　"name": [
+　　　　　　{
+　　　　　　　　"extension": [
+　　　　　　　　　　{
+　　　　　　　　　　　　"url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+　　　　　　　　　　　　"valueCode": "IDE"
+　　　　　　　　　　}
+　　　　　　　　],
+　　　　　　　　"family": "山田",
+　　　　　　　　"given": [
+　　　　　　　　　　"太郎"
+　　　　　　　　]
+　　　　　　},
+　　　　　　{
+　　　　　　　　"extension": [
+　　　　　　　　　　{
+　　　　　　　　　　　　"url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+　　　　　　　　　　　　"valueCode": "SYL"
+　　　　　　　　　　}
+　　　　　　　　],
+　　　　　　　　"family": "ヤマダ",
+　　　　　　　　"given": [
+　　　　　　　　　　"タロウ"
+　　　　　　　　]
+　　　　　　}
+　　　　],
+　　　　"telecom": [
+　　　　　　{
+　　　　　　　　"system": "phone",
+　　　　　　　　"value": "09099999999",
+　　　　　　　　"use": "mobile"
+　　　　　　}
+　　　　],
+　　　　"gender": "male",
+　　　　"birthDate": "1974-12-25",
+　　　　"deceasedBoolean": false,
+　　　　"address": [
+　　　　　　{
+　　　　　　　　"use": "home",
+　　　　　　　　"line": [
+　　　　　　　　　　"玉手町 18-50"
+　　　　　　　　],
+　　　　　　　　"city": "柏原市",
+　　　　　　　　"district": "大阪府",
+　　　　　　　　"postalCode": "5820001"
+　　　　　　}
+　　　　]
+　　}
 }
 ```
 
@@ -119,6 +135,10 @@
     {
       "system": "https://www.plat.org/",
       "value": "025a20e7-f68c-40ad-8bce-2afcc69cc8bd"
+    },
+    {
+      "system": "urn:oid:1.2.392.100495.20.3.51.11310000001",
+      "value": "clinicX_p00001"
     }
   ],
   "active": true,
@@ -162,13 +182,7 @@
       "district": "大阪府",
       "postalCode": "5820001"
     }
-  ],
-  "managingOrganization": {
-        "identifier": {
-        "system": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo",
-        "value": "0000000000"
-        }
-    }
+  ]
 }
 ```
 
