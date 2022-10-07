@@ -20,13 +20,13 @@ sidebar_position: 3
    - localX
 
    ```
-   # docker stop localX_plat-db localX_keycloak-db localX_openfructos-db localX_openfructos-audit-db localX_rabbitmq localX_key-cloak localX_openfructos-tomcat localX_plat-gateway localX_plat-api localX_plat-mq localX_plat-sync localX_plat-autoapproval localX_plat-cleaning
+   # docker stop localX_plat-db localX_keycloak-db localX_openfructos-db localX_openfructos-audit-db localX_rabbitmq localX_keycloak localX_openfructos-tomcat localX_plat-gateway localX_plat-api localX_plat-mq localX_plat-sync localX_plat-autoapproval localX_plat-cleaning
    ```
 
    - localY
 
    ```
-   # docker stop localY_plat-db localY_keycloak-db localY_openfructos-db localY_openfructos-audit-db localY_rabbitmq localY_key-cloak localY_openfructos-tomcat localY_plat-gateway localY_plat-api localY_plat-mq localY_plat-sync localY_plat-autoapproval localY_plat-cleaning
+   # docker stop localY_plat-db localY_keycloak-db localY_openfructos-db localY_openfructos-audit-db localY_rabbitmq localY_keycloak localY_openfructos-tomcat localY_plat-gateway localY_plat-api localY_plat-mq localY_plat-sync localY_plat-autoapproval localY_plat-cleaning
    ```
 
 1. Docker のイメージを削除
@@ -40,13 +40,13 @@ sidebar_position: 3
    - localX
 
    ```
-   # docker rm localX_plat-db localX_keycloak-db localX_openfructos-db localX_openfructos-audit-db localX_rabbitmq localX_key-cloak localX_openfructos-tomcat localX_plat-gateway localX_plat-api localX_plat-mq localX_plat-sync localX_plat-autoapproval localX_plat-cleaning
+   # docker rm localX_plat-db localX_keycloak-db localX_openfructos-db localX_openfructos-audit-db localX_rabbitmq localX_keycloak localX_openfructos-tomcat localX_plat-gateway localX_plat-api localX_plat-mq localX_plat-sync localX_plat-autoapproval localX_plat-cleaning
    ```
 
    - localY
 
    ```
-   # docker rm localY_plat-db localY_keycloak-db localY_openfructos-db localY_openfructos-audit-db localY_rabbitmq localY_key-cloak localY_openfructos-tomcat localY_plat-gateway localY_plat-api localY_plat-mq localY_plat-sync localY_plat-autoapproval localY_plat-cleaning
+   # docker rm localY_plat-db localY_keycloak-db localY_openfructos-db localY_openfructos-audit-db localY_rabbitmq localY_keycloak localY_openfructos-tomcat localY_plat-gateway localY_plat-api localY_plat-mq localY_plat-sync localY_plat-autoapproval localY_plat-cleaning
    ```
 
    - 以下コマンドを実行し、ローカル DB データファイルを削除
