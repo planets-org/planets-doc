@@ -30,7 +30,7 @@ PLAT にて新規ユーザ登録、ID紐づけを行う。
    - 新規ユーザ登録
    ![image.png](../.attachments/image-resist_user1.png)
 
-   - ID の紐づけ
+   - PLAT 共通 ID と自病院の患者 ID との紐づけ
    ![image.png](../.attachments/image-resist_user2.png)
 
 
