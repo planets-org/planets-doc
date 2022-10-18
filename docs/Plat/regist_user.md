@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_label: "PLATユーザ登録"
 sidebar_position: 11
 ---
@@ -33,4 +33,17 @@ PLAT にて新規ユーザ登録、ID紐づけを行う。
    - PLAT 共通 ID と自病院の患者 ID との紐づけ
    ![image.png](../.attachments/image-resist_user2.png)
 
+```mermaid
+sequenceDiagram
+    participant taro
+    participant はなこ
+    太郎->>花子: こんにちは、花子さん。元気ですか？
+    loop Healthcheck
+        花子->>花子: Fight against hypochondria
+    end
+    Note right of 花子: Rational thoughts <br/>prevail!
+    花子-->>太郎: 良いですよ！
+    花子->>次郎: あなたはどうですか？
+    次郎-->>花子: とても良いです
+```
 
