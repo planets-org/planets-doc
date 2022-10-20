@@ -28,22 +28,33 @@ PLAT にて新規ユーザ登録、ID紐づけを行う。
 ### 3. フロー
 
    - 新規ユーザ登録
-   ![image.png](../.attachments/image-resist_user1.png)
+   ```mermaid
+   sequenceDiagram
+   actor Client
+   participant gateway as PLAT_Gateway
+   participant api as PLAT_API
+   participant keycloak as KeyCloak
+   Client->>gateway: ユーザ登録
+   Note left of gateway: アクセストークン
+   gateway->>keycloak: アクセストークンの確認
+   gateway->>gateway: 認可チェック
+   gateway->>api: API呼び出し（ユーザ登録）<br/>・PRV_USR_001<br/>・PTP_USR_001
+   api->>api: 患者登録(PLAT_ID発行、認証情報と紐づけ)
+   api->>Client: APIレスポンス(ユーザ登録)
+   ```
 
    - PLAT 共通 ID と自病院の患者 ID との紐づけ
-   ![image.png](../.attachments/image-resist_user2.png)
-
-```mermaid
-sequenceDiagram
-    participant taro
-    participant はなこ
-    太郎->>花子: こんにちは、花子さん。元気ですか？
-    loop Healthcheck
-        花子->>花子: Fight against hypochondria
-    end
-    Note right of 花子: Rational thoughts <br/>prevail!
-    花子-->>太郎: 良いですよ！
-    花子->>次郎: あなたはどうですか？
-    次郎-->>花子: とても良いです
-```
-
+   ```mermaid
+   sequenceDiagram
+   actor Client
+   participant gateway as PLAT_Gateway
+   participant api as PLAT_API
+   participant keycloak as KeyCloak
+   Client->>gateway: 認証情報紐づけ(PLAT_ID)
+   Note left of gateway: アクセストークン
+   gateway->>keycloak: アクセストークンの確認
+   gateway->>gateway: 認可チェック
+   gateway->>api: 認証情報紐付け(PLAT_ID)<br/>・PRV_PAT_001
+   api->>api: PLAT_IDで登録されている情報に<br/>アクセストークンのID情報を紐づけ
+   api->>Client: APIレスポンス(認証情報紐づけ)
+   ```
