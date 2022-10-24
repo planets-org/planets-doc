@@ -75,6 +75,11 @@ sidebar_position: 1
 :::note
 
 - 構築した Docker コンテナを Docker for Windows あるいは Docker Desktop 上で削除する場合は、json フォルダ内の`*.registered`ファイルを全て削除する
+- 下記のようなエラーで Docker の起動に失敗した場合、再度実行すれば起動できる場合がある。
+```
+ERROR: for xxxxxxx  Container "xxxxxxxxxxxx" is unhealthy.
+ERROR: Encountered errors while bringing up the project.
+```
 
 :::
 
