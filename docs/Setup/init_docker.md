@@ -65,3 +65,9 @@ sidebar_position: 3
 
 - 全てチェックし、[Delete]を押下  
   ![image.png](../.attachments/image-9148308a-a4e9-45f6-9a39-89760e5c3838.png)
+
+:::note
+
+- 構築した Docker コンテナを Docker for Windows あるいは Docker Desktop 上で削除する場合は、json フォルダ内の`*.registered`ファイルを全て削除する
+
+:::
