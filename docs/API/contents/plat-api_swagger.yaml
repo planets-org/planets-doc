@@ -241,6 +241,49 @@ paths:
             application/json:
               schema:
                 type: string
+  /cloudEHR/providers/permission/delete/{id}:
+    put:
+      tags:
+      - providers-permission-controller
+      summary: PRV_ROL_010 【削除】付与済みの権限（医療機関用）
+      operationId: updatePermissionDelete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: query
+        required: false
+        schema:
+          type: string
+          default: all
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BaseResponseBean'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BaseResponseBean'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
   /cloudEHR/providers/permission/approval/{id}:
     get:
       tags:
@@ -447,6 +490,67 @@ paths:
             application/json:
               schema:
                 type: string
+  /cloudEHR/participants/users:
+    put:
+      tags:
+      - participants-user-controller
+      summary: PTP_USR_003 【更新】ユーザ管理（患者用）
+      operationId: updateUserParticipants
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BaseResponseBean'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BaseResponseBean'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+    post:
+      tags:
+      - participants-user-controller
+      summary: PTP_USR_001 【登録】ユーザ管理（患者用）
+      operationId: createUserParticipants
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BaseResponseBean'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BaseResponseBean'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
   /cloudEHR/participants/permissions:
     put:
       tags:
@@ -598,6 +702,49 @@ paths:
       - participants-permission-controller
       summary: PTP_ROL_008 【更新】権限の部分承認（患者用）
       operationId: updatePermissionApprovalPartial_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: query
+        required: false
+        schema:
+          type: string
+          default: all
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BaseResponseBean'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BaseResponseBean'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /cloudEHR/participants/permission/delete/{id}:
+    put:
+      tags:
+      - participants-permission-controller
+      summary: PTP_ROL_010 【削除】付与済みの権限（患者用）
+      operationId: updatePermissionDelete_1
       parameters:
       - name: id
         in: path
@@ -1215,6 +1362,7 @@ paths:
     post:
       tags:
       - providers-backorder-controller
+      summary: PRV_PAT_003 【データコピー】複数文書ローカル取得
       operationId: copyDocument
       parameters:
       - name: patientId
@@ -1246,37 +1394,6 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/BundleListResponseDto'
-  /cloudEHR/participants/users:
-    post:
-      tags:
-      - participants-user-controller
-      summary: PTP_USR_001 【登録】ユーザ管理（患者用）
-      operationId: createUserParticipants
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: string
-        required: true
-      responses:
-        "500":
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/BaseResponseBean'
-        "400":
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/BaseResponseBean'
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
   /cloudEHR/participants/permissions/approval:
     post:
       tags:
@@ -2502,39 +2619,45 @@ components:
     JsonArray:
       type: object
       properties:
+        asInt:
+          type: integer
+          format: int32
+        asDouble:
+          type: number
+          format: double
+        asLong:
+          type: integer
+          format: int64
         empty:
           type: boolean
         asBoolean:
           type: boolean
-        asDouble:
+        asString:
+          type: string
+        asNumber:
           type: number
-          format: double
-        asLong:
-          type: integer
-          format: int64
-        asInt:
-          type: integer
-          format: int32
+        asFloat:
+          type: number
+          format: float
+        asByte:
+          type: string
+          format: byte
         asCharacter:
           type: string
           deprecated: true
+        asBigDecimal:
+          type: number
         asBigInteger:
           type: integer
         asShort:
           type: integer
           format: int32
-        asBigDecimal:
-          type: number
-        asFloat:
-          type: number
-          format: float
-        asNumber:
-          type: number
-        asByte:
-          type: string
-          format: byte
-        asString:
-          type: string
+        asJsonArray:
+          $ref: '#/components/schemas/JsonArray'
+        asJsonObject:
+          $ref: '#/components/schemas/JsonObject'
+        asJsonPrimitive:
+          $ref: '#/components/schemas/JsonPrimitive'
         jsonNull:
           type: boolean
         jsonArray:
@@ -2545,202 +2668,202 @@ components:
           type: boolean
         asJsonNull:
           $ref: '#/components/schemas/JsonNull'
-        asJsonPrimitive:
-          $ref: '#/components/schemas/JsonPrimitive'
-        asJsonObject:
-          $ref: '#/components/schemas/JsonObject'
-        asJsonArray:
-          $ref: '#/components/schemas/JsonArray'
     JsonElement:
       type: object
       properties:
-        asBoolean:
-          type: boolean
+        asInt:
+          type: integer
+          format: int32
         asDouble:
           type: number
           format: double
         asLong:
           type: integer
           format: int64
-        asInt:
-          type: integer
-          format: int32
+        asJsonArray:
+          $ref: '#/components/schemas/JsonArray'
+        asBoolean:
+          type: boolean
+        asJsonObject:
+          $ref: '#/components/schemas/JsonObject'
+        asString:
+          type: string
+        asJsonPrimitive:
+          $ref: '#/components/schemas/JsonPrimitive'
         jsonNull:
           type: boolean
-        asCharacter:
-          type: string
-          deprecated: true
-        asBigInteger:
-          type: integer
-        asShort:
-          type: integer
-          format: int32
-        asBigDecimal:
-          type: number
         jsonArray:
           type: boolean
         jsonObject:
           type: boolean
         jsonPrimitive:
           type: boolean
-        asFloat:
-          type: number
-          format: float
         asJsonNull:
           $ref: '#/components/schemas/JsonNull'
         asNumber:
           type: number
+        asFloat:
+          type: number
+          format: float
         asByte:
           type: string
           format: byte
-        asJsonPrimitive:
-          $ref: '#/components/schemas/JsonPrimitive'
-        asJsonObject:
-          $ref: '#/components/schemas/JsonObject'
-        asString:
+        asCharacter:
           type: string
-        asJsonArray:
-          $ref: '#/components/schemas/JsonArray'
+          deprecated: true
+        asBigDecimal:
+          type: number
+        asBigInteger:
+          type: integer
+        asShort:
+          type: integer
+          format: int32
     JsonNull:
       type: object
       properties:
-        asBoolean:
-          type: boolean
+        asInt:
+          type: integer
+          format: int32
         asDouble:
           type: number
           format: double
         asLong:
           type: integer
           format: int64
-        asInt:
-          type: integer
-          format: int32
+        asJsonArray:
+          $ref: '#/components/schemas/JsonArray'
+        asBoolean:
+          type: boolean
+        asJsonObject:
+          $ref: '#/components/schemas/JsonObject'
+        asString:
+          type: string
+        asJsonPrimitive:
+          $ref: '#/components/schemas/JsonPrimitive'
         jsonNull:
           type: boolean
-        asCharacter:
-          type: string
-          deprecated: true
-        asBigInteger:
-          type: integer
-        asShort:
-          type: integer
-          format: int32
-        asBigDecimal:
-          type: number
         jsonArray:
           type: boolean
         jsonObject:
           type: boolean
         jsonPrimitive:
           type: boolean
-        asFloat:
-          type: number
-          format: float
         asJsonNull:
           $ref: '#/components/schemas/JsonNull'
         asNumber:
           type: number
+        asFloat:
+          type: number
+          format: float
         asByte:
           type: string
           format: byte
-        asJsonPrimitive:
-          $ref: '#/components/schemas/JsonPrimitive'
-        asJsonObject:
-          $ref: '#/components/schemas/JsonObject'
-        asString:
+        asCharacter:
           type: string
-        asJsonArray:
-          $ref: '#/components/schemas/JsonArray'
+          deprecated: true
+        asBigDecimal:
+          type: number
+        asBigInteger:
+          type: integer
+        asShort:
+          type: integer
+          format: int32
     JsonObject:
       type: object
       properties:
-        asBoolean:
-          type: boolean
+        asInt:
+          type: integer
+          format: int32
         asDouble:
           type: number
           format: double
         asLong:
           type: integer
           format: int64
-        asInt:
-          type: integer
-          format: int32
+        asJsonArray:
+          $ref: '#/components/schemas/JsonArray'
+        asBoolean:
+          type: boolean
+        asJsonObject:
+          $ref: '#/components/schemas/JsonObject'
+        asString:
+          type: string
+        asJsonPrimitive:
+          $ref: '#/components/schemas/JsonPrimitive'
         jsonNull:
           type: boolean
-        asCharacter:
-          type: string
-          deprecated: true
-        asBigInteger:
-          type: integer
-        asShort:
-          type: integer
-          format: int32
-        asBigDecimal:
-          type: number
         jsonArray:
           type: boolean
         jsonObject:
           type: boolean
         jsonPrimitive:
           type: boolean
-        asFloat:
-          type: number
-          format: float
         asJsonNull:
           $ref: '#/components/schemas/JsonNull'
         asNumber:
           type: number
+        asFloat:
+          type: number
+          format: float
         asByte:
           type: string
           format: byte
-        asJsonPrimitive:
-          $ref: '#/components/schemas/JsonPrimitive'
-        asJsonObject:
-          $ref: '#/components/schemas/JsonObject'
-        asString:
+        asCharacter:
           type: string
-        asJsonArray:
-          $ref: '#/components/schemas/JsonArray'
+          deprecated: true
+        asBigDecimal:
+          type: number
+        asBigInteger:
+          type: integer
+        asShort:
+          type: integer
+          format: int32
     JsonPrimitive:
       type: object
       properties:
+        asInt:
+          type: integer
+          format: int32
+        asDouble:
+          type: number
+          format: double
+        asLong:
+          type: integer
+          format: int64
         number:
           type: boolean
         asBoolean:
           type: boolean
-        asDouble:
+        boolean:
+          type: boolean
+        asString:
+          type: string
+        asNumber:
           type: number
-          format: double
-        asLong:
-          type: integer
-          format: int64
-        asInt:
-          type: integer
-          format: int32
+        asFloat:
+          type: number
+          format: float
+        asByte:
+          type: string
+          format: byte
         asCharacter:
           type: string
           deprecated: true
+        asBigDecimal:
+          type: number
         asBigInteger:
           type: integer
         asShort:
           type: integer
           format: int32
-        asBigDecimal:
-          type: number
-        asFloat:
-          type: number
-          format: float
-        asNumber:
-          type: number
-        asByte:
-          type: string
-          format: byte
-        boolean:
-          type: boolean
-        asString:
-          type: string
         string:
           type: boolean
+        asJsonArray:
+          $ref: '#/components/schemas/JsonArray'
+        asJsonObject:
+          $ref: '#/components/schemas/JsonObject'
+        asJsonPrimitive:
+          $ref: '#/components/schemas/JsonPrimitive'
         jsonNull:
           type: boolean
         jsonArray:
@@ -2751,12 +2874,6 @@ components:
           type: boolean
         asJsonNull:
           $ref: '#/components/schemas/JsonNull'
-        asJsonPrimitive:
-          $ref: '#/components/schemas/JsonPrimitive'
-        asJsonObject:
-          $ref: '#/components/schemas/JsonObject'
-        asJsonArray:
-          $ref: '#/components/schemas/JsonArray'
     DocumentResourceResponse:
       type: object
       properties:
