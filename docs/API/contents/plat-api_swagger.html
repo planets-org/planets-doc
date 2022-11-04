@@ -227,12 +227,14 @@
   <li><a href="#searchPermissionRequests1"><code><span class="http-method">get</span> /cloudEHR/participants/permission/requests</code></a></li>
   <li><a href="#updatePermissionApproval1"><code><span class="http-method">put</span> /cloudEHR/participants/permission/approval/{id}</code></a></li>
   <li><a href="#updatePermissionApprovalPartial1"><code><span class="http-method">put</span> /cloudEHR/participants/permission/partialapproval/{id}</code></a></li>
+  <li><a href="#updatePermissionDelete1"><code><span class="http-method">put</span> /cloudEHR/participants/permission/delete/{id}</code></a></li>
   <li><a href="#updatePermissionRequests1"><code><span class="http-method">put</span> /cloudEHR/participants/permission/requests/{id}</code></a></li>
   <li><a href="#updatePermissions1"><code><span class="http-method">put</span> /cloudEHR/participants/permissions</code></a></li>
   </ul>
   <h4><a href="#ParticipantsUserController">ParticipantsUserController</a></h4>
   <ul>
   <li><a href="#createUserParticipants"><code><span class="http-method">post</span> /cloudEHR/participants/users</code></a></li>
+  <li><a href="#updateUserParticipants"><code><span class="http-method">put</span> /cloudEHR/participants/users</code></a></li>
   </ul>
   <h4><a href="#ParticipantsUserSearchController">ParticipantsUserSearchController</a></h4>
   <ul>
@@ -293,6 +295,7 @@
   <li><a href="#searchPermissions"><code><span class="http-method">get</span> /cloudEHR/providers/permissions</code></a></li>
   <li><a href="#updatePermissionApproval"><code><span class="http-method">put</span> /cloudEHR/providers/permission/approval/{id}</code></a></li>
   <li><a href="#updatePermissionApprovalPartial"><code><span class="http-method">put</span> /cloudEHR/providers/permission/partialapproval/{id}</code></a></li>
+  <li><a href="#updatePermissionDelete"><code><span class="http-method">put</span> /cloudEHR/providers/permission/delete/{id}</code></a></li>
   <li><a href="#updatePermissionRequests"><code><span class="http-method">put</span> /cloudEHR/providers/permission/requests/{id}</code></a></li>
   <li><a href="#updatePermissions"><code><span class="http-method">put</span> /cloudEHR/providers/permissions</code></a></li>
   </ul>
@@ -625,95 +628,95 @@
     <pre class="example"><code>{
   "organization" : {
     "asByte" : "",
-    "asBigInteger" : 5,
-    "asCharacter" : "asCharacter",
+    "asBigInteger" : 7,
     "jsonPrimitive" : true,
-    "asNumber" : 6.519180951018382,
-    "asBigDecimal" : 2.3021358869347655,
+    "asCharacter" : "asCharacter",
+    "asNumber" : 3.0937452626664474,
+    "asBigDecimal" : 0.8851374739011653,
     "jsonNull" : true,
-    "asFloat" : 7.0614014,
-    "asLong" : 6,
-    "asInt" : 1,
-    "asJsonNull" : {
+    "asFloat" : 7.143538,
+    "asLong" : 1,
+    "asInt" : 0,
+    "asShort" : 6,
+    "asDouble" : 6.027456183070403,
+    "asJsonArray" : {
       "asByte" : "",
-      "asBigInteger" : 4,
-      "asCharacter" : "asCharacter",
-      "jsonPrimitive" : true,
-      "asNumber" : 1.4894159098541704,
-      "asBigDecimal" : 1.2315135367772556,
-      "jsonNull" : true,
-      "asFloat" : 1.0246457,
-      "asLong" : 3,
-      "asInt" : 2,
-      "asJsonPrimitive" : {
+      "asBigInteger" : 2,
+      "asJsonObject" : {
         "asByte" : "",
-        "asBigInteger" : 4,
-        "asJsonObject" : {
+        "asBigInteger" : 6,
+        "jsonPrimitive" : true,
+        "asCharacter" : "asCharacter",
+        "asNumber" : 6.778324963048013,
+        "asBigDecimal" : 5.944895607614016,
+        "jsonNull" : true,
+        "asFloat" : 6.878052,
+        "asLong" : 1,
+        "asInt" : 7,
+        "asJsonPrimitive" : {
           "asByte" : "",
-          "asBigInteger" : 3,
+          "asBigInteger" : 9,
           "asCharacter" : "asCharacter",
+          "string" : true,
           "jsonPrimitive" : true,
-          "asNumber" : 6.778324963048013,
-          "asBigDecimal" : 1.284659006116532,
+          "asNumber" : 1.1730742509559433,
+          "asBigDecimal" : 5.025004791520295,
           "jsonNull" : true,
-          "asFloat" : 2.8841622,
-          "asLong" : 9,
-          "asInt" : 6,
-          "asShort" : 6,
-          "asDouble" : 8.762042012749001,
-          "asJsonArray" : {
+          "asFloat" : 4.9652185,
+          "asLong" : 7,
+          "asInt" : 1,
+          "number" : true,
+          "boolean" : true,
+          "asJsonNull" : {
             "asByte" : "",
-            "asBigInteger" : 3,
-            "asCharacter" : "asCharacter",
+            "asBigInteger" : 1,
             "jsonPrimitive" : true,
-            "asNumber" : 7.058770351582356,
-            "asBigDecimal" : 7.143538047012306,
+            "asCharacter" : "asCharacter",
+            "asNumber" : 6.438423552598547,
+            "asBigDecimal" : 6.965117697638846,
             "jsonNull" : true,
-            "asFloat" : 0.8851375,
-            "empty" : true,
-            "asLong" : 5,
+            "asFloat" : 3.5571952,
+            "asLong" : 9,
             "asInt" : 6,
-            "asShort" : 3,
-            "asDouble" : 6.878052220127876,
+            "asShort" : 2,
+            "asDouble" : 8.762042012749001,
             "asString" : "asString",
             "jsonObject" : true,
             "jsonArray" : true,
             "asBoolean" : true
           },
-          "jsonObject" : true,
+          "asShort" : 9,
+          "asDouble" : 6.84685269835264,
           "asString" : "asString",
+          "jsonObject" : true,
           "jsonArray" : true,
           "asBoolean" : true
         },
-        "asCharacter" : "asCharacter",
-        "string" : true,
-        "jsonPrimitive" : true,
-        "asNumber" : 6.683562403749608,
-        "asBigDecimal" : 9.965781217890562,
-        "jsonNull" : true,
-        "asFloat" : 9.36931,
-        "asLong" : 7,
-        "number" : true,
-        "asInt" : 1,
-        "boolean" : true,
-        "asShort" : 5,
-        "asDouble" : 6.84685269835264,
+        "asShort" : 3,
+        "asDouble" : 1.2315135367772556,
         "asString" : "asString",
         "jsonObject" : true,
         "jsonArray" : true,
         "asBoolean" : true
       },
-      "asShort" : 7,
-      "asDouble" : 9.301444243932576,
-      "jsonObject" : true,
+      "asCharacter" : "asCharacter",
+      "jsonPrimitive" : true,
+      "asNumber" : 7.061401241503109,
+      "asBigDecimal" : 3.616076749251911,
+      "jsonNull" : true,
+      "asFloat" : 9.301444,
+      "empty" : true,
+      "asLong" : 2,
+      "asInt" : 5,
+      "asShort" : 4,
+      "asDouble" : 5.637376656633329,
       "asString" : "asString",
+      "jsonObject" : true,
       "jsonArray" : true,
       "asBoolean" : true
     },
-    "asShort" : 5,
-    "asDouble" : 0.8008281904610115,
-    "jsonObject" : true,
     "asString" : "asString",
+    "jsonObject" : true,
     "jsonArray" : true,
     "asBoolean" : true
   },
@@ -777,95 +780,95 @@
     <pre class="example"><code>{
   "organization" : {
     "asByte" : "",
-    "asBigInteger" : 5,
-    "asCharacter" : "asCharacter",
+    "asBigInteger" : 7,
     "jsonPrimitive" : true,
-    "asNumber" : 6.519180951018382,
-    "asBigDecimal" : 2.3021358869347655,
+    "asCharacter" : "asCharacter",
+    "asNumber" : 3.0937452626664474,
+    "asBigDecimal" : 0.8851374739011653,
     "jsonNull" : true,
-    "asFloat" : 7.0614014,
-    "asLong" : 6,
-    "asInt" : 1,
-    "asJsonNull" : {
+    "asFloat" : 7.143538,
+    "asLong" : 1,
+    "asInt" : 0,
+    "asShort" : 6,
+    "asDouble" : 6.027456183070403,
+    "asJsonArray" : {
       "asByte" : "",
-      "asBigInteger" : 4,
-      "asCharacter" : "asCharacter",
-      "jsonPrimitive" : true,
-      "asNumber" : 1.4894159098541704,
-      "asBigDecimal" : 1.2315135367772556,
-      "jsonNull" : true,
-      "asFloat" : 1.0246457,
-      "asLong" : 3,
-      "asInt" : 2,
-      "asJsonPrimitive" : {
+      "asBigInteger" : 2,
+      "asJsonObject" : {
         "asByte" : "",
-        "asBigInteger" : 4,
-        "asJsonObject" : {
+        "asBigInteger" : 6,
+        "jsonPrimitive" : true,
+        "asCharacter" : "asCharacter",
+        "asNumber" : 6.778324963048013,
+        "asBigDecimal" : 5.944895607614016,
+        "jsonNull" : true,
+        "asFloat" : 6.878052,
+        "asLong" : 1,
+        "asInt" : 7,
+        "asJsonPrimitive" : {
           "asByte" : "",
-          "asBigInteger" : 3,
+          "asBigInteger" : 9,
           "asCharacter" : "asCharacter",
+          "string" : true,
           "jsonPrimitive" : true,
-          "asNumber" : 6.778324963048013,
-          "asBigDecimal" : 1.284659006116532,
+          "asNumber" : 1.1730742509559433,
+          "asBigDecimal" : 5.025004791520295,
           "jsonNull" : true,
-          "asFloat" : 2.8841622,
-          "asLong" : 9,
-          "asInt" : 6,
-          "asShort" : 6,
-          "asDouble" : 8.762042012749001,
-          "asJsonArray" : {
+          "asFloat" : 4.9652185,
+          "asLong" : 7,
+          "asInt" : 1,
+          "number" : true,
+          "boolean" : true,
+          "asJsonNull" : {
             "asByte" : "",
-            "asBigInteger" : 3,
-            "asCharacter" : "asCharacter",
+            "asBigInteger" : 1,
             "jsonPrimitive" : true,
-            "asNumber" : 7.058770351582356,
-            "asBigDecimal" : 7.143538047012306,
+            "asCharacter" : "asCharacter",
+            "asNumber" : 6.438423552598547,
+            "asBigDecimal" : 6.965117697638846,
             "jsonNull" : true,
-            "asFloat" : 0.8851375,
-            "empty" : true,
-            "asLong" : 5,
+            "asFloat" : 3.5571952,
+            "asLong" : 9,
             "asInt" : 6,
-            "asShort" : 3,
-            "asDouble" : 6.878052220127876,
+            "asShort" : 2,
+            "asDouble" : 8.762042012749001,
             "asString" : "asString",
             "jsonObject" : true,
             "jsonArray" : true,
             "asBoolean" : true
           },
-          "jsonObject" : true,
+          "asShort" : 9,
+          "asDouble" : 6.84685269835264,
           "asString" : "asString",
+          "jsonObject" : true,
           "jsonArray" : true,
           "asBoolean" : true
         },
-        "asCharacter" : "asCharacter",
-        "string" : true,
-        "jsonPrimitive" : true,
-        "asNumber" : 6.683562403749608,
-        "asBigDecimal" : 9.965781217890562,
-        "jsonNull" : true,
-        "asFloat" : 9.36931,
-        "asLong" : 7,
-        "number" : true,
-        "asInt" : 1,
-        "boolean" : true,
-        "asShort" : 5,
-        "asDouble" : 6.84685269835264,
+        "asShort" : 3,
+        "asDouble" : 1.2315135367772556,
         "asString" : "asString",
         "jsonObject" : true,
         "jsonArray" : true,
         "asBoolean" : true
       },
-      "asShort" : 7,
-      "asDouble" : 9.301444243932576,
-      "jsonObject" : true,
+      "asCharacter" : "asCharacter",
+      "jsonPrimitive" : true,
+      "asNumber" : 7.061401241503109,
+      "asBigDecimal" : 3.616076749251911,
+      "jsonNull" : true,
+      "asFloat" : 9.301444,
+      "empty" : true,
+      "asLong" : 2,
+      "asInt" : 5,
+      "asShort" : 4,
+      "asDouble" : 5.637376656633329,
       "asString" : "asString",
+      "jsonObject" : true,
       "jsonArray" : true,
       "asBoolean" : true
     },
-    "asShort" : 5,
-    "asDouble" : 0.8008281904610115,
-    "jsonObject" : true,
     "asString" : "asString",
+    "jsonObject" : true,
     "jsonArray" : true,
     "asBoolean" : true
   }
@@ -1728,6 +1731,72 @@
         <a href="#String">String</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="updatePermissionDelete1"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/participants/permission/delete/{id}</code></pre></div>
+    <div class="method-summary">PTP_ROL_010 【削除】付与済みの権限（患者用） (<span class="nickname">updatePermissionDelete1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="updatePermissionRequests1"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1848,6 +1917,62 @@
     <a class="up" href="#__Methods">Up</a>
     <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/participants/users</code></pre></div>
     <div class="method-summary">PTP_USR_001 【登録】ユーザ管理（患者用） (<span class="nickname">createUserParticipants</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateUserParticipants"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/participants/users</code></pre></div>
+    <div class="method-summary">PTP_USR_003 【更新】ユーザ管理（患者用） (<span class="nickname">updateUserParticipants</span>)</div>
     <div class="method-notes"></div>
 
 
@@ -2087,7 +2212,7 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="post"><code class="huge"><span class="http-method">post</span> /cloudEHR/providers/patients/document/copy/{patientId}/{startDate}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">copyDocument</span>)</div>
+    <div class="method-summary">PRV_PAT_003 【データコピー】複数文書ローカル取得 (<span class="nickname">copyDocument</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
@@ -2396,95 +2521,95 @@
     <pre class="example"><code>{
   "organization" : {
     "asByte" : "",
-    "asBigInteger" : 5,
-    "asCharacter" : "asCharacter",
+    "asBigInteger" : 7,
     "jsonPrimitive" : true,
-    "asNumber" : 6.519180951018382,
-    "asBigDecimal" : 2.3021358869347655,
+    "asCharacter" : "asCharacter",
+    "asNumber" : 3.0937452626664474,
+    "asBigDecimal" : 0.8851374739011653,
     "jsonNull" : true,
-    "asFloat" : 7.0614014,
-    "asLong" : 6,
-    "asInt" : 1,
-    "asJsonNull" : {
+    "asFloat" : 7.143538,
+    "asLong" : 1,
+    "asInt" : 0,
+    "asShort" : 6,
+    "asDouble" : 6.027456183070403,
+    "asJsonArray" : {
       "asByte" : "",
-      "asBigInteger" : 4,
-      "asCharacter" : "asCharacter",
-      "jsonPrimitive" : true,
-      "asNumber" : 1.4894159098541704,
-      "asBigDecimal" : 1.2315135367772556,
-      "jsonNull" : true,
-      "asFloat" : 1.0246457,
-      "asLong" : 3,
-      "asInt" : 2,
-      "asJsonPrimitive" : {
+      "asBigInteger" : 2,
+      "asJsonObject" : {
         "asByte" : "",
-        "asBigInteger" : 4,
-        "asJsonObject" : {
+        "asBigInteger" : 6,
+        "jsonPrimitive" : true,
+        "asCharacter" : "asCharacter",
+        "asNumber" : 6.778324963048013,
+        "asBigDecimal" : 5.944895607614016,
+        "jsonNull" : true,
+        "asFloat" : 6.878052,
+        "asLong" : 1,
+        "asInt" : 7,
+        "asJsonPrimitive" : {
           "asByte" : "",
-          "asBigInteger" : 3,
+          "asBigInteger" : 9,
           "asCharacter" : "asCharacter",
+          "string" : true,
           "jsonPrimitive" : true,
-          "asNumber" : 6.778324963048013,
-          "asBigDecimal" : 1.284659006116532,
+          "asNumber" : 1.1730742509559433,
+          "asBigDecimal" : 5.025004791520295,
           "jsonNull" : true,
-          "asFloat" : 2.8841622,
-          "asLong" : 9,
-          "asInt" : 6,
-          "asShort" : 6,
-          "asDouble" : 8.762042012749001,
-          "asJsonArray" : {
+          "asFloat" : 4.9652185,
+          "asLong" : 7,
+          "asInt" : 1,
+          "number" : true,
+          "boolean" : true,
+          "asJsonNull" : {
             "asByte" : "",
-            "asBigInteger" : 3,
-            "asCharacter" : "asCharacter",
+            "asBigInteger" : 1,
             "jsonPrimitive" : true,
-            "asNumber" : 7.058770351582356,
-            "asBigDecimal" : 7.143538047012306,
+            "asCharacter" : "asCharacter",
+            "asNumber" : 6.438423552598547,
+            "asBigDecimal" : 6.965117697638846,
             "jsonNull" : true,
-            "asFloat" : 0.8851375,
-            "empty" : true,
-            "asLong" : 5,
+            "asFloat" : 3.5571952,
+            "asLong" : 9,
             "asInt" : 6,
-            "asShort" : 3,
-            "asDouble" : 6.878052220127876,
+            "asShort" : 2,
+            "asDouble" : 8.762042012749001,
             "asString" : "asString",
             "jsonObject" : true,
             "jsonArray" : true,
             "asBoolean" : true
           },
-          "jsonObject" : true,
+          "asShort" : 9,
+          "asDouble" : 6.84685269835264,
           "asString" : "asString",
+          "jsonObject" : true,
           "jsonArray" : true,
           "asBoolean" : true
         },
-        "asCharacter" : "asCharacter",
-        "string" : true,
-        "jsonPrimitive" : true,
-        "asNumber" : 6.683562403749608,
-        "asBigDecimal" : 9.965781217890562,
-        "jsonNull" : true,
-        "asFloat" : 9.36931,
-        "asLong" : 7,
-        "number" : true,
-        "asInt" : 1,
-        "boolean" : true,
-        "asShort" : 5,
-        "asDouble" : 6.84685269835264,
+        "asShort" : 3,
+        "asDouble" : 1.2315135367772556,
         "asString" : "asString",
         "jsonObject" : true,
         "jsonArray" : true,
         "asBoolean" : true
       },
-      "asShort" : 7,
-      "asDouble" : 9.301444243932576,
-      "jsonObject" : true,
+      "asCharacter" : "asCharacter",
+      "jsonPrimitive" : true,
+      "asNumber" : 7.061401241503109,
+      "asBigDecimal" : 3.616076749251911,
+      "jsonNull" : true,
+      "asFloat" : 9.301444,
+      "empty" : true,
+      "asLong" : 2,
+      "asInt" : 5,
+      "asShort" : 4,
+      "asDouble" : 5.637376656633329,
       "asString" : "asString",
+      "jsonObject" : true,
       "jsonArray" : true,
       "asBoolean" : true
     },
-    "asShort" : 5,
-    "asDouble" : 0.8008281904610115,
-    "jsonObject" : true,
     "asString" : "asString",
+    "jsonObject" : true,
     "jsonArray" : true,
     "asBoolean" : true
   },
@@ -2548,95 +2673,95 @@
     <pre class="example"><code>{
   "organization" : {
     "asByte" : "",
-    "asBigInteger" : 5,
-    "asCharacter" : "asCharacter",
+    "asBigInteger" : 7,
     "jsonPrimitive" : true,
-    "asNumber" : 6.519180951018382,
-    "asBigDecimal" : 2.3021358869347655,
+    "asCharacter" : "asCharacter",
+    "asNumber" : 3.0937452626664474,
+    "asBigDecimal" : 0.8851374739011653,
     "jsonNull" : true,
-    "asFloat" : 7.0614014,
-    "asLong" : 6,
-    "asInt" : 1,
-    "asJsonNull" : {
+    "asFloat" : 7.143538,
+    "asLong" : 1,
+    "asInt" : 0,
+    "asShort" : 6,
+    "asDouble" : 6.027456183070403,
+    "asJsonArray" : {
       "asByte" : "",
-      "asBigInteger" : 4,
-      "asCharacter" : "asCharacter",
-      "jsonPrimitive" : true,
-      "asNumber" : 1.4894159098541704,
-      "asBigDecimal" : 1.2315135367772556,
-      "jsonNull" : true,
-      "asFloat" : 1.0246457,
-      "asLong" : 3,
-      "asInt" : 2,
-      "asJsonPrimitive" : {
+      "asBigInteger" : 2,
+      "asJsonObject" : {
         "asByte" : "",
-        "asBigInteger" : 4,
-        "asJsonObject" : {
+        "asBigInteger" : 6,
+        "jsonPrimitive" : true,
+        "asCharacter" : "asCharacter",
+        "asNumber" : 6.778324963048013,
+        "asBigDecimal" : 5.944895607614016,
+        "jsonNull" : true,
+        "asFloat" : 6.878052,
+        "asLong" : 1,
+        "asInt" : 7,
+        "asJsonPrimitive" : {
           "asByte" : "",
-          "asBigInteger" : 3,
+          "asBigInteger" : 9,
           "asCharacter" : "asCharacter",
+          "string" : true,
           "jsonPrimitive" : true,
-          "asNumber" : 6.778324963048013,
-          "asBigDecimal" : 1.284659006116532,
+          "asNumber" : 1.1730742509559433,
+          "asBigDecimal" : 5.025004791520295,
           "jsonNull" : true,
-          "asFloat" : 2.8841622,
-          "asLong" : 9,
-          "asInt" : 6,
-          "asShort" : 6,
-          "asDouble" : 8.762042012749001,
-          "asJsonArray" : {
+          "asFloat" : 4.9652185,
+          "asLong" : 7,
+          "asInt" : 1,
+          "number" : true,
+          "boolean" : true,
+          "asJsonNull" : {
             "asByte" : "",
-            "asBigInteger" : 3,
-            "asCharacter" : "asCharacter",
+            "asBigInteger" : 1,
             "jsonPrimitive" : true,
-            "asNumber" : 7.058770351582356,
-            "asBigDecimal" : 7.143538047012306,
+            "asCharacter" : "asCharacter",
+            "asNumber" : 6.438423552598547,
+            "asBigDecimal" : 6.965117697638846,
             "jsonNull" : true,
-            "asFloat" : 0.8851375,
-            "empty" : true,
-            "asLong" : 5,
+            "asFloat" : 3.5571952,
+            "asLong" : 9,
             "asInt" : 6,
-            "asShort" : 3,
-            "asDouble" : 6.878052220127876,
+            "asShort" : 2,
+            "asDouble" : 8.762042012749001,
             "asString" : "asString",
             "jsonObject" : true,
             "jsonArray" : true,
             "asBoolean" : true
           },
-          "jsonObject" : true,
+          "asShort" : 9,
+          "asDouble" : 6.84685269835264,
           "asString" : "asString",
+          "jsonObject" : true,
           "jsonArray" : true,
           "asBoolean" : true
         },
-        "asCharacter" : "asCharacter",
-        "string" : true,
-        "jsonPrimitive" : true,
-        "asNumber" : 6.683562403749608,
-        "asBigDecimal" : 9.965781217890562,
-        "jsonNull" : true,
-        "asFloat" : 9.36931,
-        "asLong" : 7,
-        "number" : true,
-        "asInt" : 1,
-        "boolean" : true,
-        "asShort" : 5,
-        "asDouble" : 6.84685269835264,
+        "asShort" : 3,
+        "asDouble" : 1.2315135367772556,
         "asString" : "asString",
         "jsonObject" : true,
         "jsonArray" : true,
         "asBoolean" : true
       },
-      "asShort" : 7,
-      "asDouble" : 9.301444243932576,
-      "jsonObject" : true,
+      "asCharacter" : "asCharacter",
+      "jsonPrimitive" : true,
+      "asNumber" : 7.061401241503109,
+      "asBigDecimal" : 3.616076749251911,
+      "jsonNull" : true,
+      "asFloat" : 9.301444,
+      "empty" : true,
+      "asLong" : 2,
+      "asInt" : 5,
+      "asShort" : 4,
+      "asDouble" : 5.637376656633329,
       "asString" : "asString",
+      "jsonObject" : true,
       "jsonArray" : true,
       "asBoolean" : true
     },
-    "asShort" : 5,
-    "asDouble" : 0.8008281904610115,
-    "jsonObject" : true,
     "asString" : "asString",
+    "jsonObject" : true,
     "jsonArray" : true,
     "asBoolean" : true
   }
@@ -3912,6 +4037,72 @@
         <a href="#String">String</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="updatePermissionDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /cloudEHR/providers/permission/delete/{id}</code></pre></div>
+    <div class="method-summary">PRV_ROL_010 【削除】付与済みの権限（医療機関用） (<span class="nickname">updatePermissionDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">location (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: all </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#BaseResponseBean">BaseResponseBean</a>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="updatePermissionRequests"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -4571,134 +4762,134 @@
     <h3><a name="JsonArray"><code>JsonArray</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">empty (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+      <div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
 <div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">empty (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
 <div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
 <div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
 <div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
-<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
-<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
-<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
-<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
 <div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
-<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
-<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
-<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="JsonElement"><code>JsonElement</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+      <div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
 <div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
 <div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
 <div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
 <div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
 <div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
 <div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
-<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
-<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
-<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="JsonNull"><code>JsonNull</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+      <div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
 <div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
 <div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
 <div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
 <div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
 <div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
 <div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
-<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
-<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
-<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="JsonObject"><code>JsonObject</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+      <div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
 <div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
 <div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
 <div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
 <div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
 <div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
 <div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
-<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
-<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
-<div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="JsonPrimitive"><code>JsonPrimitive</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+      <div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">asDouble (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
 <div class="param">asLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">asInt (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
-<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
-<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
-<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
+<div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asBoolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">boolean (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">asString (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asFloat (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">asByte (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span>  format: byte</div>
+<div class="param">asCharacter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">asBigDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">asBigInteger (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">asShort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">string (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
+<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
+<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
 <div class="param">jsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">jsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
 <div class="param">asJsonNull (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonNull">JsonNull</a></span>  </div>
-<div class="param">asJsonPrimitive (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonPrimitive">JsonPrimitive</a></span>  </div>
-<div class="param">asJsonObject (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonObject">JsonObject</a></span>  </div>
-<div class="param">asJsonArray (optional)</div><div class="param-desc"><span class="param-type"><a href="#JsonArray">JsonArray</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
