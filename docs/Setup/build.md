@@ -10,30 +10,32 @@ sidebar_position: 1
 本手順では１つの OS 上でローカル及びリモートの動作環境を構築する手順を記載する。
 
 ## 2. 事前準備
+### 2.1. Windowsの場合
+- Docker Desktop for Windows のインストール
+- Git for Windows のインストール
+- 下記のコマンドを実行して、クローン時に改行コードがLFからCRLFに変換されないように設定する
+    ```
+    $ git config --global core.autocrlf input
+    ```
+- Docker Desktopを起動後、下記のコマンドを実行して、planets-libにある資材をローカル環境にクローンする  
+  (容量の大きい`*.jar`, `*.war`ファイルはGit LFSを用いて管理している。)
+    ```
+    $ git clone https://github.com/planets-org/planets-lib.git
+    $ cd planets-lib
+    $ git lfs install  // GitLFSコンテンツが取得できてない場合に実行する
+    $ git lfs pull  // GitLFSコンテンツが取得できてない場合に実行する
+    ```
 
-- Docker for Windows のインストール ※ Mac の場合は Docker Desktop をインストール
-- Docker Compose のインストール
-- Git for Windows のインストール ※ Windows のみ。Mac の場合は GNU Bash を利用
-- 下記のコマンドを実行して、planets-libにある資材をローカル環境にクローンする  
+### 2.2. Macの場合
+- Docker Desktop for Mac のインストール
+- Docker Desktopを起動後、下記のコマンドを実行して、planets-libにある資材をローカル環境にクローンする  
   (容量の大きい`*.jar`, `*.war`ファイルはGit LFSを用いて管理している。)
     ```
     # git clone https://github.com/planets-org/planets-lib.git
     # cd planets-lib
-    # git lfs install
-    # git lfs pull
+    # git lfs install  // GitLFSコンテンツが取得できてない場合に実行する
+    # git lfs pull  // GitLFSコンテンツが取得できてない場合に実行する
     ```
-- Docker for Windows(Mac 版の場合は Docker Desktop)をコマンドを叩く前に立ち上げておく
-- Mac で構築する際の追加対応事項
-  - Docker Desktop の[Preferences][resources][Advanced]を開き、下記の値を設定する
-    - CPUs : 5
-    - Memory : 14.50 GB
-    - Swap : 3.5 GB
-  - docker-compose ファイルを Mac 用にチューニングされたものに書き換える
-    - `etc/docker-compose-for-mac`にあるファイルを、localX, localY, remote フォルダにある docker-compose ファイルにそれぞれコピーする  
-      例：localX の場合  
-        ```
-        # cp etc/docker-compose-for-mac/docker-compose-localX.yml localX/docker-compose.yml
-        ```
 
 ## 3. 構成
 
