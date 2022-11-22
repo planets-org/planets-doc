@@ -10,9 +10,8 @@ sidebar_position: 1
 本手順では１つの OS 上でローカル及びリモートの動作環境を構築する手順を記載する。
 
 ## 2. 事前準備
-### 2.1. Windowsの場合
-- Docker Desktop for Windows のインストール
-- Git for Windows のインストール
+- Docker Desktop for Windows のインストール（Macの場合は、Docker Desktop for Mac をインストール）
+- Git for Windows のインストール（Windowsのみ要対応）
 - Docker Desktopを起動後、下記のコマンドを実行して、planets-libにある資材をローカル環境にクローンする  
   (容量の大きい`*.jar`, `*.war`ファイルはGit LFSを用いて管理している。)
     ```
@@ -20,17 +19,6 @@ sidebar_position: 1
     $ cd planets-lib
     $ git lfs install  // GitLFSコンテンツが取得できてない場合に実行する
     $ git lfs pull  // GitLFSコンテンツが取得できてない場合に実行する
-    ```
-
-### 2.2. Macの場合
-- Docker Desktop for Mac のインストール
-- Docker Desktopを起動後、下記のコマンドを実行して、planets-libにある資材をローカル環境にクローンする  
-  (容量の大きい`*.jar`, `*.war`ファイルはGit LFSを用いて管理している。)
-    ```
-    # git clone https://github.com/planets-org/planets-lib.git
-    # cd planets-lib
-    # git lfs install  // GitLFSコンテンツが取得できてない場合に実行する
-    # git lfs pull  // GitLFSコンテンツが取得できてない場合に実行する
     ```
 
 ## 3. 構成
