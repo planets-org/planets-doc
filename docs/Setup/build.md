@@ -13,10 +13,6 @@ sidebar_position: 1
 ### 2.1. Windowsの場合
 - Docker Desktop for Windows のインストール
 - Git for Windows のインストール
-- 下記のコマンドを実行して、クローン時に改行コードがLFからCRLFに変換されないように設定する
-    ```
-    $ git config --global core.autocrlf input
-    ```
 - Docker Desktopを起動後、下記のコマンドを実行して、planets-libにある資材をローカル環境にクローンする  
   (容量の大きい`*.jar`, `*.war`ファイルはGit LFSを用いて管理している。)
     ```
