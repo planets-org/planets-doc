@@ -10,7 +10,7 @@ sidebar_position: 1
 本手順では１つの OS 上でローカル及びリモートの動作環境を構築する手順を記載する。
 
 ## 2. 事前準備
-- Docker Desktop for Windows のインストール（Macの場合は、Docker Desktop for Mac をインストール）
+- Docker Desktop for Windows のインストール（Macの場合は、Docker Desktop for Mac）
 - Git for Windows のインストール（Windowsのみ要対応）
 - Docker Desktopを起動後、下記のコマンドを実行して、planets-libにある資材をローカル環境にクローンする  
   (容量の大きい`*.jar`, `*.war`ファイルはGit LFSを用いて管理している。)
@@ -20,6 +20,12 @@ sidebar_position: 1
     $ git lfs install  // GitLFSコンテンツが取得できてない場合に実行する
     $ git lfs pull  // GitLFSコンテンツが取得できてない場合に実行する
     ```
+- Docker Desktop for Windows(Macの場合は Docker Desktop for Mac)をコマンドを叩く前に立ち上げておく
+- Mac で構築する際の追加対応事項
+  - Docker Desktop の[Preferences][resources][Advanced]を開き、下記の値を設定する
+    - CPUs : 5
+    - Memory : 14.50 GB
+    - Swap : 3.5 GB
 
 ## 3. 構成
 
