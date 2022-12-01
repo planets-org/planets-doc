@@ -41,13 +41,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-{applicationPath}/providers/organizations/1310000001
+{applicationPath}/participants/organizations/0000000000
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-{applicationPath}/providers/organizations?name=クリニック X
+{applicationPath}/participants/organizations?name=クリニック X
 ```
 
 ### レスポンス

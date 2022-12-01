@@ -39,7 +39,7 @@ PLAT 認証基盤（Keycloak）のトークンエンドポイントにリフレ�
 ### サンプル（リクエスト）
 
 ```
-/auth/realms/LocalClinicX/protocol/openid-connect/token
+/auth/realms/1310000001/protocol/openid-connect/token
 ```
 
 ### レスポンス
