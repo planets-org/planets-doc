@@ -37,7 +37,7 @@
 ### サンプル（リクエスト）
 
 ```
-{applicationPath}/providers/patients/patients/document/urn%3Auuid%3A3e178fa0-b57e-8980-d95d-0b8c4c8f3d66/share
+{applicationPath}/providers/patients/document/urn%3Auuid%3A3e178fa0-b57e-8980-d95d-0b8c4c8f3d66/share
 ```
 
 ### レスポンス
