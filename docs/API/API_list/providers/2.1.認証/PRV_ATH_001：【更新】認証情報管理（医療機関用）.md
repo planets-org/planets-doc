@@ -59,8 +59,30 @@ PLAT の認証基盤に PLAT 共通 ID を紐付ける
 
 ```json title="正常終了"
 {
-  "username": "takana.ichiro",
-  "platId": "36b65929-6bd6-455d-9533-ba8c70da4e11"
+    "id": "81996e24-1db9-4fc3-9d46-6e9e16a1a1fb",
+    "createdTimestamp": 1669626274888,
+    "username": "takana.ichiro",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+    "manageGroupMembership": true,
+    "view": true,
+    "mapRoles": true,
+    "impersonate": true,
+    "manage": true
+    },
+    "attributes": {
+    "PLAT-ID": [
+    "36b65929-6bd6-455d-9533-ba8c70da4e11"
+    ]
+    },
+    "groups": [
+    "PROVIDERS"
+    ]
 }
 ```
 
