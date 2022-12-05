@@ -14,16 +14,19 @@ sidebar_position: 2
 ### 2.1. KeyCloak 上に新規クライアントを追加する。
 
 1. ブラウザを開き、下記のどちらかにアクセスし、KeyCloak のトップページを開く。 
-- 医療機関用：http://localhost:8184
-- 患者用 ：http://localhost:8084
+- local：http://localhost:8184
+- remote：http://localhost:8084
    ![image-2022-05-21 21.12.20.png](../.attachments/image-2022-05-21%2021.12.20-c349d6f0-2a90-4ec0-a164-b092b94c663c.png)
 
-2. 「Administration Console」をクリックするすると以下の画面が開く。下記の通り入力し「Login」ボタンを押下する。  
+2. 「Administration Console」をクリックすると以下の画面が開く。下記の通り入力し「Login」ボタンを押下する。  
     「ユーザ名またはアドレス」：admin  
    　　　　　　「パスワード」：admin  
     ![image-2022-05-21 21.14.47.png](../.attachments/image-2022-05-21%2021.14.47-4b060870-52ef-48c1-933a-81dab189c004.png)
 
-3. レルムの中から「1310000001」をクリックする。  
+3. レルムの中から、該当する番号をクリックする。
+- 医療機関用(local)：1310000001L
+- 医療機関用(remote)：1310000001R
+- 患者用(remote)：0000000000R
    ![image-2022-05-21 21.18.10.png](../.attachments/image-2022-05-21%2021.18.10-dd55c6ea-41cc-4a99-a14f-520cc5867292.png)
 
 4. 左側のメニューから「Clients」をクリックする。  
