@@ -81,10 +81,10 @@
     "address": [
       {
         "use": "home",
-        "line": ["玉手町 18-50"],
-        "city": "柏原市",
+        "line": ["xx町 0-0"],
+        "city": "xx市",
         "district": "大阪府",
-        "postalCode": "5820001"
+        "postalCode": "0000000"
       }
     ]
   }
@@ -162,11 +162,11 @@
 　　　　{
 　　　　　　"use": "home",
 　　　　　　"line": [
-　　　　　　　　"玉手町 18-50"
+　　　　　　　　"xx町 0-0"
 　　　　　　],
-　　　　　　"city": "柏原市",
+　　　　　　"city": "xx市",
 　　　　　　"district": "大阪府",
-　　　　　　"postalCode": "5820001"
+　　　　　　"postalCode": "0000000"
 　　　　}
 　　]
 }

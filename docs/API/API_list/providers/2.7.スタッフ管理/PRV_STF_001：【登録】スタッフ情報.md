@@ -64,8 +64,8 @@ PLAT 上にスタッフ情報を登録する。
             "valueCode": "IDE"
           }
         ],
-        "family": "山本",
-        "given": ["太郎"]
+        "family": "田中",
+        "given": ["一郎"]
       },
       {
         "extension": [
@@ -74,8 +74,8 @@ PLAT 上にスタッフ情報を登録する。
             "valueCode": "SYL"
           }
         ],
-        "family": "ヤマモト",
-        "given": ["タロウ"]
+        "family": "タナカ",
+        "given": ["イチロウ"]
       }
     ]
   }
