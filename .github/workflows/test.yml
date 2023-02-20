@@ -1,0 +1,40 @@
+name: CI
+on: pull_request
+jobs:
+  dependency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: node_modules
+          key: npm-18-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-18-${{ hashFiles('package-lock.json') }}
+      - name: npm install
+        if: steps.npm-cache.outputs.cache-hit != 'true' 
+        run: npm install
+      - run: npm ci
+  build:
+    runs-on: ubuntu-latest
+    needs: [dependency]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: node_modules
+          key: npm-18-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-18-${{ hashFiles('package-lock.json') }}
+      - name: npm install
+        if: steps.npm-cache.outputs.cache-hit != 'true' 
+        run: npm install
+      - run: npm run build
