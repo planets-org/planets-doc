@@ -39,20 +39,20 @@ sidebar_position: 2
 | Json | 400 |
 
 
-| No. | 項目名 | 物理名  | 階層 | 繰り返し | 内容 |
-| :-- | :--------------- | :------------ | :---: | ---- | --- |
-| 1   | リソースタイプ | resourceType  | 1 | - | 固定"OperationOutcome" |
-| 2   | エラーコード     | errorCode | 1 | - | 固定"PLAT410" |
-| 3   | issue     | issue | 1  | 1回以上 | エラーのリスト |
-| 4   | severity  | severity | 2 | - | 固定"error" |
-| 5   | code      | code | 2 | - | 固定"value" |
-| 6   | details   | details | 2 | 1回以上 | エラー内容のリスト | 
-| 7   | text   | text | 3 | - | エラー内容 | 
+| No. | 物理名        | 階層 | 繰り返し | 内容 |
+| :-- | :------------ | :-: | -------- | --- |
+| 1   | resourceType  | 1 | -          | 固定"OperationOutcome" |
+| 2   | id            | 1 | -          | 固定"PLAT410" |
+| 3   | issue         | 1 | 1回以上    | エラーのリスト |
+| 4   | severity      | 2 | -          | 固定"error" |
+| 5   | code          | 2 | -          | 固定"value" |
+| 6   | details       | 2 | 1回以上    | エラー内容のリスト | 
+| 7   | text          | 3 | -          | エラー内容 | 
 
 ```Json title="サンプル"
 {
     "resourceType": "OperationOutcome",
-    "errorCode": "PLAT410",
+    "id": "PLAT410",
     "issue": [
         {
         "severity": "error",
@@ -71,20 +71,20 @@ sidebar_position: 2
 | Json | 400 |
 
 
-| No. | 項目名 | 物理名  | 階層 | 繰り返し | 内容 |
-| :-- | :--------------- | :------------ | :---: | ---- | --- |
-| 1   | リソースタイプ | resourceType  | 1 | - | 固定"OperationOutcome" |
-| 2   | エラーコード     | errorCode | 1 | - | 固定"PLAT410" |
-| 3   | issue     | issue | 1  | 1回 | エラーのリスト |
-| 4   | severity  | severity | 2 | - | 固定"error" |
-| 5   | code      | code | 2 | - | 固定"value" |
-| 6   | details   | details | 2 | 1回 | エラー内容のリスト | 
-| 7   | text   | text | 3 | - | エラー内容 | 
+| No. | 物理名        | 階層 | 繰り返し | 内容 |
+| :-- | :------------ | :-: | ---- | --- |
+| 1   | resourceType  | 1   | - | 固定"OperationOutcome" |
+| 2   | errorCode     | 1   | - | 固定"PLAT410" |
+| 3   | issue         | 1   | 1回 | エラーのリスト |
+| 4   | severity      | 2   | - | 固定"error" |
+| 5   | code          | 2   | - | 固定"value" |
+| 6   | details       | 2   | 1回 | エラー内容のリスト | 
+| 7   | text          | 3   | - | エラー内容 | 
 
 ```Json title="サンプル"
 {
     "resourceType": "OperationOutcome",
-    "errorCode": "PLAT420",
+    "id": "PLAT420",
     "issue": [
         {
         "severity": "error",
