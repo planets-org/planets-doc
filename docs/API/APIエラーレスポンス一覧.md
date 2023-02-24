@@ -110,7 +110,35 @@ sidebar_position: 2
 | details.text | 患者IDのフォーマットが想定されていません。 |
 
 ### 個別項目
-#### PRV_ROL_002: 【登録】権限の要求（承認要求）（医療機関用） 
+#### PRV_ROL_002: 【登録】権限の要求（承認要求）（医療機関用）
+##### PermissionApproval.isCheckOrganaizationOrPersonalId
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | PermissionApproval.isCheckOrganaizationOrPersonalId | 
+| code | value　|
+| details.text | 許可可能者IDが設定されていません。 |
+
+##### PermissionApproval.isCheckOrganaization
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | PermissionApproval.isCheckOrganaization | 
+| code | value　|
+| details.text | 許可可能者IDは医療機関を指定する場合、個人の指定はできません。 |
+
+##### PermissionApproval.isCheckDepartmentId
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | PermissionApproval.isCheckDepartmentId | 
+| code | value　|
+| details.text | 許可可能者IDは診療科を指定する場合、医療機関の指定も必須です。 |
+
+##### PermissionApproval.isCheckPersonalId
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | PermissionApproval.isCheckPersonalId | 
+| code | value　|
+| details.text | 許可可能者IDは個人を指定されている場合、医療機関・診療科の指定はできません。 |
+
 ##### providers.permission.approval.id.Pattern.message
 | 項目 | 設定値 | 
 | :- | :- |
@@ -118,7 +146,7 @@ sidebar_position: 2
 | code | value　|
 | details.text | PathParameterのpermissionApprovalIdの値が想定されていません。 |
 
-## 1. PLAT420で発生するエラーレスポンス一覧
+## 2. PLAT420で発生するエラーレスポンス一覧
 ### permission.create.err001
 | 項目 | 設定値 | 
 | :- | :- |
