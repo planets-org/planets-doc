@@ -60,6 +60,15 @@ sidebar_position: 2
 | details.text | {0}が想定されている値ではありません。 |
 | パラメータ | {0} : 物理項目名 |
 
+
+validation.name.length.message=名前の文字数が超過しています。
+#### name.length.message
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | name.length.message | 
+| code | value　|
+| details.text | 名前の文字数が超過しています。 |
+
 #### name.pattern.message
 | 項目 | 設定値 | 
 | :- | :- |
@@ -67,12 +76,27 @@ sidebar_position: 2
 | code | value　|
 | details.text | 名前のフォーマットが想定されていません。 |
 
+#### address.length.message
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | address.length.message | 
+| code | value　|
+| details.text | 住所の文字数が超過しています。 |
+
+
 #### address.pattern.message
 | 項目 | 設定値 | 
 | :- | :- |
 | メッセージキー | address.pattern.message | 
 | code | value　|
 | details.text | 住所のフォーマットが想定されていません。 |
+
+#### telecm.length.message
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | telecm.length.message | 
+| code | value　|
+| details.text | 電話番号のの文字数が超過しています。 |
 
 #### telecm.pattern.message
 | 項目 | 設定値 | 
