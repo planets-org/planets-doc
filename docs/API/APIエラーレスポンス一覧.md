@@ -61,7 +61,6 @@ sidebar_position: 2
 | パラメータ | {0} : 物理項目名 |
 
 
-validation.name.length.message=名前の文字数が超過しています。
 #### name.length.message
 | 項目 | 設定値 | 
 | :- | :- |
