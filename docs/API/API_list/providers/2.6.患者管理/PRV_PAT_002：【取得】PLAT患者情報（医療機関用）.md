@@ -148,14 +148,6 @@
 ###### [Query]1. 名前
 | No. | チェック内容 | メッセージキー |
 | :-: | ------------ | ------------- |
-|1| 必須チェック | [NotBlank.message](../../../APIエラーレスポンス一覧.md#notblankmessage) |
-|2| 文字数チェック | [Length.message](../../../APIエラーレスポンス一覧#length.message) |
-|3| フォーマットチェック | [Pattern.message](../../../APIエラーレスポンス一覧.md#patternmessage) |
-
-
-###### [Query]1. 名前
-| No. | チェック内容 | メッセージキー |
-| :-: | ------------ | ------------- |
 |1| 文字数チェック | [name.length.message](../../../APIエラーレスポンス一覧#namelengthmessage) |
 |2| フォーマットチェック | [name.pattern.message](../../../APIエラーレスポンス一覧.md#namepatternmessage) |
 
