@@ -191,13 +191,13 @@
 |1| 文字数チェック | [Length.message](../../../APIエラーレスポンス一覧.md#lengthmessage) |
 |2| フォーマットチェック | [Pattern.message](../../../APIエラーレスポンス一覧.md#patternmessage) |
 
-###### [Body]4. 権限要求者 ID（診療科）
+###### [Body]4. 許可可能者 ID（診療科）
 | No. | チェック内容 | メッセージキー |
 | :-: | ------------ | ------------- |
 |1| 文字数チェック | [Length.message](../../../APIエラーレスポンス一覧.md#lengthmessage) |
 |2| フォーマットチェック | [Pattern.message](../../../APIエラーレスポンス一覧.md#patternmessage) |
 
-###### [Body]5. 権限要求者 ID（個人）
+###### [Body]5. 許可可能者 ID（個人）
 | No. | チェック内容 | メッセージキー |
 | :-: | ------------ | ------------- |
 |1| 文字数チェック | [Length.message](../../../APIエラーレスポンス一覧.md#lengthmessage) |
@@ -267,10 +267,10 @@
 
 | No. | 入力項目 | チェック内容 | メッセージキー |
 | :-: | ------- | ------------ | ------------- |
-|1| [Body]3. 許可可能者 ID（医療機関）<br/>[Body]5. 権限要求者 ID（個人）| 入力項目の何れかの入力があることを確認。 | [PermissionApproval.isCheckOrganaizationOrPersonalId](../../../APIエラーレスポンス一覧.md#permissionapprovalischeckorganaizationorpersonalid) |
-|2| [Body]3. 許可可能者 ID（医療機関）<br/>[Body]5. 権限要求者 ID（個人）|「[Body]3. 許可可能者 ID（医療機関）」が設定されているとき、<br/>「[Body]5. 権限要求者 ID（個人）」は入力されていないことを確認。| [PermissionApproval.isCheckOrganaization](../../../APIエラーレスポンス一覧.md#permissionapprovalischeckorganaization) |
-|3| [Body]3. 許可可能者 ID（医療機関）<br/>[Body]4. 権限要求者 ID（診療科）|「[Body]4. 権限要求者 ID（診療科）」が入力されているとき、<br/>「[Body]3. 許可可能者 ID（医療機関）」が入力されていることを確認。| [PermissionApproval.isCheckDepartmentId](../../../APIエラーレスポンス一覧.md#permissionapprovalischeckdepartmentid) |
-|4| [Body]3. 許可可能者 ID（医療機関）<br/>[Body]4. 権限要求者 ID（診療科）<br/>[Body]5. 権限要求者 ID（個人）| 「[Body]5. 権限要求者 ID（個人）」が入力されているとき、<br/>「[Body]3. 許可可能者 ID（医療機関）」、「[Body]4. 権限要求者 ID（診療科）」が入力されていないことを確認。| [PermissionApproval.isCheckPersonalId](../../../APIエラーレスポンス一覧.md#permissionapprovalischeckpersonalid)|
+|1| [Body]3. 許可可能者 ID（医療機関）<br/>[Body]5. 許可可能者 ID（個人）| 入力項目の何れかの入力があることを確認。 | [PermissionApproval.isCheckOrganaizationOrPersonalId](../../../APIエラーレスポンス一覧.md#permissionapprovalischeckorganaizationorpersonalid) |
+|2| [Body]3. 許可可能者 ID（医療機関）<br/>[Body]5. 許可可能者 ID（個人）|「[Body]3. 許可可能者 ID（医療機関）」が設定されているとき、<br/>「[Body]5. 許可可能者 ID（個人）」は入力されていないことを確認。| [PermissionApproval.isCheckOrganaization](../../../APIエラーレスポンス一覧.md#permissionapprovalischeckorganaization) |
+|3| [Body]3. 許可可能者 ID（医療機関）<br/>[Body]4. 許可可能者 ID（診療科）|「[Body]4. 許可可能者 ID（診療科）」が入力されているとき、<br/>「[Body]3. 許可可能者 ID（医療機関）」が入力されていることを確認。| [PermissionApproval.isCheckDepartmentId](../../../APIエラーレスポンス一覧.md#permissionapprovalischeckdepartmentid) |
+|4| [Body]3. 許可可能者 ID（医療機関）<br/>[Body]4. 許可可能者 ID（診療科）<br/>[Body]5. 許可可能者 ID（個人）| 「[Body]5. 許可可能者 ID（個人）」が入力されているとき、<br/>「[Body]3. 許可可能者 ID（医療機関）」、「[Body]4. 許可可能者 ID（診療科）」が入力されていないことを確認。| [PermissionApproval.isCheckPersonalId](../../../APIエラーレスポンス一覧.md#permissionapprovalischeckpersonalid)|
 
 ##### 突合せエラー
 各項目を以下の観点でチェックを実施し、エラー検出時にはエラーコードPLAT420を返す。
