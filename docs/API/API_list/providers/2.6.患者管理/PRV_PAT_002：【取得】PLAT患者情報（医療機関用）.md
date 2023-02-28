@@ -23,7 +23,7 @@
 | 1   | 名前     | name      | string |    ○     | 30   |       |        |  制御文字以外 |          |　        | 漢字もしくはカナの前方一致検索            |
 | 2   | 住所     | address   | string |    ○     |  400 |       |        | 制御文字以外 |          |　        | 住所を前方一致検索                        |
 | 3   | 電話番号 | telecom   | string |    ○     |  17  |       |        | 数字のみ |          |　        | 電話番号を完全一致検索                    |
-| 4   | 性別     | gender    | string |    ○     | -     |       |        | male|famale  |          |　        | "male" か "famale"で検索                  |
+| 4   | 性別     | gender    | string |    ○     | -     |       |        | male&#124;famale  |          |　        | "male" か "famale"で検索                  |
 | 5   | 生年月日 | birthDate |  date  |    ○     | -     |       |        | YYYY-MM-DD 形式 |          |　        | 生年月日を完全一致検索（YYYY-MM-DD 形式） |
 
 ### リクエスト（パスパラメータ）
