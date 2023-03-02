@@ -141,13 +141,6 @@ sidebar_position: 2
 | code | value　|
 | details.text | 許可可能者IDが設定されていません。 |
 
-##### PermissionApproval.isCheckOrganaization
-| 項目 | 設定値 | 
-| :- | :- |
-| メッセージキー | PermissionApproval.isCheckOrganaization | 
-| code | value　|
-| details.text | 許可可能者IDは医療機関を指定する場合、個人の指定はできません。 |
-
 ##### PermissionApproval.isCheckDepartmentId
 | 項目 | 設定値 | 
 | :- | :- |
@@ -155,13 +148,7 @@ sidebar_position: 2
 | code | value　|
 | details.text | 許可可能者IDは診療科を指定する場合、医療機関の指定も必須です。 |
 
-##### PermissionApproval.isCheckPersonalId
-| 項目 | 設定値 | 
-| :- | :- |
-| メッセージキー | PermissionApproval.isCheckPersonalId | 
-| code | value　|
-| details.text | 許可可能者IDは個人を指定されている場合、医療機関・診療科の指定はできません。 |
-
+#### PRV_ROL_007：【更新】権限の被要求状態の承認・拒否（医療機関用）
 ##### providers.permission.approval.id.Pattern.message
 | 項目 | 設定値 | 
 | :- | :- |
