@@ -162,28 +162,49 @@ sidebar_position: 2
 | :- | :- |
 | メッセージキー | permission.create.err001 | 
 | code | value　|
-| details.text | 許可可能IDに登録されていない医療機関IDが設定されています。 |
+| details.text | 許可可能者IDに登録されていない医療機関IDが設定されています。 |
 
 ### permission.create.err002
 | 項目 | 設定値 | 
 | :- | :- |
 | メッセージキー | permission.create.err002 | 
 | code | value　|
-| details.text | 許可可能IDに登録されていない診療科IDが設定されています。 |
+| details.text | 許可可能者IDに登録されていない診療科IDが設定されています。 |
 
 ### permission.create.err003
 | 項目 | 設定値 | 
 | :- | :- |
 | メッセージキー | permission.create.err003 | 
 | code | value　|
-| details.text | 許可可能IDの診療科IDが医療機関に存在しません。 |
+| details.text | 許可可能者IDの診療科IDが医療機関に存在しません。 |
 
 ### permission.create.err004
 | 項目 | 設定値 | 
 | :- | :- |
 | メッセージキー | permission.create.err004 | 
 | code | value　|
-| details.text | 許可可能IDは登録されていません。 |
+| details.text | 許可可能者IDは登録されていません。 |
+
+### permission.create.err005
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | permission.create.err005 | 
+| code | value　|
+| details.text | 許可可能者IDの医療機関に該当のスタッフが存在しません。 |
+
+### permission.create.err006
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | permission.create.err006 | 
+| code | value　|
+| details.text | 許可可能者IDの診療科に該当のスタッフに存在しません。 |
+
+### permission.create.err007
+| 項目 | 設定値 | 
+| :- | :- |
+| メッセージキー | permission.create.err007 | 
+| code | value　|
+| details.text | 許可可能者ID(個人)がユーザーに存在しません。 |
 
 ### permission.create.err101
 | 項目 | 設定値 | 

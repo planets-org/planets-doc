@@ -292,9 +292,12 @@
 |  1  | [Body]3. 許可可能者 ID（医療機関） | 医療機関が登録されていることを確認。 | [permission.create.err001](../../../APIエラーレスポンス一覧.md#permissioncreateerr001) |
 |  2  | [Body]4. 許可可能者 ID（診療科） | 診療科が登録されていることを確認。 | [permission.create.err002](../../../APIエラーレスポンス一覧.md#permissioncreateerr002) |
 |  3  | [Body]4. 許可可能者 ID（診療科）<br/>[Body]3. 許可可能者 ID（医療機関） | 入力された医療機関と診療科の関係が登録通りか確認。 | [permission.create.err003](../../../APIエラーレスポンス一覧.md#permissioncreateerr003) |
-|  4  | [Body]5. 許可可能者 ID（個人） | PLAT共通IDが登録されていることを確認。 | [permission.create.err004](../../../APIエラーレスポンス一覧.md#permissioncreateerr004) |
-|  5  | [Body]7. 権限保持対象区分<br/>[Body]8. 許可者 ID |【権限保持対象区分が1:個人の場合】<br/>許可者 IDがPLAT共通IDまたはスタッフIDに登録されていることを確認。| [permission.create.err101](../../../APIエラーレスポンス一覧.md#permissioncreateerr101) | 
-|  6  | [Body]7. 権限保持対象区分<br/>[Body]8. 許可者 ID |【権限保持対象区分が2:組織の場合】<br/>許可者 IDが医療機関で登録されていることを確認。  | [permission.create.err102](../../../APIエラーレスポンス一覧.md#permissioncreateerr102) |
+|  4  | [Body]5. 許可可能者 ID（個人）<br/>[Body]3. 許可可能者 ID（医療機関） | [Body]3. 許可可能者 ID（医療機関）が入力されている場合、<br/>スタッフIDが登録されていることを確認。 | [permission.create.err004](../../../APIエラーレスポンス一覧.md#permissioncreateerr004) |
+|  5  | [Body]5. 許可可能者 ID（個人）<br/>[Body]3. 許可可能者 ID（医療機関） | [Body]3. 許可可能者 ID（医療機関）が入力されている場合、<br/>スタッフIDが医療機関IDと紐づいていることを確認。 | [permission.create.err005](../../../APIエラーレスポンス一覧.md#permissioncreateerr005) |
+|  6  | [Body]5. 許可可能者 ID（個人）<br/>[Body]4. 許可可能者 ID（診療科） | [Body]4. 許可可能者 ID（診療科）が入力されている場合、<br/>スタッフIDが診療科IDに紐づいていることを確認。 | [permission.create.err006](../../../APIエラーレスポンス一覧.md#permissioncreateerr006) |
+|  7  | [Body]5. 許可可能者 ID（個人）<br/>[Body]3. 許可可能者 ID（医療機関） | [Body]3. 許可可能者 ID（医療機関）が入力されていない場合、<br/>PLAT共通IDが登録されていることを確認。 | [permission.create.err007](../../../APIエラーレスポンス一覧.md#permissioncreateerr007) |
+|  8  | [Body]7. 権限保持対象区分<br/>[Body]8. 許可者 ID |【権限保持対象区分が1:個人の場合】<br/>許可者 IDがPLAT共通IDまたはスタッフIDに登録されていることを確認。| [permission.create.err101](../../../APIエラーレスポンス一覧.md#permissioncreateerr101) | 
+|  9  | [Body]7. 権限保持対象区分<br/>[Body]8. 許可者 ID |【権限保持対象区分が2:組織の場合】<br/>許可者 IDが医療機関で登録されていることを確認。  | [permission.create.err102](../../../APIエラーレスポンス一覧.md#permissioncreateerr102) |
 
 #### システムエラー
 レスポンス構造に関しては[API共通](../../../API_common.md)に記載。
