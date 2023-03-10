@@ -20,7 +20,7 @@ sidebar_position: 2
 | details.text | {0}が設定されていません。 |
 | パラメータ | {0} : 物理項目名 |
 
-#### NotBlank.message
+#### NotEmpty.message
 | 項目 | 設定値 | 
 | :- | :- |
 | メッセージキー | NotEmpty.message | 
