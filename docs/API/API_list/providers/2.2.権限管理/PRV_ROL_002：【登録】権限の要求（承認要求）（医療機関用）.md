@@ -231,6 +231,7 @@
 | :-: | ------------ | ------------- |
 |1| 必須チェック | [NotBlank.message](../../../APIエラーレスポンス一覧.md#notblankmessage) |
 |2| 文字数チェック | [Length.message](../../../APIエラーレスポンス一覧.md#lengthmessage) |
+|3| フォーマットチェック | [Pattern.message](../../../APIエラーレスポンス一覧.md#patternmessage) |
 
 ###### [Body]9. 権限種別
 | No. |  チェック内容 | メッセージキー |
