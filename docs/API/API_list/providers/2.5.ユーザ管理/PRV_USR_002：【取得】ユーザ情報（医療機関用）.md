@@ -25,7 +25,7 @@ PLAT 上で管理しているユーザの[Patient リソース](../../../../Plat
 | 3   | 電話番号 | telecom   | string |    ○     | 電話番号を完全一致検索                    |
 | 4   | 性別     | gender    | string |    ○     | "male" か "famale"で検索                  |
 | 5   | 生年月日 | birthDate |  date  |    ○     | 生年月日を完全一致検索（YYYY-MM-DD 形式） |
-| 6   | 参照先 | location | string |    ○     | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote”、患者管理の場合"all"（デフォルトは"all"）|
+| 6   | 参照先 | location | string |    ○     | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote”、患者管理の場合"all"（指定なしの場合は"all"）|
 
 ### リクエスト（パスパラメータ）
 
