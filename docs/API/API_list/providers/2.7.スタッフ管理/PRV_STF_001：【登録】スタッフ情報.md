@@ -36,12 +36,12 @@ PLAT 上にスタッフ情報を登録する。
 | 2   | 診療科 ID                | departmentId | 1 |     | string               | -        | 1000 |     |       | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()] |        |        |    | 
 | 3   | 職業 | occupation  | 1 |    | string               | -        | 1 |      |      | 制御文字以外 |        |         |    | 
 | 4   | スタッフ情報オブジェクト | staffResource  | 1 |     | object   |   -      |  |      |     |  |    |       |    | 
-| 5   | リソース種別       | resourceType | 2 |     | string  |   -      |  |     |     | Staff |    |       |  "Staff"固定  | 
-| 6   | 救急フラグ    | emergencyFlg | 2 |     | string  |   -      |  |     |     | true &#124; false |    |       |  true:救急、false:通常  | 
+| 5   | リソース種別       | resourceType | 2 |     | string  |   -      |  |     |     | "Staff" |    |       |  "Staff"固定  | 
+| 6   | 救急フラグ    | emergencyFlg | 2 |     | string  |   -      |  |     |     | "true"/"false" |    |       |  true:救急、false:通常  | 
 | 7   | 名称リスト               | name           | 2 |  | object | -        |                                                     |
 | 8   | 拡張リスト               | extension      | 3  |        | object | -        |                                                     |
 | 9   | URL  | url  |  4   |        | string | -        |  |  |  | URL形式 |  |
-| 10  | 値コード   | valueCode      |  4 |  | string | -        |  |  |  | IDE &#124; SYL  |  |  | IDE：漢字、SYL：カナ <br>※認証情報には漢字が登録される |
+| 10  | 値コード   | valueCode      |  4 |  | string | -        |  |  |  | "IDE"/"SYL"  |  |  | IDE：漢字、SYL：カナ <br>※認証情報には漢字が登録される |
 | 11  | 姓  | family         |   3  |        | string | -        |    |  |  | 制御文字以外 |  |  |  |
 | 12  | 名リスト  | given    |  3   |        | object | -        |  |
 | 13  | 名   | -              |  4  |        | string | -        |   |
