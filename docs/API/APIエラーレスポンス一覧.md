@@ -84,7 +84,7 @@ sidebar_position: 2
 | 項目 | 設定値 | 
 | :- | :- |
 | メッセージキー | telecm.length.message | 
-| details.text | 電話番号のの文字数が超過しています。 |
+| details.text | 電話番号の文字数が超過しています。 |
 
 #### telecm.pattern.message
 | 項目 | 設定値 | 

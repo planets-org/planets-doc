@@ -32,19 +32,19 @@ PLAT 上にスタッフ情報を登録する。
 
 | No. | 項目名                    | 物理名                  | 階層 | 繰返し | 属性                 | Nullable | 桁数  | 最小値 | 最大値 | フォーマット | 過去日付 | 未来日付 | リクエスト設定要領                                                                                                               |
 | :-- | :--------------- | :------------ | --- | ------ | :------------ | :--------: | ----- | ------ | ------ | ------------ | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- | 
-| 1   | 組織 ID  | organizationId | 1 |      | string               | -        | 36 |       |     | 制御文字以外 |         |         |    | 
-| 2   | 診療科 ID                | departmentId | 1 |     | string               | -        | 1000 |     |       | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()] |        |        |    | 
-| 3   | 職業 | occupation  | 1 |    | string               | -        | 1 |      |      | 制御文字以外 |        |         |    | 
-| 4   | スタッフ情報オブジェクト | staffResource  | 1 |     | object   |   -      |  |      |     |  |    |       |    | 
-| 5   | リソース種別       | resourceType | 2 |     | string  |   -      |  |     |     | "Staff" |    |       |  "Staff"固定  | 
-| 6   | 救急フラグ    | emergencyFlg | 2 |     | string  |   -      |  |     |     | "true"/"false" |    |       |  true:救急、false:通常  | 
-| 7   | 名称リスト               | name           | 2 |  | object | -        |                                                     |
-| 8   | 拡張リスト               | extension      | 3  |        | object | -        |                                                     |
-| 9   | URL  | url  |  4   |        | string | -        |  |  |  | URL形式 |  |
-| 10  | 値コード   | valueCode      |  4 |  | string | -        |  |  |  | "IDE"/"SYL"  |  |  | IDE：漢字、SYL：カナ <br>※認証情報には漢字が登録される |
-| 11  | 姓  | family         |   3  |        | string | -        |    |  |  | 制御文字以外 |  |  |  |
-| 12  | 名リスト  | given    |  3   |        | object | -        |  |
-| 13  | 名   | -              |  4  |        | string | -        |   |
+| 1   | 組織 ID  | organizationId | 1 |  -    | string               | -        | 36 |       |     | 制御文字以外 |         |         |    | 
+| 2   | 診療科 ID                | departmentId | 1 |  -   | string               | -        | 1000 |     |       | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()] |        |        |    | 
+| 3   | 職業 | occupation  | 1 |  -  | string               | -        | 1 |      |      | 制御文字以外 |        |         |    | 
+| 4   | スタッフ情報オブジェクト | staffResource  | 1 |   -  | object   |   -      |  |      |     |  |    |       |    | 
+| 5   | リソース種別       | resourceType | 2 |  -   | string  |   -      |  |     |     | "Staff" |    |       |  "Staff"固定  | 
+| 6   | 救急フラグ    | emergencyFlg | 2 |  -   | string  |   -      |  |     |     | "true"/"false" |    |       |  true:救急、false:通常  | 
+| 7   | 名称リスト               | name | 2 | - | object | -        |                                                     |
+| 8   | 拡張リスト               | extension      | 3  |   ○    | object | -        |                                                     |
+| 9   | URL  | url  |  4   |  -   | string | -        |  |  |  | URL形式 |  |
+| 10  | 値コード   | valueCode      |  4 | - | string | -        |  |  |  | "IDE"/"SYL"  |  |  | IDE：漢字、SYL：カナ <br>※認証情報には漢字が登録される |
+| 11  | 姓  | family         |   3  |   -     | string | -        |    |  |  | 制御文字以外 |  |  |  |
+| 12  | 名リスト  | given    |  3   |   -     | object | -        |  |
+| 13  | 名   | -              |  4  |   -     | string | -        |   |
 
 
 
@@ -88,18 +88,18 @@ PLAT 上にスタッフ情報を登録する。
 
 | No. | 項目名       | 物理名       | 階層 | 繰返し | 属性   | Nullable | レスポンス設定要領 |
 | :-- | :----------- | :----------- | :-: | :----- | :----- | :------- | :----------------- |
-| 1   | リソース種別 | resourceType |  1  | string | -        |                    |
-| 2   | 緊急フラグ   | emergencyFlg |  1    | string | -        |                    |
-| 3   | 名称リスト   | name         |  1  |  array  | -        |                    |
-| 4   | 拡張リスト   | extension    |  2   | array  | -        |                    |
-| 5   | URL          | url          |  3 | string | -        |                    |
-| 6   | 値コード     | valueCode    |  3   | string | -        |                    |
-| 7   | 姓           | family       |   2   | string | -        |                    |
-| 8   | 名リスト     | given        |  2  | array  | -        |                    |
-| 9   | 名           | -            | 3   | string | -        |                    |
-| 10  | 識別子       | identifier   |  1   | array  | -        |                    |
-| 11  | システム     | system       | 2  | string | -        |                    |
-| 12  | 値           | value        |  2   | string | -        |                    |
+| 1   | リソース種別 | resourceType |  1  | - | string | -        |                    |
+| 2   | 緊急フラグ   | emergencyFlg |  1    | - | string | -        |                    |
+| 3   | 名称リスト   | name         |  1  | - | array  | -        |                    |
+| 4   | 拡張リスト   | extension    |  2   | ○ | array  | -        |                    |
+| 5   | URL          | url          |  3 | - | string | -        |                    |
+| 6   | 値コード     | valueCode    |  3   | - | string | -        |                    |
+| 7   | 姓           | family       |   2   | - | string | -        |                    |
+| 8   | 名リスト     | given        |  2  | - | array  | -        |                    |
+| 9   | 名           | -            | 3   |  - | string | -        |                    |
+| 10  | 識別子       | identifier   |  1   | - | array  | -        |                    |
+| 11  | システム     | system       | 2  | - | string | -        |                    |
+| 12  | 値           | value        |  2   | - | string | -        |                    |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
