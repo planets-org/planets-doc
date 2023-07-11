@@ -23,7 +23,7 @@
 | 1   | 参照先  | location   | string |    ○   |  |       |      | ”self”/”remote”/"all"<br>もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定  |          |　        | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote”、患者管理の場合"all"（指定なしの場合は"all"） |
 | 2   | 検索開始日 | consultationDayFrom | string |    ○     |   |       |        | YYYY-MMM-DD |    ○      |　  ○      |  診療日の検索開始日　年月日は0で桁埋めが必要  |
 | 3   | 検索終了日 | consultationDayTo | string |    ○     |  |       |        | YYYY-MMM-DD | ○ |　○        | 診療日の検索終了日　年月日は0で桁埋めが必要  |
-| 4   | タイトル | title  | string |    ○     |  -  |   -    |   1000     | 制御文字以外  |          |　        | URL エンコードを行う  |
+| 4   | 検索条件 | conditions | string |    ○     | - |   -    |   1000     | 制御文字以外 |  |　        | FRUCtoS固有の検索文字列<br>{パラメータ名}={パラメータ値}を”&”でつなげてURLエンコードを行い指定|
 
 ### リクエスト（パスパラメータ）
 
@@ -40,7 +40,7 @@
 ### サンプル（リクエスト）
 
 ```
-{applicationPath}/providers/patient/11310000001000001/organization?consultationDayFrom=2021-03-01
+{applicationPath}/providers/patient/11310000001000001/organization?consultationDayFrom=2021-03-01&conditions=composition.title%3D%E5%87%A6%E6%96%B9%E7%AE%8B
 ```
 
 ### レスポンス
