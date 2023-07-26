@@ -23,7 +23,7 @@
 | 2   | 住所     | address   | string |    ○     | -          | 400        | 制御文字以外          | -        | -        | 前方一致検索                                                                                                   |
 | 3   | 電話番号 | telecom   | string |    ○     | -          | 17         | 数字のみ              | -        | -        | 完全一致検索                                                                                                   |
 | 4   | 性別     | gender    | string |    ○     | -          | -          | "male"/"female"       | -        | -        |                                                                                                    |
-| 5   | 生年月日 | birthDate |  date  |    ○     | -          | -          | yyyy-MM-dd            | ○        | ○        | 生年月日を完全一致検索 年月日は0で桁埋めが必要                                                                 |
+| 5   | 生年月日 | birthDate |  string  |    ○     | -          | -          | yyyy-MM-dd            | ○        | ○        | 生年月日を完全一致検索 年月日は0で桁埋めが必要                                                                 |
 | 6   | 参照先   | location  | string |    ○     | -          | -          | ”self”/”remote”/"all" | -        | -        | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote”、患者管理の場合"all"（指定なしの場合は"all"） |
 
 
@@ -62,7 +62,7 @@
 | 1   | 検索結果         | searchResults | 1    | -      | object  | -        |                                                 |
 | 2   | 件数             | count         |  2  | -      | integer | -        | 検索結果件数                                    |
 | 3   | 取得データリスト | results       |   2  | -      | array   | -        |                                                 |
-| 4   | 患者情報         | patients      |   2   | -      | object  | -        | OpenFRUCtoS の Patient リソースの仕様に準拠する |
+| 4   | 患者情報         | patients      |   3  | -      | object  | -        | FRUCtoSのPatientリソースの仕様に準拠する<br/>参考：[Patientリソース構造体について](../../../../Plat/resource_patient.md) |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
