@@ -37,7 +37,7 @@ PLAT 上にスタッフ情報を登録する。
 | 3   | 職業 | occupation  | 1 |  -  | string               | -        | 1 |      |      | 制御文字以外 |        |         |    | 
 | 4   | スタッフ情報オブジェクト | staffResource  | 1 |   -  | object   |   -      |  |      |     |  |    |       |    | 
 | 5   | リソース種別       | resourceType | 2 |  -   | string  |   -      |  |     |     | "Staff" |    |       |  "Staff"固定  | 
-| 6   | 救急フラグ    | emergencyFlg | 2 |  -   | string  |   -      |  |     |     | "true"/"false" |    |       |  true:救急、false:通常  | 
+| 6   | 救急フラグ    | emergencyFlg | 2 |  -   | string  |   -      |  |     |     | "1"/"0" |    |       |  1:救急、0:通常  | 
 | 7   | 名称リスト               | name | 2 | - | object | -        |                                                     |
 | 8   | 拡張リスト               | extension      | 3  |   ○    | object | -        |                                                     |
 | 9   | URL  | url  |  4   |  -   | string | -        |  |  |  | URL形式 |  |
@@ -57,7 +57,7 @@ PLAT 上にスタッフ情報を登録する。
   "occupation": "A",
   "staffResource": {
     "resourceType": "Staff",
-    "emergencyFlg": false,
+    "emergencyFlg": 0,
     "name": [
       {
         "extension": [
@@ -110,7 +110,7 @@ PLAT 上にスタッフ情報を登録する。
 ```json title="正常終了"
 {
   "resourceType": "Staff",
-  "emergencyFlg": false,
+  "emergencyFlg": 0,
   "name": [
     {
       "extension": [
