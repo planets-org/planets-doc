@@ -4,7 +4,7 @@ PLAT 認証基盤（Keycloak）のトークンエンドポイントにトーク�
 
 | 機能 ID     | API 論理名           | HTTP メソッド | URI                                                                        |
 | :---------- | :------------------- | :------------ | :------------------------------------------------------------------------- |
-| COM_ATH_003 | 【認証】トークン取得 | POST          | {KeycloakPath}/auth/realms/{organization_id}/protocol/openid-connect/token |
+| COM_ATH_003 | 【認証】トークン取得 | POST          | {KeycloakPath}/realms/{organization_id}/protocol/openid-connect/token |
 
 | 連携方式 | データ形式                         | 利用可能な接続先   |
 | :------- | :--------------------------------- | :----------------- |
@@ -42,7 +42,7 @@ PLAT 認証基盤（Keycloak）のトークンエンドポイントにトーク�
 ### サンプル（リクエスト）
 
 ```
-/auth/realms/1310000001/protocol/openid-connect/token
+/realms/1310000001/protocol/openid-connect/token
 ```
 
 ### レスポンス
