@@ -4,7 +4,7 @@ PLAT 認証基盤（Keycloak）の認証エンドポイントにアクセスし�
 
 | 機能 ID     | API 論理名                 | HTTP メソッド | URI                                                                       |
 | :---------- | :------------------------- | :------------ | :------------------------------------------------------------------------ |
-| COM_ATH_001 | 【認証】認証エンドポイント | POST          | {KeycloakPath}/auth/realms/{organization_id}/protocol/openid-connect/auth |
+| COM_ATH_001 | 【認証】認証エンドポイント | POST          | {KeycloakPath}/realms/{organization_id}/protocol/openid-connect/auth |
 
 | 連携方式    | データ形式          | 利用可能な接続先   |
 | :---------- | :------------------ | :----------------- |
@@ -43,7 +43,7 @@ PLAT 認証基盤（Keycloak）の認証エンドポイントにアクセスし�
 ### サンプル（リクエスト）
 
 ```
-/auth/realms/1310000001/protocol/openid-connect/auth
+/realms/1310000001/protocol/openid-connect/auth
 ?response_type=code
 &client_id=clientid1
 &redirect_uri=customscheme://callback
