@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名              | HTTP メソッド | URI                                              |
 | :---------- |:---------------------| :------------ | :----------------------------------------------- |
-| PRV_PAT_002 | 【取得】PLAT 患者情報（医療機関用） | GET           | {applicationPath}/providers/patients/{patientId} |
+| PRV_PAT_002 | 【取得】PLAT 患者情報（医療機関用） | GET           | {{API_Path}}/providers/patients/{patientId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -22,9 +22,9 @@
 | 1   | 名前     | name      | string |    ○     | -          | 30         | 制御文字以外          | -        | -        | 漢字もしくはカナの前方一致検索                                                                                 |
 | 2   | 住所     | address   | string |    ○     | -          | 400        | 制御文字以外          | -        | -        | 前方一致検索                                                                                                   |
 | 3   | 電話番号 | telecom   | string |    ○     | -          | 17         | 数字のみ              | -        | -        | 完全一致検索                                                                                                   |
-| 4   | 性別     | gender    | string |    ○     | -          | -          | "male"/"female"       | -        | -        |                                                                                                    |
+| 4   | 性別     | gender    | string |    ○     | -          | -          | "male"/"female"       | -        | -        | "male"か"female"で検索                                                                       |
 | 5   | 生年月日 | birthDate |  string  |    ○     | -          | -          | yyyy-MM-dd            | ○        | ○        | 生年月日を完全一致検索 年月日は0で桁埋めが必要                                                                 |
-| 6   | 参照先   | location  | string |    ○     | -          | -          | ”self”/”remote”/"all" | -        | -        | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote”、患者管理の場合"all"（指定なしの場合は"all"） |
+| 6   | 参照先   | location  | string |    ○     | -          | -          | ”self”/”remote” | -        | -        | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote” |
 
 
 
@@ -46,13 +46,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/providers/patients/ClinicX_00002
+　　{{API_Path}}/providers/patients/ClinicX_00002
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/providers/patients?name=ヤマダダロウ&birthDate=1980-01-01
+　　{{API_Path}}/providers/patients?name=ヤマダダロウ&birthDate=1980-01-01
 ```
 
 ### レスポンス
@@ -72,78 +72,106 @@
 
 ```json title="正常終了"
 {
-  "searchResults": {
-    "count": 1,
-    "results": [
-      {
-        "patient": {
-          "resourceType": "Patient",
-          "text": {
-            "status": "generated",
-            "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;～～～&lt;/div&gt;"
-          },
-          "identifier": [
+    "searchResults": {
+        "count": 1,
+        "results": [
             {
-              "system": "https://www.plat.org/",
-              "value": "d2db2727-eb07-2e54-fcbd-5ed011499cb7"
-            },
-            {
-              "system": "urn:oid:1.2.392.100495.20.3.51.11310000001",
-              "value": "clinicX_p00001"
-            }
-          ],
-          "active": true,
-          "name": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-                  "valueCode": "IDE"
+                "patient": {
+                    "fullUrl": "http://localhost:19081/of2/Patient/1",
+                    "resource": {
+                        "resourceType": "Patient",
+                        "id": "1",
+                        "meta": {
+                            "versionId": "1",
+                            "lastUpdated": "2024-02-08T17:43:48.210+09:00"
+                        },
+                        "text": {
+                            "status": "generated",
+                            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">TEST</div>"
+                        },
+                        "identifier": [
+                            {
+                                "system": "https://www.plat.org/",
+                                "value": "c0109a17-1d16-410a-9ccc-c83f348c755a"
+                            },
+                            {
+                                "system": "urn:oid:1.2.392.100495.20.3.51.11310000001",
+                                "value": "clinicX_p00101"
+                            }
+                        ],
+                        "active": true,
+                        "name": [
+                            {
+                                "extension": [
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                                        "valueCode": "IDE"
+                                    }
+                                ],
+                                "family": "山田",
+                                "given": [
+                                    "一郎"
+                                ]
+                            },
+                            {
+                                "extension": [
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                                        "valueCode": "SYL"
+                                    }
+                                ],
+                                "family": "ヤマダ",
+                                "given": [
+                                    "イチロウ"
+                                ]
+                            }
+                        ],
+                        "telecom": [
+                            {
+                                "system": "phone",
+                                "value": "09099999999",
+                                "use": "mobile"
+                            }
+                        ],
+                        "gender": "male",
+                        "birthDate": "1974-12-25",
+                        "deceasedBoolean": false,
+                        "address": [
+                            {
+                                "use": "home",
+                                "line": [
+                                    "玉手町18-50"
+                                ],
+                                "city": "柏原市",
+                                "district": "大阪府",
+                                "postalCode": "5820001"
+                            }
+                        ],
+                        "managingOrganization": {
+                            "identifier": {
+                                "system": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo",
+                                "value": "1310000001"
+                            }
+                        }
+                    },
+                    "search": {
+                        "mode": "match"
+                    }
                 }
-              ],
-              "family": "山田",
-              "given": ["太郎"]
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-                  "valueCode": "SYL"
-                }
-              ],
-              "family": "ヤマダ",
-              "given": ["タロウ"]
             }
-          ],
-          "telecom": [
-            {
-              "system": "phone",
-              "value": "09099999999",
-              "use": "mobile"
-            }
-          ],
-          "gender": "male",
-          "birthDate": "1974-12-25",
-          "deceasedBoolean": false,
-          "address": [
-            {
-              "use": "home",
-              "line": ["玉手町 18-50"],
-              "city": "柏原市",
-              "district": "大阪府",
-              "postalCode": "5820001"
-            }
-          ]
-        }
-      }
-    ]
-  }
+        ]
+    }
 }
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "性別の選択が想定値ではありません。"
+        }
+    ]
 }
 ```
 

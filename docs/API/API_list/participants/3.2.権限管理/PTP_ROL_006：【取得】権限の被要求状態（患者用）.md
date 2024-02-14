@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                         | HTTP メソッド | URI                                                                       |
 | :---------- | :--------------------------------- | :------------ | :------------------------------------------------------------------------ |
-| PTP_ROL_006 | 【取得】権限の被要求状態（患者用） | PUT           | {applicationPath}/participants/permission/approval/{permissionApprovalId} |
+| PTP_ROL_006 | 【取得】権限の被要求状態（患者用） | PUT           | {{API_Path}}/participants/permission/approval/{permissionApprovalId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先 |
 | :------- | :----------------------------------- | :--------------- |
@@ -32,13 +32,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/participants/permission/approval/33
+　　{{API_Path}}/participants/permission/approval/33
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/participants/permission/approval?status=1
+　　{{API_Path}}/participants/permission/approval?status=1
 ```
 
 ### レスポンス
@@ -74,37 +74,44 @@
 ### サンプル（レスポンス）
 
 ```json title="正常終了"
-{
-  "permissionGroup": {
-    "permissionGroupId": "6a7a8516-610d-4c35-bf95-9e7b5219a852",
-    "status": "3",
-    "requestedOrganizationId": "1310000001",
-    "requestedDepartmentId": "",
-    "requestedPersonalId": "ececfc9e-4b53-48c0-96da-482ffdf69a95",
-    "requestedDatetime": "Oct 7, 2021, 7:51:02 PM"
-  },
-  "permissionApproval": [
+[
     {
-      "permissionApprovalId": 2,
-      "status": "0",
-      "allowablePersonalId": "db04b087-52ee-4d69-9861-07e4d3db325e"
+        "permissionGroup": {
+            "permissionGroupId": "869bfe94-1566-486c-a2bf-f0ef7ec2c3f9",
+            "status": "0",
+            "deletedFlg": 0,
+            "requestedOrganizationId": "1310000001",
+            "requestedPersonalId": "",
+            "requestedDatetime": "Feb 8, 2024, 5:32:45 PM"
+        },
+        "permissionApproval": [
+            {
+                "permissionApprovalId": 4,
+                "status": "0",
+                "deletedFlg": 0,
+                "allowablePersonalId": "xxxxxxxxxx"
+            }
+        ],
+        "permissionComment": [
+            {
+                "permissionCommentId": 4,
+                "organizationId": "1310000001",
+                "personalId": "",
+                "comment": "クリニックXの初期権限"
+            }
+        ]
     }
-  ],
-  "permissionComment": [
-    {
-      "permissionCommentId": 2,
-      "organizationId": "1310000001",
-      "departmentId": "",
-      "personalId": "ececfc9e-4b53-48c0-96da-482ffdf69a95",
-      "comment": "クリニック X 医師 B への権限承認をお願いします"
-    }
-  ]
-}
+]
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "ステータスが想定されている値ではありません。"
+        }
+    ]
 }
 ```
 

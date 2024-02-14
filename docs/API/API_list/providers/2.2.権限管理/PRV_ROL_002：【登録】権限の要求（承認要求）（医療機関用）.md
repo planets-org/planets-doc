@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                                   | HTTP メソッド | URI                                     |
 | :---------- | :------------------------------------------- | :------------ | :-------------------------------------- |
-| PRV_ROL_002 | 【登録】権限の要求（承認要求）（医療機関用） | POST          | {applicationPath}/providers/permissions |
+| PRV_ROL_002 | 【登録】権限の要求（承認要求）（医療機関用） | POST          | {{API_Path}}/providers/permissions |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -54,33 +54,28 @@
 
 ```json
 {
-　　"comment": "患者 1 への権限要求",
-　　"permissionApproval": [
-　　　　{
-　　　　　　"allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"　 → 　患者の PLAT 共通 ID を設定
-　　　　}
-　　],
-　　"permissionList": [
-　　　　{
-　　　　　　"classification": "2",
-　　　　　　"permissionId": "1310000001", → 医療機関 ID を設定
-　　　　　　"type": "01",
-　　　　　　"expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-　　　　　　"expirationTo": "Mar 2, 2025, 1:00:00 AM",
-　　　　　　"detailList": [
-　　　　　　　　{
-　　　　　　　　　　"path": "Composition.subject:Patient.identifier",
-　　　　　　　　　　"operator": "01",
-　　　　　　　　　　"value": "https://www.plat.org/|6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"
-　　　　　　　　},
-　　　　　　　　{
-　　　　　　　　　　"path": "type.coding.code",　 →Bundle の Path（文書タイプ）
-　　　　　　　　　　"operator": "01",　
-　　　　　　　　　　"value": "01"　 → 文書タイプの値
-　　　　　　　　}
-　　　　　　]
-　　　　}
-　　]
+    "comment": "クリニックXの初期権限",
+    "permissionApproval": [
+        {
+            "allowablePersonalId": "xxxxxxxxxx"
+        }
+    ],
+    "permissionList": [
+        {
+            "classification": "2",
+            "permissionId": "1310000001",
+            "type": "03",
+            "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
+            "expirationTo": "Feb 23, 2025, 1:00:00 AM",
+            "detailList": [
+                {
+                    "path": "Composition.author:Organization.identifier",
+                    "operator": "01",
+                    "value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -125,50 +120,45 @@
 
 ```json title="正常終了"
 {
-  "permissionGroup": {
-    "permissionGroupId": "d79650b4-1f72-4ee8-85dd-1aaa049d0da9",
-    "status": "0",
-    "requestedOrganizationId": "1310000001",
-    "requestedDepartmentId": "",
-    "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
-    "requestedDatetime": "Oct 6, 2021, 9:44:07 PM"
-  },
-  "permissionList": [
-    {
-      "detailList": [
+    "permissionGroup": {
+        "permissionGroupId": "869bfe94-1566-486c-a2bf-f0ef7ec2c3f9",
+        "status": "0",
+        "deletedFlg": 0,
+        "requestedOrganizationId": "1310000001",
+        "requestedPersonalId": "",
+        "requestedDatetime": "Feb 8, 2024, 5:32:45 PM"
+    },
+    "permissionList": [
         {
-          "path": "Composition.subject:Patient.identifier",
-          "operator": "01",
-          "value": "https://www.plat.org/|0034fff5-296b-4ece-b2b8-a97e34ae5cf2"
-        },
-        {
-          "path": "type.coding.code",
-          "operator": "01",
-          "value": "01"
+            "detailList": [
+                {
+                    "path": "Composition.author:Organization.identifier",
+                    "operator": "01",
+                    "value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+                }
+            ],
+            "permissionManagementId": "de4410c8-aa14-4f59-9b25-1e77d1de8063",
+            "classification": "2",
+            "permissionId": "1310000001",
+            "type": "03",
+            "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
+            "expirationTo": "Feb 23, 2025, 1:00:00 AM"
         }
-      ],
-      "permissionManagementId": "c42e5ca3-fb57-4e5a-9b75-a9b08aeddda4",
-      "classification": "1",
-      "permissionId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
-      "type": "01",
-      "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-      "expirationTo": "Feb 23, 2022, 1:00:00 AM"
-    }
-  ],
-  "permissionApproval": [
-    {
-      "status": "0",
-      "allowablePersonalId": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2"
-    }
-  ],
-  "permissionComment": [
-    {
-      "organizationId": "1310000001",
-      "departmentId": "",
-      "personalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
-      "comment": "クリニック X 医師 B への権限承認をお願いします"
-    }
-  ]
+    ],
+    "permissionApproval": [
+        {
+            "status": "0",
+            "deletedFlg": 0,
+            "allowablePersonalId": "xxxxxxxxxx"
+        }
+    ],
+    "permissionComment": [
+        {
+            "organizationId": "1310000001",
+            "personalId": "",
+            "comment": "クリニックXの初期権限"
+        }
+    ]
 }
 ```
 

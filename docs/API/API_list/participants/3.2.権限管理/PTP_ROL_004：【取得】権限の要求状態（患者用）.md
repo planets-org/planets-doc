@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                       | HTTP メソッド | URI                                                                    |
 | :---------- | :------------------------------- | :------------ | :--------------------------------------------------------------------- |
-| PTP_ROL_004 | 【取得】権限の要求状態（患者用） | GET           | {applicationPath}/participants/permission/requests/{permissionGroupId} |
+| PTP_ROL_004 | 【取得】権限の要求状態（患者用） | GET           | {{API_Path}}/participants/permission/requests/{permissionGroupId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先 |
 | :------- | :----------------------------------- | :--------------- |
@@ -41,13 +41,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/participants/permission/requests/3fa04331-85fd-4cb5-819d-d240145a74ca
+　　{{API_Path}}/participants/permission/requests/3fa04331-85fd-4cb5-819d-d240145a74ca
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/participants/permission/requests?status=1
+　　{{API_Path}}/participants/permission/requests?status=1
 ```
 
 ### レスポンス
@@ -82,39 +82,43 @@
 
 ```json title="正常終了"
 [
-  {
-    "permissionGroup": {
-      "permissionGroupId": "6a7a8516-610d-4c35-bf95-9e7b5219a852",
-      "status": "0",
-      "requestedOrganizationId": "1310000001",
-      "requestedDepartmentId": "",
-      "requestedPersonalId": "ececfc9e-4b53-48c0-96da-482ffdf69a95",
-      "requestedDatetime": "Oct 7, 2021, 7:51:02 PM"
-    },
-    "permissionApproval": [
-      {
-        "permissionGroupId": 2,
-        "permissionGroupId": "6a7a8516-610d-4c35-bf95-9e7b5219a852",
-        "status": "0",
-        "allowablePersonalId": "db04b087-52ee-4d69-9861-07e4d3db325e"
-      }
-    ],
-    "permissionComment": [
-      {
-        "permissionCommentId": 2,
-        "organizationId": "1310000001",
-        "departmentId": "",
-        "personalId": "ececfc9e-4b53-48c0-96da-482ffdf69a95",
-        "comment": "クリニック X 医師 B への権限承認をお願いします"
-      }
-    ]
-  }
+    {
+        "permissionGroup": {
+            "permissionGroupId": "fdcdde0f-8cd0-424f-a19a-29fb86e131db",
+            "status": "0",
+            "deletedFlg": 0,
+            "requestedOrganizationId": "0000000000",
+            "requestedPersonalId": "c0109a17-1d16-410a-9ccc-c83f348c755a",
+            "requestedDatetime": "Feb 8, 2024, 6:23:45 PM"
+        },
+        "permissionApproval": [
+            {
+                "permissionApprovalId": 5,
+                "status": "0",
+                "deletedFlg": 0,
+                "allowablePersonalId": "xxxxxxxxxx"
+            }
+        ],
+        "permissionComment": [
+            {
+                "permissionCommentId": 5,
+                "organizationId": "0000000000",
+                "personalId": "c0109a17-1d16-410a-9ccc-c83f348c755a",
+                "comment": "クリニックXの初期権限"
+            }
+        ]
+    }
 ]
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "ステータスが想定されている値ではありません。"
+        }
+    ]
 }
 ```
 

@@ -4,7 +4,7 @@ PLAT 上で管理しているスタッフ情報を取得する。
 
 | 機能 ID     | API 論理名    | HTTP メソッド | URI                                          |
 | :---------- |:-----------| :------------ | :------------------------------------------- |
-| PRV_STF_002 | 【取得】スタッフ情報 | GET           | {applicationPath}/providers/staffs/{staffId} |
+| PRV_STF_002 | 【取得】スタッフ情報 | GET           | {{API_Path}}/providers/staffs/{staffId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -39,13 +39,13 @@ PLAT 上で管理しているスタッフ情報を取得する。
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/providers/staffs/3fa04331-85fd-4cb5-819d-d240145a74ca
+　　{{API_Path}}/providers/staffs/3fa04331-85fd-4cb5-819d-d240145a74ca
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/providers/staffs?name=ヤマダタロウ
+　　{{API_Path}}/providers/staffs?name=ヤマダタロウ
 ```
 
 ### レスポンス
@@ -68,28 +68,25 @@ PLAT 上で管理しているスタッフ情報を取得する。
 
 ```json title="正常終了"
 [
-  {
-    "staffId": "aef656e5-0735-4757-a369-83a2b34110bd",
-    "emergencyFlg": 0,
-    "nameKanji": "田中一郎",
-    "nameKana": "タナカイチロウ",
-    "version": 0,
-    "updatedDatetime": "Oct 7, 2021, 7:50:46 PM"
-  },
-  {
-    "staffId": "ececfc9e-4b53-48c0-96da-482ffdf69a95",
-    "emergencyFlg": 0,
-    "nameKanji": "佐藤次郎",
-    "nameKana": "サトウジロウ",
-    "version": 0,
-    "updatedDatetime": "Oct 7, 2021, 7:50:50 PM"
-  }
+    {
+        "staffId": "4ca7ae35-8e87-4862-a494-6cc3bb473e88",
+        "emergencyFlg": 0,
+        "nameKanji": "田中一郎",
+        "nameKana": "タナカイチロウ",
+        "version": 0,
+        "updatedDatetime": "Feb 8, 2024, 5:56:48 PM"
+    }
 ]
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "救急フラグが想定されている値ではありません。"
+        }
+    ]
 }
 ```
 
