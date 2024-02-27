@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                             | HTTP メソッド | URI                                                                    |
 | :---------- | :------------------------------------- | :------------ | :--------------------------------------------------------------------- |
-| PRV_ROL_006 | 【取得】権限の被要求状態（医療機関用） | PUT           | {{API_Path}}/providers/permission/approval/{permissionApprovalId} |
+| PRV_ROL_006 | 【取得】権限の被要求状態（医療機関用） | PUT           | {applicationPath}/providers/permission/approval/{permissionApprovalId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -41,13 +41,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/permission/approval/33
+　　{applicationPath}/providers/permission/approval/33
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/permission/approval?status=1
+　　{applicationPath}/providers/permission/approval?status=1
 ```
 
 ### レスポンス

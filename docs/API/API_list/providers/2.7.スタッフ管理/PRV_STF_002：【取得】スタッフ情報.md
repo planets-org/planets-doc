@@ -4,7 +4,7 @@ PLAT 上で管理しているスタッフ情報を取得する。
 
 | 機能 ID     | API 論理名    | HTTP メソッド | URI                                          |
 | :---------- |:-----------| :------------ | :------------------------------------------- |
-| PRV_STF_002 | 【取得】スタッフ情報 | GET           | {{API_Path}}/providers/staffs/{staffId} |
+| PRV_STF_002 | 【取得】スタッフ情報 | GET           | {applicationPath}/providers/staffs/{staffId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -39,13 +39,13 @@ PLAT 上で管理しているスタッフ情報を取得する。
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/staffs/3fa04331-85fd-4cb5-819d-d240145a74ca
+　　{applicationPath}/providers/staffs/3fa04331-85fd-4cb5-819d-d240145a74ca
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/staffs?name=ヤマダタロウ
+　　{applicationPath}/providers/staffs?name=ヤマダタロウ
 ```
 
 ### レスポンス

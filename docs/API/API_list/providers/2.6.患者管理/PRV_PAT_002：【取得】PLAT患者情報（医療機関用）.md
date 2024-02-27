@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名              | HTTP メソッド | URI                                              |
 | :---------- |:---------------------| :------------ | :----------------------------------------------- |
-| PRV_PAT_002 | 【取得】PLAT 患者情報（医療機関用） | GET           | {{API_Path}}/providers/patients/{patientId} |
+| PRV_PAT_002 | 【取得】PLAT 患者情報（医療機関用） | GET           | {applicationPath}/providers/patients/{patientId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -27,8 +27,6 @@
 | 6   | 参照先   | location  | string |    ○     | -          | -          | ”self”/”remote” | -        | -        | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote” |
 
 
-
-
 ### リクエスト（パスパラメータ）
 
 | No. | 項目名   | 物理名     | 属性   | Nullable | 最小文字数 | 最大文字数 | フォーマット | 過去日付 | 未来日付 | 設定要領 |
@@ -46,13 +44,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/patients/ClinicX_00002
+　　{applicationPath}/providers/patients/ClinicX_00002
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/patients?name=ヤマダダロウ&birthDate=1980-01-01
+　　{applicationPath}/providers/patients?name=ヤマダダロウ&birthDate=1980-01-01
 ```
 
 ### レスポンス

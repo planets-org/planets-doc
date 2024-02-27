@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名       | HTTP メソッド | URI                                     |
 | :---------- | :--------------- | :------------ | :-------------------------------------- |
-| PRV_ROL_001 | 【取得】権限情報 | GET           | {{API_Path}}/providers/permissions |
+| PRV_ROL_001 | 【取得】権限情報 | GET           | {applicationPath}/providers/permissions |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -41,13 +41,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/permissions/3fa04331-85fd-4cb5-819d-d240145a74ca
+　　{applicationPath}/providers/permissions/3fa04331-85fd-4cb5-819d-d240145a74ca
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/permissions?permissionId=1310000001&classification=2&defaultdate=2021-06-01T13:00:00Z
+　　 {applicationPath}/providers/permissions?permissionId=1310000001&classification=2&defaultdate=2021-06-01T13:00:00Z
 ```
 
 ### レスポンス
