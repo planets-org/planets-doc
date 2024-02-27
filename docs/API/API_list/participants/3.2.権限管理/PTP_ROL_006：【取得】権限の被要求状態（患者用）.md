@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                         | HTTP メソッド | URI                                                                       |
 | :---------- | :--------------------------------- | :------------ | :------------------------------------------------------------------------ |
-| PTP_ROL_006 | 【取得】権限の被要求状態（患者用） | PUT           | {{API_Path}}/participants/permission/approval/{permissionApprovalId} |
+| PTP_ROL_006 | 【取得】権限の被要求状態（患者用） | PUT           | {applicationPath}/participants/permission/approval/{permissionApprovalId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先 |
 | :------- | :----------------------------------- | :--------------- |
@@ -32,13 +32,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/participants/permission/approval/33
+　　{applicationPath}/participants/permission/approval/33
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/participants/permission/approval?status=1
+　　{applicationPath}/participants/permission/approval?status=1
 ```
 
 ### レスポンス

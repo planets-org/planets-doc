@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名       | HTTP メソッド | URI                                     |
 | :---------- | :--------------- | :------------ | :-------------------------------------- |
-| PRV_ROL_001 | 【取得】権限情報 | GET           | {applicationPath}/providers/permissions |
+| PRV_ROL_001 | 【取得】権限情報 | GET           | {{API_Path}}/providers/permissions |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -20,9 +20,9 @@
 
  | No. | 項目名       | 物理名         |  属性  | Nullable | 最小文字数 | 最大文字数 | フォーマット                                                                           | 過去日付 | 未来日付 | 設定要領                                                                                                       |
  | :-- | :----------- | :------------- | :----: | :------: | ---------- | ---------- | -------------------------------------------------------------------------------------- | -------- | -------- | :------------------------------------------------------------------------------------------------------------- |
- | 1   | 権限保持区分 | classification | string |    ○     | -          | -          | "1"/"2"                                        | -        | -        | 権限保持区分を設定する(1:1個人、2:組織)                                                                        |
- | 2   | 許可者ID     | permissionId   | string |    ○     | -          | 36         | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()]                          | -        | -        | 許可者IDを設定する(個人の場合はPLATIDかスタッフID、組織の場合は医療機関ID)                                     |
- | 3   | 基準日       | defaultdate    | string |    ○     | -          | -          | yyyy-MM-dd'T'HH:mm:ss'Z'                                                               | ○        | ○        | 診療日の検索終了日　年月日は0で桁埋めが必要                                                                    |
+ | 1   | 権限保持区分 | classification | string |    -     | -          | -          | "1"/"2"                                        | -        | -        | 権限保持区分を設定する(1:1個人、2:組織)                                                                        |
+ | 2   | 許可者ID     | permissionId   | string |    -     | -          | 36         | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()]                          | -        | -        | 許可者IDを設定する(個人の場合はPLATIDかスタッフID、組織の場合は医療機関ID)                                     |
+ | 3   | 基準日       | defaultDate    | string |    ○     | -          | -          | yyyy-MM-dd'T'HH:mm:ss'Z'                                                               | ○        | ○        | 指定した基準日における有効な権限情報を取得できる |
  | 4   | 参照先       | location       | string |    ○     | -          | -          | ”self”/”remote”/"all" | -        | -        | self:ローカルのMETADB <br/>remote/all:リモートのMETALAB|
  
 
@@ -41,13 +41,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/providers/permissions/3fa04331-85fd-4cb5-819d-d240145a74ca
+　　{{API_Path}}/providers/permissions/3fa04331-85fd-4cb5-819d-d240145a74ca
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/providers/permissions?classification=2&permissionId=1310000001&defaultdate=2021-04-01T13:00:00Z
+　　{{API_Path}}/providers/permissions?permissionId=1310000001&classification=2&defaultdate=2021-06-01T13:00:00Z
 ```
 
 ### レスポンス
@@ -77,31 +77,35 @@
 
 ```json title="正常終了"
 {
-  "permissionList": [
-    {
-      "detailList": [
+    "permissionList": [
         {
-          "permissionDetailId": 1,
-          "permissionManagementId": "521f67c7-4eb6-402b-a873-684f9cd5f6b7",
-          "path": "Composition.author:Organization.identifier",
-          "operator": "01",
-          "value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+            "detailList": [
+                {
+                    "permissionDetailId": 2,
+                    "path": "Composition.author:Organization.identifier",
+                    "operator": "01",
+                    "value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+                }
+            ],
+            "permissionManagementId": "d1da2e07-9ded-4105-8455-00bed9e5fba6",
+            "classification": "2",
+            "permissionId": "1310000001",
+            "type": "03",
+            "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
+            "expirationTo": "Feb 23, 2025, 1:00:00 AM"
         }
-      ],
-      "permissionManagementId": "521f67c7-4eb6-402b-a873-684f9cd5f6b7",
-      "classification": "2",
-      "permissionId": "1310000001",
-      "type": "03",
-      "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-      "expirationTo": "Feb 23, 2022, 1:00:00 AM"
-    }
-  ]
+    ]
 }
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "権限保持区分が想定されている値ではありません。"
+        }
+    ]
 }
 ```
 

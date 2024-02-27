@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                       | HTTP メソッド | URI                                                                    |
 | :---------- | :------------------------------- | :------------ | :--------------------------------------------------------------------- |
-| PTP_ROL_004 | 【取得】権限の要求状態（患者用） | GET           | {{API_Path}}/participants/permission/requests/{permissionGroupId} |
+| PTP_ROL_004 | 【取得】権限の要求状態（患者用） | GET           | {applicationPath}/participants/permission/requests/{permissionGroupId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先 |
 | :------- | :----------------------------------- | :--------------- |
@@ -41,13 +41,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/participants/permission/requests/3fa04331-85fd-4cb5-819d-d240145a74ca
+　　{applicationPath}/participants/permission/requests/3fa04331-85fd-4cb5-819d-d240145a74ca
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/participants/permission/requests?status=1
+　　{applicationPath}/participants/permission/requests?status=1
 ```
 
 ### レスポンス
