@@ -104,7 +104,7 @@
                 "permissionCommentId": 5,
                 "organizationId": "0000000000",
                 "personalId": "c0109a17-1d16-410a-9ccc-c83f348c755a",
-                "comment": "クリニックXの初期権限"
+                "comment": "クリニック X 医師 B への権限承認をお願いします"
             }
         ]
     }

@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                           | HTTP メソッド | URI                                                                 |
 | :---------- | :----------------------------------- | :------------ | :------------------------------------------------------------------ |
-| PRV_ROL_004 | 【取得】権限の要求状態（医療機関用） | GET           | {{API_Path}}/providers/permission/requests/{permissionGroupId} |
+| PRV_ROL_004 | 【取得】権限の要求状態（医療機関用） | GET           | {applicationPath}/providers/permission/requests/{permissionGroupId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -20,7 +20,7 @@
 | No. | 項目名     | 物理名   |  属性  | Nullable | 最小文字数                                                                       | 最大文字数 | フォーマット          | 過去日付 | 未来日付 | 設定要領                                                                                                       |
 | :-- | :--------- | :------- | :----: | :------: | -------------------------------------------------------------------------------- | ---------- | --------------------- | -------- | -------- | :------------------------------------------------------------------------------------------------------------- |
 | 1   | ステータス | status   | string |    ○     | -                                                                                | -          | ”0”/”1”/"2"/"3" | -        | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
-| 2   | 参照先     | location | string |    ○     | -                                                                                | -          | ”self”/”remote”/"all" | -        | -        | self:ローカルのMETADB <br/>remote/all:リモートのMETALAB |                                                                                                |
+| 2   | 参照先     | location | string |    ○     | -                                                                                | -          | ”self”/”remote”/"all" | -        | -        | self:自身のMETADB <br/>remote/all:リモートのMETALAB |                                                                                                |
 
 ### リクエスト（パスパラメータ）
 | No. | 項目名             | 物理名            |  属性  | Nullable | 最小文字数 | 最大文字数 | フォーマット                                                  | 過去日付 | 未来日付 | 設定要領                            |
@@ -40,13 +40,13 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{{API_Path}}/providers/permission/requests/3fa04331-85fd-4cb5-819d-d240145a74ca
+　　{applicationPath}/providers/permission/requests/3fa04331-85fd-4cb5-819d-d240145a74ca
 ```
 
 ＜クエリパラメータ指定の場合＞
 
 ```
-　{{API_Path}}/providers/permission/requests?status=1
+　{applicationPath}/providers/permission/requests?status=1
 ```
 
 ### レスポンス
