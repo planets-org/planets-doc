@@ -23,7 +23,7 @@
  | 1   | 権限保持区分 | classification | string |    -     | -          | -          | "1"/"2"                                        | -        | -        | 権限保持区分を設定する(1:1個人、2:組織)                                                                        |
  | 2   | 許可者ID     | permissionId   | string |    -     | -          | 36         | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()]                          | -        | -        | 許可者IDを設定する(個人の場合はPLATIDかスタッフID、組織の場合は医療機関ID)                                     |
  | 3   | 基準日       | defaultDate    | string |    ○     | -          | -          | yyyy-MM-dd'T'HH:mm:ss'Z'                                                               | ○        | ○        | 指定した基準日における有効な権限情報を取得できる |
- | 4   | 参照先       | location       | string |    ○     | -          | -          | ”self”/”remote”/"all" | -        | -        | self:自身のMETADB <br/>remote/all:リモートのMETALAB|
+ | 4   | 参照先       | location       | string |    ○     | -          | -          | ”self”/”remote”/"all" | -        | -        | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote”|
  
 
 ### リクエスト（パスパラメータ）

@@ -50,28 +50,28 @@
 
 ### サンプル（リクエスト）
 
-クリニックXの全ての権限を付与する場合（実際は最小権限を与える）
+医療機関が患者へ保険医療記録の閲覧権限を要求する場合
 
 ```json
 {
-    "comment": "クリニックXの初期権限",
-    "permissionApproval": [
-        {
-            "allowablePersonalId": "xxxxxxxxxx"
-        }
-    ],
-    "permissionList": [
-        {
-            "classification": "2",
-            "permissionId": "1310000001",
-            "type": "03",
-            "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-            "expirationTo": "Feb 23, 2025, 1:00:00 AM",
-            "detailList": [
-                {
-                    "path": "Composition.author:Organization.identifier",
-                    "operator": "01",
-                    "value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+    　"comment": "患者 1 への権限要求",
+　　"permissionApproval": [
+　　　　{
+　　　　　　"allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"　 → 　患者の PLAT 共通 ID を設定
+　　　　}
+　　],
+　　"permissionList": [
+　　　　{
+　　　　　　"classification": "2",
+　　　　　　"permissionId": "1310000001", → 医療機関 ID を設定
+　　　　　　"type": "01",
+　　　　　　"expirationFrom": "Mar 2, 2021, 1:00:00 AM",
+　　　　　　"expirationTo": "Mar 2, 2025, 1:00:00 AM",
+　　　　　　"detailList": [
+　　　　　　　　{
+　　　　　　　　　　"path": "Composition.author:Organization.identifier",
+　　　　　　　　　　"operator": "01",
+　　　　　　　　　　"value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
                 }
             ]
         }
@@ -157,7 +157,7 @@
         {
             "organizationId": "1310000001",
             "personalId": "",
-            "comment": "クリニックXの初期権限"
+            "comment": "クリニック X 医師 B への権限承認をお願いします"
         }
     ]
 }
