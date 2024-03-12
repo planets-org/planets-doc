@@ -69,10 +69,15 @@
 　　　　　　"expirationTo": "Mar 2, 2025, 1:00:00 AM",
 　　　　　　"detailList": [
 　　　　　　　　{
-　　　　　　　　　　"path": "Composition.author:Organization.identifier",
+　　　　　　　　　　"path": "Composition.subject:Patient.identifier",
 　　　　　　　　　　"operator": "01",
-　　　　　　　　　　"value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+　　　　　　　　　　"value": "https://www.plat.org/|6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"
                 }
+                　{
+　　　　　　　　　　"path": "type.coding.code",　 →Bundle の Path（文書タイプ）
+　　　　　　　　　　"operator": "01",　
+　　　　　　　　　　"value": "01"　 → 文書タイプの値
+　　　　　　　　}
             ]
         }
     ]
