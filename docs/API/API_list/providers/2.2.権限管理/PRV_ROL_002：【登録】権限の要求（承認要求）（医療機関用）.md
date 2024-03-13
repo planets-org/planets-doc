@@ -54,33 +54,33 @@
 
 ```json
 {
-　　"comment": "患者 1 への権限要求",
-　　"permissionApproval": [
-　　　　{
-　　　　　　"allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"　 → 　患者の PLAT 共通 ID を設定
-　　　　}
-　　],
-　　"permissionList": [
-　　　　{
-　　　　　　"classification": "2",
-　　　　　　"permissionId": "1310000001", → 医療機関 ID を設定
-　　　　　　"type": "01",
-　　　　　　"expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-　　　　　　"expirationTo": "Mar 2, 2025, 1:00:00 AM",
-　　　　　　"detailList": [
-　　　　　　　　{
-　　　　　　　　　　"path": "Composition.subject:Patient.identifier",
-　　　　　　　　　　"operator": "01",
-　　　　　　　　　　"value": "https://www.plat.org/|6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"
-　　　　　　　　},
-　　　　　　　　{
-　　　　　　　　　　"path": "type.coding.code",　 →Bundle の Path（文書タイプ）
-　　　　　　　　　　"operator": "01",　
-　　　　　　　　　　"value": "01"　 → 文書タイプの値
-　　　　　　　　}
-　　　　　　]
-　　　　}
-　　]
+  "comment": "患者 1 への権限要求",
+  "permissionApproval": [
+    {
+      "allowablePersonalId": "56592a53-282a-43af-9a48-6827462607ea"
+    }
+  ],
+  "permissionList": [
+    {
+      "classification": "1",
+      "permissionId": "56592a53-282a-43af-9a48-6827462607ea",
+      "type": "03",
+      "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
+      "expirationTo": "Mar 23, 2025, 1:00:00 AM",
+      "detailList": [
+        {
+          "path": "Composition.subject:Patient.identifier",
+          "operator": "01",
+          "value": "https://www.plat.org/|56592a53-282a-43af-9a48-6827462607ea"
+        },
+        {
+          "path": "Composition.type.coding.code",
+          "operator": "01",
+          "value": "99"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -126,12 +126,12 @@
 ```json title="正常終了"
 {
   "permissionGroup": {
-    "permissionGroupId": "d79650b4-1f72-4ee8-85dd-1aaa049d0da9",
+    "permissionGroupId": "0a127420-5653-4289-b4b8-b144f303c817",
     "status": "0",
+    "deletedFlg": 0,
     "requestedOrganizationId": "1310000001",
-    "requestedDepartmentId": "",
-    "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
-    "requestedDatetime": "Oct 6, 2021, 9:44:07 PM"
+    "requestedPersonalId": "",
+    "requestedDatetime": "Mar 13, 2024, 11:33:46 AM"
   },
   "permissionList": [
     {
@@ -139,34 +139,34 @@
         {
           "path": "Composition.subject:Patient.identifier",
           "operator": "01",
-          "value": "https://www.plat.org/|0034fff5-296b-4ece-b2b8-a97e34ae5cf2"
+          "value": "https://www.plat.org/|56592a53-282a-43af-9a48-6827462607ea"
         },
         {
-          "path": "type.coding.code",
+          "path": "Composition.type.coding.code",
           "operator": "01",
-          "value": "01"
+          "value": "99"
         }
       ],
-      "permissionManagementId": "c42e5ca3-fb57-4e5a-9b75-a9b08aeddda4",
+      "permissionManagementId": "e19bcc4b-b9aa-4ddb-a664-40623976ab30",
       "classification": "1",
-      "permissionId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
-      "type": "01",
+      "permissionId": "56592a53-282a-43af-9a48-6827462607ea",
+      "type": "03",
       "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-      "expirationTo": "Feb 23, 2022, 1:00:00 AM"
+      "expirationTo": "Mar 23, 2025, 1:00:00 AM"
     }
   ],
   "permissionApproval": [
     {
       "status": "0",
-      "allowablePersonalId": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2"
+      "deletedFlg": 0,
+      "allowablePersonalId": "56592a53-282a-43af-9a48-6827462607ea"
     }
   ],
   "permissionComment": [
     {
       "organizationId": "1310000001",
-      "departmentId": "",
-      "personalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
-      "comment": "クリニック X 医師 B への権限承認をお願いします"
+      "personalId": "",
+      "comment": "患者 1 への権限要求"
     }
   ]
 }

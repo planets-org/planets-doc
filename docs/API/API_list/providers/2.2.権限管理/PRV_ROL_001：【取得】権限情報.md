@@ -18,23 +18,23 @@
 
 ### リクエスト（クエリ）
 
-| No. | 項目名       | 物理名         |  属性  | Nullable | 設定要領                                                                     |
-| :-- | :----------- | :------------- | :----: | :------: | :--------------------------------------------------------------------------- |
-| 1   | 権限保持区分 | classification | string |    -     | 権限保持区分を設定する。（1:個人、2:組織）                                   |
-| 2   | 許可者 ID    | permissionId   | string |    -     | 許可者 ID を設定する。（個人の場合は PLAT 共通 ID、組織の場合は医療機関 ID） |
-| 3   | 基準日       | defaultdate    |  date  |    -     | 権限の有効期限 From ～ To の条件を設定する。                                 |
+ | No. | 項目名       | 物理名         |  属性  | Nullable | 最小文字数 | 最大文字数 | フォーマット                                                                           | 過去日付 | 未来日付 | 設定要領                                                                                                       |
+ | :-- | :----------- | :------------- | :----: | :------: | ---------- | ---------- | -------------------------------------------------------------------------------------- | -------- | -------- | :------------------------------------------------------------------------------------------------------------- |
+ | 1   | 権限保持区分 | classification | string |    -     | -          | -          | "1"/"2"                                        | -        | -        | 権限保持区分を設定する(1:1個人、2:組織)                                                                        |
+ | 2   | 許可者ID     | permissionId   | string |    -     | -          | 36         | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()]                          | -        | -        | 許可者IDを設定する(個人の場合はPLATIDかスタッフID、組織の場合は医療機関ID)                                     |
+ | 3   | 基準日       | defaultDate    | string |    ○     | -          | -          | yyyy-MM-dd'T'HH:mm:ss'Z'                                                               | ○        | ○        | 指定した基準日における有効な権限情報を取得できる |
+ | 4   | 参照先       | location       | string |    ○     | -          | -          | ”self”/”remote”/"all" | -        | -        | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote”|
+ 
 
 ### リクエスト（パスパラメータ）
-
-| No. | 項目名      | 物理名                 |  属性  | Nullable | 設定要領                                                                 |
-| :-- | :---------- | :--------------------- | :----: | :------: | :----------------------------------------------------------------------- |
-| 1   | 権限管理 ID | permissionManagementId | string |    -     | 権限管理 ID を設定する。クエリパラメータ指定が無い場合は必須入力となる。 |
-
+| No. | 項目名     | 物理名                 |  属性  | Nullable | 最小文字数 | 最大文字数 | フォーマット                                                  | 過去日付 | 未来日付 | 設定要領                            |
+| :-- | :--------- | :--------------------- | :----: | :------: | ---------- | ---------- | ------------------------------------------------------------- | -------- | -------- | :---------------------------------- |
+| 1   | 権限管理ID | permissionManagementId | string |    -     | -          | 36         | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()] | -        | -        | クエリパラメータがない場合は必須指定となる |
 ### リクエスト(Body)
 
-| No. | 項目名 | 物理名 | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性 | Nullable | リクエスト設定要領 |
-| :-- | :----- | :----- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :--- | :------- | :----------------- |
-| -   |        |        |     |     |     |     |     |     |        |      |          |                    |
+| No. | 項目名   | 物理名     | 属性   | Nullable | 最小文字数 | 最大文字数 | フォーマット | 過去日付 | 未来日付 | 設定要領 |
+| :-- | :------ | :-------- | :----: | :------: | ----- | ------ | ----------- | -------- | ------- |:----------------------------------------------- |
+| -   |      |     |        |      |          |     |        |       |              |         |          |                   |
 
 ### サンプル（リクエスト）
 
@@ -47,27 +47,27 @@
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/providers/permissions?classification=2&permissionId=1310000001&defaultdate=2021-04-01T13:00:00Z
+　　 {applicationPath}/providers/permissions?permissionId=1310000001&classification=2&defaultdate=2021-06-01T13:00:00Z
 ```
 
 ### レスポンス
 
-| No. | 項目名              | 物理名                 | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | レスポンス設定要領                                                                                                              |
-| :-- | :------------------ | :--------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| 1   | 権限管理リスト      | permissionList         |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                                                                 |
-| 2   | 権限詳細リスト      | detailList             |     |  ○  |     |     |     |     | ○      | array  | -        |                                                                                                                                 |
-| 3   | 権限詳細 ID         | permissionDetailId     |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
-| 4   | 権限管理 ID         | permissionManagementId |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
-| 5   | 対象パス            | path                   |     |     |  ○  |     |     |     | -      | string | -        | 権限チェック対象の階層パス                                                                                                      |
-| 6   | 演算子              | operator               |     |     |  ○  |     |     |     | -      | string | -        | パスに対して値をどうチェックするか<br/>01:＝ ※ 現時点では「＝」のみ                                                             |
-| 7   | 値                  | value                  |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
-| 8   | 権限管理 ID         | permissionManagementId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 9   | 権限グループ管理 ID | permissionGroupId      |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 10  | 権限保持対象区分    | classification         |     |  ○  |     |     |     |     | -      | string | -        | 1:個人、2:組織                                                                                                                  |
-| 11  | 許可者 ID           | permissionId           |     |  ○  |     |     |     |     | -      | string | -        | 付与する対象者の PLAT_ID または STAFF_ID を設定                                                                                 |
-| 12  | 権限種別            | type                   |     |  ○  |     |     |     |     | -      | string | -        | 01:ReadOnly(参照のみ)<br/>02:UpdateOnly(参照、更新、削除)<br/>03:FullAccess(参照、登録、更新、削除)<br/>04:AccessDeny(権限無し) |
-| 13  | 有効期限（開始）    | expirationFrom         |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（FROM）                                                                                                          |
-| 14  | 有効期限（終了）    | expirationTo           |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（TO）                                                                                                            |
+| No. | 項目名              | 物理名                 | 階層  | 繰返し | 属性   | Nullable | レスポンス設定要領                                                                                                              |
+| :-- | :------------------ | :--------------------- | :-:  | :----- | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | 権限管理リスト      | permissionList         |  1   | ○      | array  | -        |                                                                                                                                 |
+| 2   | 権限詳細リスト      | detailList             |   2 | ○      | array  | -        |                                                                                                                                 |
+| 3   | 権限詳細 ID         | permissionDetailId     |   3 |   -     | string | -        |                                                                                                                                 |
+| 4   | 権限管理 ID         | permissionManagementId |    3 | -      | string | -        |                                                                                                                                 |
+| 5   | 対象パス            | path                   | 3 | -      | string | -        | 権限チェック対象の階層パス                                                                                                      |
+| 6   | 演算子              | operator               |   3  | -      | string | -        | パスに対して値をどうチェックするか<br/>01:＝ ※ 現時点では「＝」のみ                                                             |
+| 7   | 値                  | value                  |   3   | -      | string | -        |                                                                                                                                 |
+| 8   | 権限管理 ID         | permissionManagementId |   2 | -      | string | -        |                                                                                                                                 |
+| 9   | 権限グループ管理 ID | permissionGroupId      |  2 | -      | string | -        |                                                                                                                                 |
+| 10  | 権限保持対象区分    | classification         |  2   | -      | string | -        | 1:個人、2:組織                                                                                                                  |
+| 11  | 許可者 ID           | permissionId           |   2  | -      | string | -        | 付与する対象者の PLAT_ID または STAFF_ID を設定                                                                                 |
+| 12  | 権限種別            | type                   |   2   | -      | string | -        | 01:ReadOnly(参照のみ)<br/>02:UpdateOnly(参照、更新、削除)<br/>03:FullAccess(参照、登録、更新、削除)<br/>04:AccessDeny(権限無し) |
+| 13  | 有効期限（開始）    | expirationFrom         |  2   | -      | date   | -        | 権限の有効期限（FROM）                                                                                                          |
+| 14  | 有効期限（終了）    | expirationTo           |    2    | -      | date   | -        | 権限の有効期限（TO）                                                                                                            |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
@@ -77,31 +77,35 @@
 
 ```json title="正常終了"
 {
-  "permissionList": [
-    {
-      "detailList": [
+    "permissionList": [
         {
-          "permissionDetailId": 1,
-          "permissionManagementId": "521f67c7-4eb6-402b-a873-684f9cd5f6b7",
-          "path": "Composition.author:Organization.identifier",
-          "operator": "01",
-          "value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+            "detailList": [
+                {
+                    "permissionDetailId": 2,
+                    "path": "Composition.author:Organization.identifier",
+                    "operator": "01",
+                    "value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+                }
+            ],
+            "permissionManagementId": "d1da2e07-9ded-4105-8455-00bed9e5fba6",
+            "classification": "2",
+            "permissionId": "1310000001",
+            "type": "03",
+            "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
+            "expirationTo": "Feb 23, 2025, 1:00:00 AM"
         }
-      ],
-      "permissionManagementId": "521f67c7-4eb6-402b-a873-684f9cd5f6b7",
-      "classification": "2",
-      "permissionId": "1310000001",
-      "type": "03",
-      "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-      "expirationTo": "Feb 23, 2022, 1:00:00 AM"
-    }
-  ]
+    ]
 }
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "権限保持区分が想定されている値ではありません。"
+        }
+    ]
 }
 ```
 

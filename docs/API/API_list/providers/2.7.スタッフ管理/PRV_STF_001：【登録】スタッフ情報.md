@@ -4,7 +4,7 @@ PLAT 上にスタッフ情報を登録する。
 
 | 機能 ID     | API 論理名    | HTTP メソッド | URI                                |
 | :---------- |:-----------| :------------ | :--------------------------------- |
-| PRV_STF_001 | 【登録】スタッフ情報 | POST          | {applicationPath}/providers/staffs |
+| PRV_STF_001 | 【登録】スタッフ情報 | POST          |{applicationPath}/providers/staffs |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -37,7 +37,7 @@ PLAT 上にスタッフ情報を登録する。
 | 3   | 職業 | occupation  | 1 |  -  | string               | -        | 1 |      |      | 制御文字以外 |        |         |    | 
 | 4   | スタッフ情報オブジェクト | staffResource  | 1 |   -  | object   |   -      |  |      |     |  |    |       |    | 
 | 5   | リソース種別       | resourceType | 2 |  -   | string  |   -      |  |     |     | "Staff" |    |       |  "Staff"固定  | 
-| 6   | 救急フラグ    | emergencyFlg | 2 |  -   | string  |   -      |  |     |     | "true"/"false" |    |       |  true:救急、false:通常  | 
+| 6   | 救急フラグ    | emergencyFlg | 2 |  -   | string  |   -      |  |     |     | "1"/"0" |    |       |  1:救急、0:通常  | 
 | 7   | 名称リスト               | name | 2 | - | object | -        |                                                     |
 | 8   | 拡張リスト               | extension      | 3  |   ○    | object | -        |                                                     |
 | 9   | URL  | url  |  4   |  -   | string | -        |  |  |  | URL形式 |  |
@@ -52,35 +52,39 @@ PLAT 上にスタッフ情報を登録する。
 
 ```json
 {
-  "organizationId": "1310000001",
-  "departmentId": "00001",
-  "occupation": "A",
-  "staffResource": {
-    "resourceType": "Staff",
-    "emergencyFlg": false,
-    "name": [
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-            "valueCode": "IDE"
-          }
-        ],
-        "family": "山本",
-        "given": ["太郎"]
-      },
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-            "valueCode": "SYL"
-          }
-        ],
-        "family": "ヤマモト",
-        "given": ["タロウ"]
-      }
-    ]
-  }
+    "organizationId":"1310000001",
+    "departmentId":"00001",
+    "occupation": "A",
+    "staffResource": {
+        "resourceType": "Staff",
+        "emergencyFlg":0,
+        "name": [
+            {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                        "valueCode": "IDE"
+                    }
+                ],
+                "family": "田中",
+                "given": [
+                    "一郎"
+                ]
+            },
+            {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                        "valueCode": "SYL"
+                    }
+                ],
+                "family":"タナカ",
+                "given": [
+                    "イチロウ"
+                ]
+            }
+        ]
+    }
 }
 ```
 
@@ -109,42 +113,51 @@ PLAT 上にスタッフ情報を登録する。
 
 ```json title="正常終了"
 {
-  "resourceType": "Staff",
-  "emergencyFlg": false,
-  "name": [
-    {
-      "extension": [
+    "resourceType": "Staff",
+    "emergencyFlg": "0",
+    "name": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-          "valueCode": "IDE"
-        }
-      ],
-      "family": "田中",
-      "given": ["一郎"]
-    },
-    {
-      "extension": [
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                    "valueCode": "IDE"
+                }
+            ],
+            "family": "田中",
+            "given": [
+                "一郎"
+            ]
+        },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-          "valueCode": "SYL"
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                    "valueCode": "SYL"
+                }
+            ],
+            "family": "タナカ",
+            "given": [
+                "イチロウ"
+            ]
         }
-      ],
-      "family": "タナカ",
-      "given": ["イチロウ"]
-    }
-  ],
-  "identifier": [
-    {
-      "system": "https://www.plat.org/",
-      "value": "aef656e5-0735-4757-a369-83a2b34110bd"
-    }
-  ]
+    ],
+    "identifier": [
+        {
+            "system": "https://www.plat.org/",
+            "value": "650c77ce-86fd-4df5-9b35-493d8cce4789"
+        }
+    ]
 }
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "staffResource.emergencyFlgが想定されている値ではありません。"
+        }
+    ]
 }
 ```
 

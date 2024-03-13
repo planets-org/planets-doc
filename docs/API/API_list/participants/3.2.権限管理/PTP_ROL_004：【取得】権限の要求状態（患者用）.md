@@ -17,22 +17,24 @@
 | 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定 |
 
 ### リクエスト（クエリ）
+| No. | 項目名     | 物理名 |  属性  | Nullable | 最小文字数 | 最大文字数 | フォーマット    | 過去日付 | 未来日付 | 設定要領                                                                                   |
+| :-- | :--------- | :----- | :----: | :------: | ---------- | ---------- | --------------- | -------- | -------- | :----------------------------------------------------------------------------------------- |
+| 1   | ステータス | status | string |    ○     | -          | -          | ”0”/”1”/"2"/"3" | -        | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
 
-| No. | 項目名     | 物理名 |  属性  | Nullable | 設定要領                                                                         |
-| :-- | :--------- | :----- | :----: | :------: | :------------------------------------------------------------------------------- |
-| 1   | ステータス | status | string |    -     | 権限の承認状態を設定する。（0:承認要求中、1:承認済み、2:承認拒否、3:承認取下げ） |
+
 
 ### リクエスト（パスパラメータ）
+| No. | 項目名             | 物理名            |  属性  | Nullable | 最小文字数 | 最大文字数 | フォーマット                                                  | 過去日付 | 未来日付 | 設定要領                            |
+| :-- | :----------------- | :---------------- | :----: | :------: | ---------- | ---------- | ------------------------------------------------------------- | -------- | -------- | :---------------------------------- |
+| 1   | 権限グループ管理ID | permissionGroupId | string |    -     | -          | 36        | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()] | -        | -        | クエリパラメータ指定が無い場合は必須入力となる。 |
 
-| No. | 項目名              | 物理名            |  属性  | Nullable | 設定要領                                                                         |
-| :-- | :------------------ | :---------------- | :----: | :------: | :------------------------------------------------------------------------------- |
-| 1   | 権限グループ管理 ID | permissionGroupId | string |    -     | 権限グループ管理 ID を設定する。クエリパラメータ指定が無い場合は必須入力となる。 |
+
 
 ### リクエスト(Body)
 
-| No. | 項目名 | 物理名 | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性 | Nullable | リクエスト設定要領 |
-| :-- | :----- | :----- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :--- | :------- | :----------------- |
-| -   |        |        |     |     |     |     |     |     |        |      |          |                    |
+| No. | 項目名   | 物理名     | 属性   | Nullable | 最小文字数 | 最大文字数 | フォーマット | 過去日付 | 未来日付 | 設定要領 |
+| :-- | :------ | :-------- | :----: | :------: | ----- | ------ | ----------- | -------- | ------- |:----------------------------------------------- |
+| -   |      |     |        |      |          |     |        |       |              |         |          |                       |
 
 ### サンプル（リクエスト）
 
@@ -50,27 +52,27 @@
 
 ### レスポンス
 
-| No. | 項目名                    | 物理名                  | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | レスポンス設定要領                                                                         |
-| :-- | :------------------------ | :---------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :----------------------------------------------------------------------------------------- |
-| 1   | 権限管理オブジェクト      | permissonGroup          |  ○  |     |     |     |     |     | ○      | object | -        |                                                                                            |
-| 2   | 権限グループ管理 ID       | permissionGroupId       |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 3   | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
-| 4   | 権限要求者 ID（医療機関） | requestedOrganizationId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 5   | 権限要求者 ID（診療科）   | requestedDepartmentId   |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 6   | 権限要求者 ID（個人）     | requestedPersonalId     |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 7   | 権限要求日時              | requestedDatetime       |     |  ○  |     |     |     |     | -      | date   | -        |                                                                                            |
-| 8   | 権限承認リスト            | permissionApproval      |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                            |
-| 9   | 権限承認 ID               | permissionApprovalId    |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 10  | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
-| 11  | 権限承認者 ID（医療機関） | allowableOrganizationId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 12  | 権限承認者 ID（診療科）   | allowableDepartmentId   |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 13  | 権限承認者 ID（個人）     | allowablePersonalId     |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 14  | 権限コメントリスト        | permissionComment       |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                            |
-| 15  | 権限コメント ID           | permissionCommentId     |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 16  | 医療機関 ID               | organizationId          |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 17  | 診療科 ID                 | departmentId            |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 18  | 個人 ID                   | personalId              |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 19  | コメント                  | comment                 |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
+| No. | 項目名                    | 物理名                  |  階層  | 繰返し | 属性   | Nullable | レスポンス設定要領                                                                         |
+| :-- | :------------------------ | :---------------------- | :-: | :----- | :----- | :------- | :----------------------------------------------------------------------------------------- |
+| 1   | 権限管理オブジェクト      | permissonGroup          |  1   | ○      | object | -        |                                                                                            |
+| 2   | 権限グループ管理 ID       | permissionGroupId       |  2   | -      | string | -        |                                                                                            |
+| 3   | ステータス                | status                  |   2    | -      | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
+| 4   | 権限要求者 ID（医療機関） | requestedOrganizationId |   2| -      | string | -        |                                                                                            |
+| 5   | 権限要求者 ID（診療科）   | requestedDepartmentId   |    2  | -      | string | -        |                                                                                            |
+| 6   | 権限要求者 ID（個人）     | requestedPersonalId     |   2   | -      | string | -        |                                                                                            |
+| 7   | 権限要求日時              | requestedDatetime       |   2    | -      | date   | -        |                                                                                            |
+| 8   | 権限承認リスト            | permissionApproval      |  1   | ○      | array  | -        |                                                                                            |
+| 9   | 権限承認 ID               | permissionApprovalId    |   2  | -      | string | -        |                                                                                            |
+| 10  | ステータス                | status                  |  2  | -      | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
+| 11  | 権限承認者 ID（医療機関） | allowableOrganizationId |   2  | -      | string | -        |                                                                                            |
+| 12  | 権限承認者 ID（診療科）   | allowableDepartmentId   |   2   | -      | string | -        |                                                                                            |
+| 13  | 権限承認者 ID（個人）     | allowablePersonalId     |  2  | -      | string | -        |                                                                                            |
+| 14  | 権限コメントリスト        | permissionComment       | 1    | ○      | array  | -        |                                                                                            |
+| 15  | 権限コメント ID           | permissionCommentId     |  2  | -      | string | -        |                                                                                            |
+| 16  | 医療機関 ID               | organizationId          | 2    | -      | string | -        |                                                                                            |
+| 17  | 診療科 ID                 | departmentId            |   2    | -      | string | -        |                                                                                            |
+| 18  | 個人 ID                   | personalId              |    2 | -      | string | -        |                                                                                            |
+| 19  | コメント                  | comment                 |   2     | -      | string | -        |                                                                                            |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
@@ -80,39 +82,43 @@
 
 ```json title="正常終了"
 [
-  {
-    "permissionGroup": {
-      "permissionGroupId": "6a7a8516-610d-4c35-bf95-9e7b5219a852",
-      "status": "0",
-      "requestedOrganizationId": "1310000001",
-      "requestedDepartmentId": "",
-      "requestedPersonalId": "ececfc9e-4b53-48c0-96da-482ffdf69a95",
-      "requestedDatetime": "Oct 7, 2021, 7:51:02 PM"
-    },
-    "permissionApproval": [
-      {
-        "permissionGroupId": 2,
-        "permissionGroupId": "6a7a8516-610d-4c35-bf95-9e7b5219a852",
-        "status": "0",
-        "allowablePersonalId": "db04b087-52ee-4d69-9861-07e4d3db325e"
-      }
-    ],
-    "permissionComment": [
-      {
-        "permissionCommentId": 2,
-        "organizationId": "1310000001",
-        "departmentId": "",
-        "personalId": "ececfc9e-4b53-48c0-96da-482ffdf69a95",
-        "comment": "クリニック X 医師 B への権限承認をお願いします"
-      }
-    ]
-  }
+    {
+        "permissionGroup": {
+            "permissionGroupId": "fdcdde0f-8cd0-424f-a19a-29fb86e131db",
+            "status": "0",
+            "deletedFlg": 0,
+            "requestedOrganizationId": "0000000000",
+            "requestedPersonalId": "c0109a17-1d16-410a-9ccc-c83f348c755a",
+            "requestedDatetime": "Feb 8, 2024, 6:23:45 PM"
+        },
+        "permissionApproval": [
+            {
+                "permissionApprovalId": 5,
+                "status": "0",
+                "deletedFlg": 0,
+                "allowablePersonalId": "xxxxxxxxxx"
+            }
+        ],
+        "permissionComment": [
+            {
+                "permissionCommentId": 5,
+                "organizationId": "0000000000",
+                "personalId": "c0109a17-1d16-410a-9ccc-c83f348c755a",
+                "comment": "クリニック X 医師 B への権限承認をお願いします"
+            }
+        ]
+    }
 ]
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "ステータスが想定されている値ではありません。"
+        }
+    ]
 }
 ```
 

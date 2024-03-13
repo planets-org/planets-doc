@@ -17,20 +17,21 @@
 | 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定 |
 
 ### リクエスト（クエリ）
+| No. | 項目名   | 物理名    |  属性  | Nullable | 最小文字数 | 最大文字数 | フォーマット          | 過去日付 | 未来日付 | 設定要領                                                                                                       |
+| :-- | :------- | :-------- | :----: | :------: | ---------- | ---------- | --------------------- | -------- | -------- | :------------------------------------------------------------------------------------------------------------- |
+| 1   | 名前     | name      | string |    ○     | -          | 30         | 制御文字以外          | -        | -        | 漢字もしくはカナの前方一致検索                                                                                 |
+| 2   | 住所     | address   | string |    ○     | -          | 400        | 制御文字以外          | -        | -        | 前方一致検索                                                                                                   |
+| 3   | 電話番号 | telecom   | string |    ○     | -          | 17         | 数字のみ              | -        | -        | 完全一致検索                                                                                                   |
+| 4   | 性別     | gender    | string |    ○     | -          | -          | "male"/"female"       | -        | -        | "male"か"female"で検索                                                                       |
+| 5   | 生年月日 | birthDate |  string  |    ○     | -          | -          | yyyy-MM-dd            | ○        | ○        | 生年月日を完全一致検索 年月日は0で桁埋めが必要                                                                 |
+| 6   | 参照先   | location  | string |    ○     | -          | -          | ”self”/”remote” | -        | -        | 参照先が自医療機関の場合”self”、リモート自医療機関の場合”remote” |
 
-| No. | 項目名   | 物理名    |  属性  | Nullable | 設定要領                                  |
-| :-- | :------- | :-------- | :----: | :------: | :---------------------------------------- |
-| 1   | 名前     | name      | string |    ○     | 漢字もしくはカナの前方一致検索            |
-| 2   | 住所     | address   | string |    ○     | 住所を前方一致検索                        |
-| 3   | 電話番号 | telecom   | string |    ○     | 電話番号を完全一致検索                    |
-| 4   | 性別     | gender    | string |    ○     | "male" か "famale"で検索                  |
-| 5   | 生年月日 | birthDate |  date  |    ○     | 生年月日を完全一致検索（YYYY-MM-DD 形式） |
 
 ### リクエスト（パスパラメータ）
 
-| No. | 項目名  | 物理名    |  属性  | Nullable | 設定要領                                         |
-| :-- | :------ | :-------- | :----: | :------: | :----------------------------------------------- |
-| 1   | 患者 ID | patientId | string |    ○     | クエリパラメータ指定が無い場合は必須入力となる。 |
+| No. | 項目名   | 物理名     | 属性   | Nullable | 最小文字数 | 最大文字数 | フォーマット | 過去日付 | 未来日付 | 設定要領 |
+| :-- | :------ | :-------- | :----: | :------: | ----- | ------ | ----------- | -------- | ------- |:----------------------------------------------- |
+| 1   | 患者ID | patientId | string |  -  | -     | 100      | 以下の文字と記号のみ可<br/>・a-zA-Z0-9<br/>・記号[・-_.!*'()] |    -    |   -    | クエリパラメータ指定がない場合は必須入力となる |
 
 ### リクエスト(Body)
 
@@ -54,12 +55,12 @@
 
 ### レスポンス
 
-| No. | 項目名           | 物理名        | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性    | Nullable | レスポンス設定要領                              |
-| :-- | :--------------- | :------------ | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
-| 1   | 検索結果         | searchResults |  ○  |     |     |     |     |     | -      | object  | -        |                                                 |
-| 2   | 件数             | count         |     |  ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
-| 3   | 取得データリスト | results       |     |  ○  |     |     |     |     | -      | array   | -        |                                                 |
-| 4   | 患者情報         | patients      |     |     |  ○  |     |     |     | -      | object  | -        | OpenFRUCtoS の Patient リソースの仕様に準拠する |
+| No. | 項目名           | 物理名        | 階層  | 繰返し | 属性    | Nullable | レスポンス設定要領                              |
+| :-- | :--------------- | :------------ | :-: | :----- | :------ | :------- | :---------------------------------------------- |
+| 1   | 検索結果         | searchResults | 1    | -      | object  | -        |                                                 |
+| 2   | 件数             | count         |  2  | -      | integer | -        | 検索結果件数                                    |
+| 3   | 取得データリスト | results       |   2  | -      | array   | -        |                                                 |
+| 4   | 患者情報         | patients      |   3  | -      | object  | -        | FRUCtoSのPatientリソースの仕様に準拠する<br/>参考：[Patientリソース構造体について](../../../../Plat/resource_patient.md) |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
@@ -69,78 +70,106 @@
 
 ```json title="正常終了"
 {
-  "searchResults": {
-    "count": 1,
-    "results": [
-      {
-        "patient": {
-          "resourceType": "Patient",
-          "text": {
-            "status": "generated",
-            "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;～～～&lt;/div&gt;"
-          },
-          "identifier": [
+    "searchResults": {
+        "count": 1,
+        "results": [
             {
-              "system": "https://www.plat.org/",
-              "value": "d2db2727-eb07-2e54-fcbd-5ed011499cb7"
-            },
-            {
-              "system": "urn:oid:1.2.392.100495.20.3.51.11310000001",
-              "value": "clinicX_p00001"
-            }
-          ],
-          "active": true,
-          "name": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-                  "valueCode": "IDE"
+                "patient": {
+                    "fullUrl": "http://localhost:19081/of2/Patient/1",
+                    "resource": {
+                        "resourceType": "Patient",
+                        "id": "1",
+                        "meta": {
+                            "versionId": "1",
+                            "lastUpdated": "2024-02-08T17:43:48.210+09:00"
+                        },
+                        "text": {
+                            "status": "generated",
+                            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">TEST</div>"
+                        },
+                        "identifier": [
+                            {
+                                "system": "https://www.plat.org/",
+                                "value": "c0109a17-1d16-410a-9ccc-c83f348c755a"
+                            },
+                            {
+                                "system": "urn:oid:1.2.392.100495.20.3.51.11310000001",
+                                "value": "clinicX_p00101"
+                            }
+                        ],
+                        "active": true,
+                        "name": [
+                            {
+                                "extension": [
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                                        "valueCode": "IDE"
+                                    }
+                                ],
+                                "family": "山田",
+                                "given": [
+                                    "一郎"
+                                ]
+                            },
+                            {
+                                "extension": [
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+                                        "valueCode": "SYL"
+                                    }
+                                ],
+                                "family": "ヤマダ",
+                                "given": [
+                                    "イチロウ"
+                                ]
+                            }
+                        ],
+                        "telecom": [
+                            {
+                                "system": "phone",
+                                "value": "09099999999",
+                                "use": "mobile"
+                            }
+                        ],
+                        "gender": "male",
+                        "birthDate": "1974-12-25",
+                        "deceasedBoolean": false,
+                        "address": [
+                            {
+                                "use": "home",
+                                "line": [
+                                    "玉手町18-50"
+                                ],
+                                "city": "柏原市",
+                                "district": "大阪府",
+                                "postalCode": "5820001"
+                            }
+                        ],
+                        "managingOrganization": {
+                            "identifier": {
+                                "system": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo",
+                                "value": "1310000001"
+                            }
+                        }
+                    },
+                    "search": {
+                        "mode": "match"
+                    }
                 }
-              ],
-              "family": "山田",
-              "given": ["太郎"]
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
-                  "valueCode": "SYL"
-                }
-              ],
-              "family": "ヤマダ",
-              "given": ["タロウ"]
             }
-          ],
-          "telecom": [
-            {
-              "system": "phone",
-              "value": "09099999999",
-              "use": "mobile"
-            }
-          ],
-          "gender": "male",
-          "birthDate": "1974-12-25",
-          "deceasedBoolean": false,
-          "address": [
-            {
-              "use": "home",
-              "line": ["玉手町 18-50"],
-              "city": "柏原市",
-              "district": "大阪府",
-              "postalCode": "5820001"
-            }
-          ]
-        }
-      }
-    ]
-  }
+        ]
+    }
 }
 ```
 
 ```json title="異常終了"
 {
-  "errorCode": "PLAT500"
+    "errorCode": "PLAT500",
+    "errorMessage": [
+        {
+            "text": "性別の選択が想定値ではありません。"
+        }
+    ]
 }
 ```
 
