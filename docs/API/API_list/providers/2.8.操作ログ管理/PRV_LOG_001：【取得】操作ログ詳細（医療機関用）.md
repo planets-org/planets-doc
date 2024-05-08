@@ -42,7 +42,7 @@
 ### サンプル（リクエスト）
 ＜クエリパラメータ指定の場合＞
 ```
-　　{applicationPath}/providers/auditlog?operationLogId=36b65929-6bd6-455d-9533-ba8c70da4e11
+　　{applicationPath}/providers/operationlog?operationLogId=36b65929-6bd6-455d-9533-ba8c70da4e11
 　　&organizationId=252242&departmentId=999&operationDetails=承認
 　　&operationDayFrom=20210301123015&operationDayTo=20210401180000
 ```

@@ -40,7 +40,7 @@
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/participants/auditlog?operationLogId=1-b0a3a6c9-44ac-41bf-bac6-9a2cf50f3495&perationDayFrom=20210301123015&operationDayTo=20210401180000
+　　{applicationPath}/participants/operationlog?operationLogId=1-b0a3a6c9-44ac-41bf-bac6-9a2cf50f3495&perationDayFrom=20210301123015&operationDayTo=20210401180000
 ```
 
 ### レスポンス
