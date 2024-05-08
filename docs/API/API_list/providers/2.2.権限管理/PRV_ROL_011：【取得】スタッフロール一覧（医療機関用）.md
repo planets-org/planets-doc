@@ -62,11 +62,11 @@
 ```json title="正常終了"
 {
     "searchResults": {
-        "count": 4,
+        "count": 5,
         "results": [
             {
                 "roleCode": "A001",
-                "roleName": "システム運用事業者運用事業者"
+                "roleName": "システム運用事業者"
             },
             {
                 "roleCode": "B001",
@@ -79,6 +79,10 @@
             {
                 "roleCode": "D001",
                 "roleName": "医療事務"
+            },
+            {
+                "roleCode": "E001",
+                "roleName": "スタッフ管理者"
             }
         ]
     }
