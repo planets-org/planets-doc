@@ -20,7 +20,7 @@
 
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | 操作対象者ID | operatorTargetId | string  |    〇    | |
+| 1   | 操作対象者ID | operatorTargetId | string  |    〇    | PLATID |
 
 ### リクエスト（パスパラメータ）
 
@@ -37,7 +37,7 @@
 ### サンプル（リクエスト）
 ＜クエリパラメータ指定の場合＞
 ```
-{applicationPath}/participants/roles/assignment?operatorTargetId=3520000002
+{applicationPath}/participants/roles/assignment?operatorTargetId=36b65929-6bd6-455d-9533-ba8c70da4e11
 ```
 
 ### レスポンス
@@ -46,9 +46,9 @@
 | :-- | :------------- | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
 | 1   | 検索結果       | searchResults                  | ○  |     |     |     |     |     | -      | object  | -        | |
 | 2   | 件数           | count                          |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
-| 3   | 患者ロール紐付け情報     | results                        |     | ○  |     |     |     |     | ○     | array   | -        | |
-| 4   | 操作者ID       | operatorId                     |     |     | ○  |     |     |     | -      | string  | -        | |
-| 5   | 操作対象者ID   | operatorTargetId               |     |     | ○  |     |     |     | -      | string  | -        | |
+| 3   | 患者ロール紐付け情報     | results              |     | ○  |     |     |     |     | ○     | array   | -        | |
+| 4   | 操作者ID       | operatorId                     |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
+| 5   | 操作対象者ID   | operatorTargetId               |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
 | 6   | ロールコード   | roleCode                       |     |     | ○  |     |     |     | -      | string  | -        | |
 | 7   | 通知フラグ     | notificationFlg                |     |     | ○  |     |     |     | -      | integer |          | (0：通知しない/1：通知) |
 
@@ -66,14 +66,14 @@
         "count": 2,
         "results": [
             {
-                "operatorId": "3520000002",
-                "operatorTargetId": "3520000002",
+                "operatorId": "36b65929-6bd6-455d-9533-ba8c70da4e12",
+                "operatorTargetId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
                 "roleCode": "E001",
                 "notificationFlg": 1
             },
             {
-                "operatorId": "3520000003",
-                "operatorTargetId": "3520000002",
+                "operatorId": "36b65929-6bd6-455d-9533-ba8c70da4e13",
+                "operatorTargetId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
                 "roleCode": "F001",
                 "notificationFlg": 1
             }

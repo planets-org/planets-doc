@@ -26,7 +26,7 @@
 
 | No. | 項目名           | 物理名        |  属性  | Nullable | 設定要領                               |
 | :-- | :--------------- | :------------ | :----: | :------: | :------------------------------------- |
-| 1   | 操作対象者ID | operatorTargetId | string  |    -     | |
+| 1   | 操作対象者ID | operatorTargetId | string  |    -     | PLATID |
 
 ### リクエスト(Body)
 
@@ -37,7 +37,7 @@
 ### サンプル（リクエスト）
 ＜パスパラメータ指定の場合＞
 ```
-{applicationPath}/participants/roles/assignment/3520000002
+{applicationPath}/participants/roles/assignment/36b65929-6bd6-455d-9533-ba8c70da4e11
 ```
 
 ### レスポンス
@@ -45,8 +45,8 @@
 | No. | 項目名         | 物理名                         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性    | Nullable | レスポンス設定要領                              |
 | :-- | :------------- | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
 | 1   | ステータス     | status                         | ○  |     |     |     |     |     | -      | string  | -        | success：正常 |
-| 2   | 操作者ID       | operatorId                     |     |     | ○  |     |     |     | -      | string  | -        | |
-| 3   | 操作対象者ID   | operatorTargetId               |     |     | ○  |     |     |     | -      | string  | -        | |
+| 2   | 操作者ID       | operatorId                     |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
+| 3   | 操作対象者ID   | operatorTargetId               |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
 | 4   | ロールコード   | roleCode                       |     |     | ○  |     |     |     | -      | string  | -        | |
 | 5   | 通知フラグ     | notificationFlg                |     |     | ○  |     |     |     | -      | integer | -        | (0：通知しない/1：通知) |
 
@@ -61,8 +61,8 @@
 {
   "status": success,
     {
-      "operatorId": "3520000003",
-      "operatorTargetId": "3520000002",
+      "operatorId": "36b65929-6bd6-455d-9533-ba8c70da4e12",
+      "operatorTargetId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
       "roleCode": "F001",
       "notificationFlg": 1
     }

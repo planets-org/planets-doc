@@ -40,7 +40,7 @@
 ```json
 {
   "organizationId": "A001",
-  "staffId": "1310000002",
+  "staffId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
   "roleCode": "C001"
 }
 
@@ -52,7 +52,7 @@
 | :-- | :------------- | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
 | 1   | ステータス     | status                         | ○  |     |     |     |     |     | -      | string  | -        | success：正常 |
 | 2   | 医療機関ID     | organizationId                 |     | ○  |     |     |     |     | -      | string  | -        | |
-| 3   | スタッフID     | staffId                        |     | ○  |     |     |     |     | -      | string  | -        | |
+| 3   | スタッフID     | staffId                        |     | ○  |     |     |     |     | -      | string  | -        | PLATID |
 | 4   | ロールコード   | roleCode                       |     | ○  |     |     |     |     | -      | string  | -        | |
 
 | エラー条件                                                        |
@@ -67,7 +67,7 @@
   "status": success,
     {
       "organizationId": "A001",
-      "staffId": "1310000002",
+      "staffId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
       "roleCode": "C001"
     }
 }

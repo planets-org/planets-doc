@@ -39,7 +39,7 @@
 ### サンプル（リクエスト）
 ＜クエリパラメータ指定の場合＞
 ```
-{applicationPath}/providers/roles/assignment?staffId=1310000002&roleCode=C001
+{applicationPath}/providers/roles/assignment?staffId=36b65929-6bd6-455d-9533-ba8c70da4e11&roleCode=C001
 ```
 
 ### レスポンス
@@ -50,7 +50,7 @@
 | 2   | 件数           | count                          |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
 | 3   | スタッフロール紐付け情報     | results                        |     | ○  |     |     |     |     | ○     | array   | -        | |
 | 4   | 医療機関ID     | organizationId                |     |     | ○  |     |     |     | -      | string  | -        | |
-| 5   | スタッフID     | staffId                       |     |     | ○  |     |     |     | -      | string  | -        | |
+| 5   | スタッフID     | staffId                       |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
 | 6   | ロールコード   | roleCode                      |     |     | ○  |     |     |     | -      | string  | -        | |
 
 
@@ -68,7 +68,7 @@
         "results": [
             {
                 "organizationId": "A001",
-                "staffId": "1310000002",
+                "staffId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
                 "roleCode": "C001"
             }
         ]
