@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PTP_ROL_012 | 【取得】本人以外ロール権限(患者用)| GET           | {applicationPath}/providers/privilege/patientrolelink |
+| PTP_ROL_012 | 【取得】本人以外ロール権限(患者用)| GET           | {applicationPath}/participants/roles/assignment |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -37,7 +37,7 @@
 ### サンプル（リクエスト）
 ＜クエリパラメータ指定の場合＞
 ```
-{applicationPath}/providers/privilege/patientrolelink?operatorTargetId=3520000002
+{applicationPath}/participants/roles/assignment?operatorTargetId=3520000002
 ```
 
 ### レスポンス

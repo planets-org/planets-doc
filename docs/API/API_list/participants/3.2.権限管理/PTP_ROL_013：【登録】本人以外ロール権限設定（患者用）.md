@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PTP_ROL_013 | 【登録】本人以外ロール権限設定(患者用) | POST          | {applicationPath}/participants/privilege/patientrolelink/approval |
+| PTP_ROL_013 | 【登録】本人以外ロール権限設定(患者用) | POST          | {applicationPath}/participants/roles/assignment |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |

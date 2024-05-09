@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PRV_ROL_012 | 【取得】スタッフロール紐付け(医療機関用)| GET           | {applicationPath}/providers/privilege/staffrolelink |
+| PRV_ROL_012 | 【取得】スタッフロール紐付け(医療機関用)| GET           | {applicationPath}/providers/roles/assignment |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -39,7 +39,7 @@
 ### サンプル（リクエスト）
 ＜クエリパラメータ指定の場合＞
 ```
-{applicationPath}/providers/privilege/staffrolelink?staffId=1310000002&roleCode=C001
+{applicationPath}/providers/roles/assignment?staffId=1310000002&roleCode=C001
 ```
 
 ### レスポンス

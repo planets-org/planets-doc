@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PRV_ROL_011 | 【取得】患者ロール(患者用)          | GET           | {applicationPath}/participants/privilege/roleslist         |
+| PTP_ROL_011 | 【取得】患者ロール(患者用)          | GET           | {applicationPath}/participants/roles        |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -38,7 +38,7 @@
 ### サンプル（リクエスト）
 ＜クエリパラメータ指定の場合＞
 ```
-{applicationPath}/participants/privilege/roleslist
+{applicationPath}/participants/roles
 ```
 
 ### レスポンス

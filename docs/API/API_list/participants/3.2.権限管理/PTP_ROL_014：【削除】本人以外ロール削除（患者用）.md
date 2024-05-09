@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PTP_ROL_014 | 【削除】本人以外ロール削除(患者用) | PUT          | {applicationPath}/participants/privilege/patientrolelink/delete/{operatorTargetId} |
+| PTP_ROL_014 | 【削除】本人以外ロール削除(患者用) | PUT          | {applicationPath}/participants/roles/assignment/{operatorTargetId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -37,7 +37,7 @@
 ### サンプル（リクエスト）
 ＜パスパラメータ指定の場合＞
 ```
-{applicationPath}/participants/privilege/patientrolelink/delete/3520000002
+{applicationPath}/participants/roles/assignment/3520000002
 ```
 
 ### レスポンス
