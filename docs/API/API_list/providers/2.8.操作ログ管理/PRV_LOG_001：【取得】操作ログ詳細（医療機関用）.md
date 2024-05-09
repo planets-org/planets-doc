@@ -20,7 +20,7 @@
 
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | 患者ID       | operationLogId   | string  |    〇    | 患者IDで操作ログを検索 |
+| 1   | 操作者       | operationLogId   | string  |    〇    | PLATID/スタッフIDで操作ログを検索 |
 | 2   | 医療機関ID   | organizationId   | string  |    〇    | 医療機関IDで操作ログを検索 |
 | 3   | 診療科ID     | departmentId     | string  |    〇    | 診療科IDで操作ログを検索 |
 | 4   | 操作内容     | operationDetails | string  |    〇    | 操作内容のキーワードで操作ログを検索 |
