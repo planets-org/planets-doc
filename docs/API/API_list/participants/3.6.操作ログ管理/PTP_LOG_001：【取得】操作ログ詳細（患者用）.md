@@ -71,18 +71,15 @@
 | 22  | 操作対象者名称（漢字）   | operationTargetUserNameKanji         |     |     |     | ○  |     |     | -      | string  | 〇       | |
 | 23  | 通知フラグ               | notificationFlg                      |     |     |     | ○  |     |     | -      | string  | -        | 0:通知なし/1:リアルタイム通知/2:集約通知|
 | 24  | 操作対象文書情報         | resultsOperationTargetDocumentInfo   |     |     | ○  |     |     |     | ○     | array   | -        | |
-| 25  | 連番                     | serialNumber                         |     |     |     | ○  |     |     | -      | integer | -        | |
-| 26  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        | |
-| 27  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 28  | リソースタイプ           | resourceType                         |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 29  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
-| 30  | 対象保管先               | targetLocation                       |     |     |     | ○  |     |     | -      | string  | -        | 病院A、患者管理・・・|
-| 31  | 操作対象権限情報         | resultsOperationTargetPermissionInfo |     |     | ○  |     |     |     | ○     | array   | -        | |
-| 32  | 連番                     | serialNumber                         |     |     |     | ○  |     |     | -      | integer | -        | |
-| 33  | 権限グループ管理ID       | permissionGroupId                    |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 34  | 権限管理ID               | permissionManagementId               |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 35  | 権限承認ID               | permissionApprovalId                 |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 36  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | 〇       | PLATID/スタッフID|
+| 25  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        | |
+| 26  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 27  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
+| 28  | 対象保管先               | targetLocation                       |     |     |     | ○  |     |     | -      | string  | -        | 病院A、患者管理・・・|
+| 29  | 操作対象権限情報         | resultsOperationTargetPermissionInfo |     |     | ○  |     |     |     | ○     | array   | -        | |
+| 30  | 権限グループ管理ID       | permissionGroupId                    |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 31  | 権限管理ID               | permissionManagementId               |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 32  | 権限承認ID               | permissionApprovalId                 |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 33  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | 〇       | PLATID/スタッフID|
 
 
 | エラー条件                                                        |
@@ -114,7 +111,6 @@
                 "uri": "/cloudEHR/providers/patients/documents/approval",
                 "resultsOperationTargetDocumentInfo": [
                     {
-                        "serialNumber": 0,
                         "documentKey": "urn:uuid:9999f6d7-fa93-2795-f279-94055f8b5bbb",
                         "operationTargetUserId": "a94ad575-e822-4280-b66b-3c530e373872",
                         "targetLocation": "患者管理"
