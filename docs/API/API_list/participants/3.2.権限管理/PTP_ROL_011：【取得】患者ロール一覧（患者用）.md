@@ -63,7 +63,7 @@
 ```json title="正常終了"
 {
     "searchResults": {
-        "count": 6,
+        "count": 7,
         "results": [
             {
                 "roleCode": "E001",
