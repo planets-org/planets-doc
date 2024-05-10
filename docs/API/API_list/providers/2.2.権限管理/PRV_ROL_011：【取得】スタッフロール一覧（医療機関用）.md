@@ -50,7 +50,7 @@
 | 2   | 件数           | count                          |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
 | 3   | ロール情報     | results                        |     | ○  |     |     |     |     | ○     | array   | -        | |
 | 4   | ロールコード   | roleCode                       |     |     | ○  |     |     |     | -      | string  | -        | |
-| 5   | ロール名       | roleName                       |     |     | ○  |     |     |     | -      | string  | 〇       | |
+| 5   | ロール名       | roleName                       |     |     | ○  |     |     |     | -      | string  | -        | |
 
 
 | エラー条件                                                        |
