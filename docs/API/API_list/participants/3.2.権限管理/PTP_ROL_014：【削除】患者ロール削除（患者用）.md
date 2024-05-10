@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PTP_ROL_014 | 【削除】本人以外ロール削除(患者用) | PUT          | {applicationPath}/participants/roles/assignment/{operatorTargetId} |
+| PTP_ROL_014 | 【削除】患者ロール削除(患者用) | PUT          | {applicationPath}/participants/roles/assignment/{operatorTargetId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
