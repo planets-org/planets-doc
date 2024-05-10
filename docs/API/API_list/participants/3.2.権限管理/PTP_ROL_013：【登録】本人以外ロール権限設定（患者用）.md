@@ -70,7 +70,7 @@
     {
       "operatorId": "36b65929-6bd6-455d-9533-ba8c70da4e12",
       "operatorTargetId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
-      "roleCode": "F001",
+      "roleCode": "A001",
       "notificationFlg": 1
     }
 }

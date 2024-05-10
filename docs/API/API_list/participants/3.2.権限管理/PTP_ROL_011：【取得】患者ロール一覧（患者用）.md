@@ -67,37 +67,37 @@
         "count": 7,
         "results": [
             {
-                "roleCode": "E001",
+                "roleCode": "A001",
                 "roleName": "本人"
                 "selfFlg": 1
             },
             {
-                "roleCode": "E002",
+                "roleCode": "A002",
                 "roleName": "本人(権限なし)"
                 "selfFlg": 1
             },
             {
-                "roleCode": "E003",
+                "roleCode": "A003",
                 "roleName": "本人(本人取得由来記録のみ、参照のみ)"
                 "selfFlg": 1
             },
             {
-                "roleCode": "E004",
+                "roleCode": "A004",
                 "roleName": "本人(保健医療記録・本人取得由来記録、参照のみ)"
                 "selfFlg": 1
             },
             {
-                "roleCode": "F001",
+                "roleCode": "B001",
                 "roleName": "本人以外"
                 "selfFlg": 0
             },
             {
-                "roleCode": "F002",
+                "roleCode": "B002",
                 "roleName": "本人以外(本人取得由来記録のみ、参照のみ)"
                 "selfFlg": 0
             },
             {
-                "roleCode": "F003",
+                "roleCode": "B003",
                 "roleName": "本人以外(保健医療記録・本人取得由来記録、参照のみ)"
                 "selfFlg": 0
             }
