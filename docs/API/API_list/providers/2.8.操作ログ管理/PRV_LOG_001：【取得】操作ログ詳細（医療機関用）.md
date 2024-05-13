@@ -21,11 +21,12 @@
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
 | 1   | 操作者       | operationLogId   | string  |    〇    | PLATID/スタッフIDで操作ログを検索 |
-| 2   | 医療機関ID   | organizationId   | string  |    〇    | 医療機関IDで操作ログを検索 |
-| 3   | 診療科ID     | departmentId     | string  |    〇    | 診療科IDで操作ログを検索 |
-| 4   | 操作内容     | operationDetails | string  |    〇    | 操作内容のキーワードで操作ログを検索 |
-| 5   | 操作日時From | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
-| 6   | 操作日時To   | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 2   | 操作対象者   | operationTargetUserId | string  |    〇     | 操作対象者のPLATID |
+| 3   | 医療機関ID   | organizationId   | string  |    〇    | 医療機関IDで操作ログを検索 |
+| 4   | 診療科ID     | departmentId     | string  |    〇    | 診療科IDで操作ログを検索 |
+| 5   | 操作内容     | operationDetails | string  |    〇    | 操作内容のキーワードで操作ログを検索 |
+| 6   | 操作日時From | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 7   | 操作日時To   | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
 
 ### リクエスト（パスパラメータ）
 
@@ -43,6 +44,7 @@
 ＜クエリパラメータ指定の場合＞
 ```
 　　{applicationPath}/providers/operationlog?operationLogId=36b65929-6bd6-455d-9533-ba8c70da4e11
+　　&operationTargetUserId=a94ad575-e822-4280-b66b-3c530e373872
 　　&organizationId=252242&departmentId=999&operationDetails=承認
 　　&operationDayFrom=20210301123015&operationDayTo=20210401180000
 ```

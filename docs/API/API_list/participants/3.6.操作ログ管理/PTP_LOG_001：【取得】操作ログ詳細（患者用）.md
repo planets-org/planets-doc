@@ -21,8 +21,9 @@
 | No. | 項目名            | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :---------------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
 | 1   | 操作者            | operationLogId   | string  |    -     | PLATID/スタッフID |
-| 2   | 操作日時From      | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
-| 3   | 操作日時To        | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 2   | 操作対象者        | operationTargetUserId | string  |    〇     | 操作対象者のPLATID |
+| 3   | 操作日時From      | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 4   | 操作日時To        | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
 
 ### リクエスト（パスパラメータ）
 
@@ -40,7 +41,7 @@
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/participants/operationlog?operationLogId=1-b0a3a6c9-44ac-41bf-bac6-9a2cf50f3495&perationDayFrom=20210301123015&operationDayTo=20210401180000
+　　{applicationPath}/participants/operationlog?operationLogId=1-b0a3a6c9-44ac-41bf-bac6-9a2cf50f3495&operationTargetUserId=a94ad575-e822-4280-b66b-3c530e373872&perationDayFrom=20210301123015&operationDayTo=20210401180000
 ```
 
 ### レスポンス
