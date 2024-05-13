@@ -41,7 +41,7 @@
 ```json
 {
   "operatorTargetId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
-  "roleCode": "E001",
+  "roleCode": "A001",
   "notificationFlg": 1
 }
 
