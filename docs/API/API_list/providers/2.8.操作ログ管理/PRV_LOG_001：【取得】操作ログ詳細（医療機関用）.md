@@ -22,11 +22,10 @@
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
 | 1   | 操作者       | operationLogId   | string  |    〇    | PLATID/スタッフIDで操作ログを検索 |
 | 2   | 操作対象者   | operationTargetUserId | string  |    〇     | 操作対象者のPLATID |
-| 3   | 医療機関ID   | organizationId   | string  |    〇    | 医療機関IDで操作ログを検索 |
-| 4   | 診療科ID     | departmentId     | string  |    〇    | 診療科IDで操作ログを検索 |
-| 5   | 操作内容     | operationDetails | string  |    〇    | 操作内容のキーワードで操作ログを検索 |
-| 6   | 操作日時From | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
-| 7   | 操作日時To   | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 3   | 診療科名称   | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致) |
+| 4   | 操作内容     | operationDetails | string  |    〇    | 操作内容のキーワード(部分一致) |
+| 5   | 操作日時From | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 6   | 操作日時To   | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
 
 ### リクエスト（パスパラメータ）
 
@@ -45,7 +44,7 @@
 ```
 　　{applicationPath}/providers/operationlog?operationLogId=36b65929-6bd6-455d-9533-ba8c70da4e11
 　　&operationTargetUserId=a94ad575-e822-4280-b66b-3c530e373872
-　　&organizationId=252242&departmentId=999&operationDetails=承認
+　　&departmentName=テスト診療科4&operationDetails=承認
 　　&operationDayFrom=20210301123015&operationDayTo=20210401180000
 ```
 
