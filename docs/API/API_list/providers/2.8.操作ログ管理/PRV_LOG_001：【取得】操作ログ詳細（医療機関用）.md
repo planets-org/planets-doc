@@ -74,7 +74,7 @@
 | 20  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
 | 21  | 操作対象者区分           | operationTargetUserKbn               |     |     |     | ○  |     |     | -      | string  | 〇       | スタッフ/患者|
 | 22  | 操作対象者名称（漢字）   | operationTargetUserNameKanji         |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 23  | 通知フラグ               | notificationFlg                      |     |     |     | ○  |     |     | -      | string  | -        | 0:通知なし/1:リアルタイム通知/2:集約通知|
+| 23  | 通知タイプ               | notificationType                     |     |     |     | ○  |     |     | -      | string  | -        | 0:通知なし/1:リアルタイム通知/2:集約通知|
 | 24  | 操作対象文書情報         | resultsOperationTargetDocumentInfo   |     |     | ○  |     |     |     | ○     | array   | -        | |
 | 25  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        | |
 | 26  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | 〇       | |
@@ -127,7 +127,8 @@
                     {
                         "operationTargetUserId": "a94ad575-e822-4280-b66b-3c530e373872",
                         "operationTargetUserKbn": "患者",
-                        "operationTargetUserNameKanji": "患者一郎"
+                        "operationTargetUserNameKanji": "患者一郎",
+                        "notificationType": "1"
                     }
                 ]
             }
