@@ -21,11 +21,13 @@
 
 | No. | 項目名            | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :---------------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | 医療機関名称      | organizationName | string  |    〇    | 医療機関名称のキーワード(部分一致) |
-| 2   | 診療科名称        | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致) |
-| 3   | 操作内容          | operationDetails | string  |    〇    | 操作内容のキーワード(部分一致) |
-| 4   | 操作日時From      | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
-| 5   | 操作日時To        | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 1   | 対象指定          | TargetDesignation | integer |   -      | 0:自分、1:自分以外 |
+| 2   | 操作者名称（漢字）| operatorNameKanji | string  |    〇    | 操作者名称（漢字）のキーワード(部分一致) |
+| 3   | 医療機関名称      | organizationName | string  |    〇    | API論理名で検索(部分一致) |
+| 4   | 診療科名称        | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致) |
+| 5   | 操作内容          | operationDetails | string  |    〇    | 操作内容のキーワード(部分一致) |
+| 6   | 操作日時From      | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 7   | 操作日時To        | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
 
 ### リクエスト（パスパラメータ）
 
@@ -43,7 +45,7 @@
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/participants/operationlog?organizationName=クリニックX&departmentName=テスト診療科4&operationDetails=承認&perationDayFrom=20210301123015&operationDayTo=20210401180000
+　　{applicationPath}/participants/operationlog?TargetDesignation=1&operatorNameKanji=テスト&organizationName=クリニックX&departmentName=テスト診療科4&operationDetails=承認&perationDayFrom=20210301123015&operationDayTo=20210401180000
 ```
 
 ### レスポンス

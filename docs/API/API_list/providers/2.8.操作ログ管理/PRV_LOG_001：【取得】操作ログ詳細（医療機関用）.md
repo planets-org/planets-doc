@@ -23,7 +23,7 @@
 | 1   | 操作者       | operationLogId   | string  |    〇    | PLATID/スタッフIDで操作ログを検索 |
 | 2   | 操作対象者   | operationTargetUserId | string  |    〇     | 操作対象者のPLATID |
 | 3   | 診療科名称   | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致) |
-| 4   | 操作内容     | operationDetails | string  |    〇    | 操作内容のキーワード(部分一致) |
+| 4   | 操作内容     | operationDetails | string  |    〇    | API論理名で検索(部分一致) |
 | 5   | 操作日時From | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
 | 6   | 操作日時To   | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
 
