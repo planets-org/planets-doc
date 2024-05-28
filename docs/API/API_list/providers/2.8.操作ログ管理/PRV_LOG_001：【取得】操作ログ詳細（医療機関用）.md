@@ -80,13 +80,13 @@
 | 28  | 操作対象文書情報         | resultsOperationTargetDocumentInfo   |     |     | ○  |     |     |     | ○     | array   | -        | |
 | 29  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        | |
 | 30  | 文書種別                 | document_type                        |     |     |     | ○  |     |     | -      | string  | -        | |
-| 31  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 31  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | -        | |
 | 32  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
 | 33  | 対象保管先               | targetLocation                       |     |     |     | ○  |     |     | -      | string  | -        | 病院A、患者管理・・・|
 | 34  | 操作対象権限情報         | resultsOperationTargetPermissionInfo |     |     | ○  |     |     |     | ○     | array   | -        | |
-| 35  | 権限管理ID               | permissionManagementId               |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 36  | 権限承認ID               | permissionApprovalId                 |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 37  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | 〇       | PLATID/スタッフID|
+| 35  | 権限管理ID               | permissionManagementId               |     |     |     | ○  |     |     | -      | string  | -        | |
+| 36  | 権限承認ID               | permissionApprovalId                 |     |     |     | ○  |     |     | -      | string  | -        | |
+| 37  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
 
 
 | エラー条件                                                        |
