@@ -67,24 +67,26 @@
 | 13  | 操作内容                 | operationDetails                     |     |     | ○  |     |     |     | -      | string  | -        | 自動承認/医療機関情報取得・・・|
 | 14  | 操作結果                 | operationResult                      |     |     | ○  |     |     |     | -      | string  | -        | 0:成功/1:失敗|
 | 15  | 操作デバイス（UserAgent）| userAgent                            |     |     | ○  |     |     |     | -      | string  | -        | |
-| 16  | FRUCtoSアクセスフラグ    | fructosAccessFlg                     |     |     | ○  |     |     |     | -      | integer | -        | 0:無/1:有|
-| 17  | リクエスト内容（URI）    | uri                                  |     |     | ○  |     |     |     | -      | string  | -        | |
 | 18  | 登録日時                 | registedDatetime                     |     |     | ○  |     |     |     | -      | string  | -        | |
 | 19  | 操作対象者情報           | resultsOperationTargetUserInfo       |     |     | ○  |     |     |     | ○     | array   | -        | |
 | 20  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
 | 21  | 操作対象者区分           | operationTargetUserKbn               |     |     |     | ○  |     |     | -      | string  | 〇       | スタッフ/患者|
-| 22  | 操作対象者名称（漢字）   | operationTargetUserNameKanji         |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 23  | 通知タイプ               | notificationType                     |     |     |     | ○  |     |     | -      | integer | -        | 0:通知なし/1:リアルタイム通知/2:集約通知|
-| 24  | 操作対象文書情報         | resultsOperationTargetDocumentInfo   |     |     | ○  |     |     |     | ○     | array   | -        | |
-| 25  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        | |
-| 26  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 27  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
-| 28  | 対象保管先               | targetLocation                       |     |     |     | ○  |     |     | -      | string  | -        | 病院A、患者管理・・・|
-| 29  | 操作対象権限情報         | resultsOperationTargetPermissionInfo |     |     | ○  |     |     |     | ○     | array   | -        | |
-| 30  | 権限グループ管理ID       | permissionGroupId                    |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 31  | 権限管理ID               | permissionManagementId               |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 32  | 権限承認ID               | permissionApprovalId                 |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 33  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | 〇       | PLATID/スタッフID|
+| 22  | 操作対象者医療機関ID     | operationTargeOrganizationId         |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 23  | 操作対象者医療機関名称   | operationTargeOrganizationName       |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 24  | 操作対象者診療科ID       | operationTargeDepartmentId           |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 25  | 操作対象者診療科名称     | operationTargeDepartmentName         |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 26  | 操作対象者名称（漢字）   | operationTargetUserNameKanji         |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 27  | 通知タイプ               | notificationType                     |     |     |     | ○  |     |     | -      | integer | -        | 0:通知なし/1:リアルタイム通知/2:集約通知|
+| 28  | 操作対象文書情報         | resultsOperationTargetDocumentInfo   |     |     | ○  |     |     |     | ○     | array   | -        | |
+| 29  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        | |
+| 30  | 文書種別                 | document_type                        |     |     |     | ○  |     |     | -      | string  | -        | |
+| 31  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 32  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
+| 33  | 対象保管先               | targetLocation                       |     |     |     | ○  |     |     | -      | string  | -        | 病院A、患者管理・・・|
+| 34  | 操作対象権限情報         | resultsOperationTargetPermissionInfo |     |     | ○  |     |     |     | ○     | array   | -        | |
+| 35  | 権限管理ID               | permissionManagementId               |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 36  | 権限承認ID               | permissionApprovalId                 |     |     |     | ○  |     |     | -      | string  | 〇       | |
+| 37  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | 〇       | PLATID/スタッフID|
 
 
 | エラー条件                                                        |
@@ -113,22 +115,33 @@
                 "operationDetails": "明示的承認（文書の承認※一括承認含む）",
                 "operationResult": "成功",
                 "userAgent": "PostmanRuntime/7.32.3",
-                "fructosAccessFlg": 1,
-                "uri": "/cloudEHR/providers/patients/documents/approval",
-                "resultsOperationTargetDocumentInfo": [
-                    {
-                        "documentKey": "urn:uuid:9999f6d7-fa93-2795-f279-94055f8b5bbb",
-                        "operationTargetUserId": "a94ad575-e822-4280-b66b-3c530e373872",
-                        "targetLocation": "患者管理"
-                    }
-                ],
-                "resultsOperationTargetPermissionInfo": [],
+                "registedDatetime": "Feb 27, 2024, 2:15:04 PM",
                 "resultsOperationTargetUserInfo": [
                     {
                         "operationTargetUserId": "a94ad575-e822-4280-b66b-3c530e373872",
                         "operationTargetUserKbn": "患者",
+                        "operationTargeOrganizationId": "1310000001",
+                        "operationTargeOrganizationName": "クリニックX",
+                        "operationTargeDepartmentId": "004",
+                        "operationTargeDepartmentName": "テスト診療科4",
                         "operationTargetUserNameKanji": "患者一郎",
                         "notificationType": 1
+                    }
+                ],
+                "resultsOperationTargetDocumentInfo": [
+                    {
+                        "documentKey": "urn:uuid:9999f6d7-fa93-2795-f279-94055f8b5bbb",
+                        "document_type": "01",
+                        "documentVersion": "1",
+                        "operationTargetUserId": "a94ad575-e822-4280-b66b-3c530e373872",
+                        "targetLocation": "患者管理"
+                    }
+                ],
+                "resultsOperationTargetPermissionInfo": [
+                    {
+                        "permissionManagementId": "423f1d00-ce95-4d05-9244-923bdbb23cf0",
+                        "permissionApprovalId": "20",
+                        "operationTargetUserId": "a94ad575-e822-4280-b66b-3c530e373872",
                     }
                 ]
             }
