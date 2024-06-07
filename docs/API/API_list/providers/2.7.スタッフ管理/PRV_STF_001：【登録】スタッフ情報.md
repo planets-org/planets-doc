@@ -55,7 +55,7 @@ PLAT 上にスタッフ情報を登録する。
   "occupation": "A",
   "staffResource": {
     "resourceType": "Staff",
-    "emergencyFlg": false,
+    "emergencyFlg": 0,
     "name": [
       {
         "extension": [
@@ -108,7 +108,7 @@ PLAT 上にスタッフ情報を登録する。
 ```json title="正常終了"
 {
   "resourceType": "Staff",
-  "emergencyFlg": false,
+  "emergencyFlg": 0,
   "name": [
     {
       "extension": [
