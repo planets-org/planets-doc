@@ -123,8 +123,8 @@ PLAT 上にスタッフ情報を登録し、同時に認証情報を作成し紐
           "valueCode": "IDE"
         }
       ],
-      "family": "田中",
-      "given": ["一郎"]
+      "family": "山本",
+      "given": ["太郎"]
     },
     {
       "extension": [
@@ -133,8 +133,8 @@ PLAT 上にスタッフ情報を登録し、同時に認証情報を作成し紐
           "valueCode": "SYL"
         }
       ],
-      "family": "タナカ",
-      "given": ["イチロウ"]
+      "family": "ヤマモト",
+      "given": ["タロウ"]
     }
   ],
   "identifier": [
