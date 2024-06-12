@@ -126,7 +126,7 @@ PLAT 上で管理しているユーザの[Patient リソース](../../../../Plat
           "address": [
             {
               "use": "home",
-              "line": ["玉手町 18-50"],
+              "line": ["玉手町 23-10"],
               "city": "柏原市",
               "district": "大阪府",
               "postalCode": "5820001"
