@@ -177,7 +177,7 @@ PLAT 共通 ID を自病院の患者 ID と紐づける。
   "address": [
     {
       "use": "home",
-      "line": ["玉手町 18-50"],
+      "line": ["玉手町 23-10"],
       "city": "柏原市",
       "district": "大阪府",
       "postalCode": "5820001"
