@@ -20,7 +20,8 @@
 
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | 操作対象者ID | operatorTargetId | string  |    〇    | PLATID |
+| 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
+| 2   | 操作対象者ID | operatorTargetId | string  |    〇    | PLATID |
 
 ### リクエスト（パスパラメータ）
 

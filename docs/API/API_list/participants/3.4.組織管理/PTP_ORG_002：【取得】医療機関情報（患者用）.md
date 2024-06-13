@@ -20,9 +20,10 @@
 
 | No. | 項目名   | 物理名  |  属性  | Nullable | 設定要領 |
 | :-- | :------- | :------ | :----: | :------: | :------- |
-| 1   | 名前     | name    | string |          |          |
-| 2   | 住所     | address | string |          |          |
-| 3   | 電話番号 | telecom | string |          |          |
+| 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
+| 2   | 名前     | name    | string |          |          |
+| 3   | 住所     | address | string |          |          |
+| 4   | 電話番号 | telecom | string |          |          |
 
 ### リクエスト（パスパラメータ）
 
