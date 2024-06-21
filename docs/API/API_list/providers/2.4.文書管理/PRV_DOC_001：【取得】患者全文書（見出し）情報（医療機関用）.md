@@ -14,15 +14,15 @@
 
 | No. | 項目名           | 物理名        |  属性  | Nullable | 設定要領                               |
 | :-- | :--------------- | :------------ | :----: | :------: | :------------------------------------- |
-| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定 |
+| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定|
 
 ### リクエスト（クエリ）
 
 | No. | 項目名     | 物理名              |  属性  | Nullable | 設定要領                                                                           |
 | :-- | :--------- | :------------------ | :----: | :------: | :--------------------------------------------------------------------------------- |
-| 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
-| 2   | 検索開始日 | consultationDayFrom | string |    ○     | 診療日の検索開始日　 YYYY-MMM-DD 形式                                              |
-| 3   | 検索開始日 | consultationDayTo   | string |    ○     | 診療日の検索終了日　 YYYY-MMM-DD 形式                                              |
+| 1   | 参照先     | location            | string |    ○     |  [参照先 ](../../../../API/API_parameter_definition_table.md) |
+| 2   | 検索開始日 | consultationDayFrom | string |    ○     |  診療日の検索開始日　 YYYY-MMM-DD 形                                           |
+| 3   | 検索開始日 | consultationDayTo   | string |    ○     |  診療日の検索終了日　 YYYY-MMM-DD 形式                                             |
 
 ### リクエスト（パスパラメータ）
 
@@ -48,10 +48,10 @@
 | :-- | :----------------- | :--------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :-------------------------------------------------- |
 | 1   | 検索結果           | searchResults    |  ○  |     |     |     |     |     | -      | object  | -        |                                                     |
 | 2   | 件数               | count            |     |  ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                        |
-| 3   | リモート存在フラグ | remoteDataExists |     |  ○  |     |     |     |     | -      | boolean | -        | ローカルにないデータがリモートに存在する場合、true  |
+| 3   | リモート存在フラグ | remoteDataExists |     |  ○  |     |     |     |     | -      | boolean | -        |  ローカルにないデータがリモートに存在する場合、true  |
 | 4   | 取得データリスト   | results          |     |  ○  |     |     |     |     | ○      | array   | -        |                                                     |
-| 5   | 医療機関情報       | organization     |     |     |  ○  |     |     |     | -      | string  | -        | OpenFRUCtoS の Oganization リソースの仕様に準拠する |
-| 6   | Composition 情報   | contents         |     |     |  ○  |     |     |     | -      | string  | -        | OpenFRUCtoS の Oganization リソースの仕様に準拠する |
+| 5   | 医療機関情報       | organization     |     |     |  ○  |     |     |     | -      | string  | -        |  OpenFRUCtoS の Oganization リソースの仕様に準拠する |
+| 6   | Composition 情報   | contents         |     |     |  ○  |     |     |     | -      | string  | -        |  OpenFRUCtoS の Oganization リソースの仕様に準拠する |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |

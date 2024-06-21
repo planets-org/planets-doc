@@ -14,7 +14,7 @@
 
 | No. | 項目名           | 物理名        |  属性  | Nullable | 設定要領                               |
 | :-- | :--------------- | :------------ | :----: | :------: | :------------------------------------- |
-| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定 |
+| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定|
 
 ### リクエスト（クエリ）
 
@@ -57,8 +57,8 @@
 | 1   | 検索結果           | searchResults |  ○  |     |     |     |     |     | ○      | object  | -        |                                                      |
 | 2   | 件数               | count         |     |  ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                         |
 | 3   | 取得データリスト   | results       |     |  ○  |     |     |     |     | ○      | array   | -        |                                                      |
-| 4   | 医療機関情報       | contents      |     |     |  ○  |     |     |     | -      | string  | -        | OpenFRUCtoS の Organization リソースの仕様に準拠する |
-| 5   | 医療機関バージョン | version       |     |     |  ○  |     |     |     | -      | string  | -        | Organization リソースのバージョン                    |
+| 4   | 医療機関情報       | contents      |     |     |  ○  |     |     |     | -      | string  | -        | OpenFRUCtoS の Oganization リソースの仕様に準拠する |
+| 5   | 医療機関バージョン | version       |     |     |  ○  |     |     |     | -      | string  | -        |  Organization リソースのバージョン                    |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |

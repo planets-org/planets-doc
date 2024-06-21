@@ -14,20 +14,20 @@
 
 | No. | 項目名           | 物理名                 |  属性  | Nullable | 設定要領                               |
 | :-- | :--------------- | :--------------------- | :----: | :------: | :------------------------------------- |
-| 1   | アクセストークン | Authorization          | string |    -     | 認証処理で取得した Bearer Token を設定 |
+| 1   | アクセストークン | Authorization          | string |    -     | 認証処理で取得した Bearer Token を設定|
 | 2   | 操作対象者       | operationTargetUserId  | string |    -     | 操作対象者のPLATID                     |
 
 ### リクエスト（クエリ）
 
-| No. | 項目名            | 物理名           | 属性    | Nullable | 設定要領                                        |
-| :-- | :---------------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | 対象指定          | TargetDesignation | integer |   -      | 0:自分、1:自分以外 |
-| 2   | 操作者名称（漢字）| operatorNameKanji | string  |    〇    | 操作者名称（漢字）のキーワード(部分一致) |
-| 3   | 医療機関名称      | organizationName | string  |    〇    | 医療機関名称のキーワード(部分一致) |
-| 4   | 診療科名称        | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致) |
-| 5   | 操作内容          | operationDetails | string  |    〇    | API論理名で検索(部分一致) |
-| 6   | 操作日時From      | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
-| 7   | 操作日時To        | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| No. | 項目名            | 物理名           | 属性    | Nullable | 設定要領                                                      |
+| :-- | :---------------- | :--------------- | :-----: | :------: |:----------------------------------------------------------|
+| 1   | 対象指定          | TargetDesignation | integer |   -      | [対象指定](../../../../API/API_parameter_definition_table.md) |
+| 2   | 操作者名称（漢字）| operatorNameKanji | string  |    〇    |  操作者名称（漢字）のキーワード(部分一致)                                   |
+| 3   | 医療機関名称      | organizationName | string  |    〇    | 医療機関名称のキーワード(部分一致)                                        |
+| 4   | 診療科名称        | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致)                                         |
+| 5   | 操作内容          | operationDetails | string  |    〇    | API論理名で検索(部分一致)                                           |
+| 6   | 操作日時From      | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記)                                 |
+| 7   | 操作日時To        | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記)                                 |
 
 ### リクエスト（パスパラメータ）
 
@@ -50,43 +50,43 @@
 
 ### レスポンス
 
-| No. | 項目名                   | 物理名                               | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性    | Nullable | レスポンス設定要領                              |
-| :-- | :----------------------- | :----------------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
-| 1   | 検索結果                 | searchResults                        | ○  |     |     |     |     |     | -      | object  | -        | |
-| 2   | 件数                     | count                                |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
-| 3   | 操作ログ情報             | results                              |     | ○  |     |     |     |     | ○     | array   | -        | |
-| 4   | 操作ログID               | operationLogId                       |     |     | ○  |     |     |     | -      | string  | -        | |
-| 5   | 操作者区分               | operatorKbn                          |     |     | ○  |     |     |     | -      | string  | -        | 0:医療機関/1:スタッフ/2:患者 |
-| 6   | 医療機関ID               | organizationId                       |     |     | ○  |     |     |     | -      | string  | 〇       | |
-| 7   | 医療機関名称             | organizationName                     |     |     | ○  |     |     |     | -      | string  | 〇       | |
-| 8   | 診療科ID                 | departmentId                         |     |     | ○  |     |     |     | -      | string  | 〇       | |
-| 9   | 診療科名称               | departmentName                       |     |     | ○  |     |     |     | -      | string  | 〇       | |
-| 10  | 操作者                   | operatorId                           |     |     | ○  |     |     |     | -      | string  | 〇       | PLATID/スタッフID|
-| 11  | 操作者名称（漢字）       | operatorNameKanji                    |     |     | ○  |     |     |     | -      | string  | 〇       | |
-| 12  | 操作日時                 | operationDatetime                    |     |     | ○  |     |     |     | -      | string  | -        | |
-| 13  | 操作内容                 | operationDetails                     |     |     | ○  |     |     |     | -      | string  | -        | 自動承認/医療機関情報取得・・・|
-| 14  | 操作結果                 | operationResult                      |     |     | ○  |     |     |     | -      | string  | -        | 0:成功/1:失敗|
-| 15  | 操作デバイス（UserAgent）| userAgent                            |     |     | ○  |     |     |     | -      | string  | -        | |
-| 18  | 登録日時                 | registedDatetime                     |     |     | ○  |     |     |     | -      | string  | -        | |
-| 19  | 操作対象者情報           | resultsOperationTargetUserInfo       |     |     | ○  |     |     |     | ○     | array   | -        | |
-| 20  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
-| 21  | 操作対象者区分           | operationTargetUserKbn               |     |     |     | ○  |     |     | -      | string  | 〇       | スタッフ/患者|
-| 22  | 操作対象者医療機関ID     | operationTargeOrganizationId         |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 23  | 操作対象者医療機関名称   | operationTargeOrganizationName       |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 24  | 操作対象者診療科ID       | operationTargeDepartmentId           |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 25  | 操作対象者診療科名称     | operationTargeDepartmentName         |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 26  | 操作対象者名称（漢字）   | operationTargetUserNameKanji         |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 27  | 通知タイプ               | notificationType                     |     |     |     | ○  |     |     | -      | integer | -        | 0:通知なし/1:リアルタイム通知/2:集約通知|
-| 28  | 操作対象文書情報         | resultsOperationTargetDocumentInfo   |     |     | ○  |     |     |     | ○     | array   | -        | |
-| 29  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        | |
-| 30  | 文書種別                 | document_type                        |     |     |     | ○  |     |     | -      | string  | -        | |
-| 31  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | -        | |
-| 32  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
-| 33  | 対象保管先               | targetLocation                       |     |     |     | ○  |     |     | -      | string  | -        | 病院A、患者管理・・・|
-| 34  | 操作対象権限情報         | resultsOperationTargetPermissionInfo |     |     | ○  |     |     |     | ○     | array   | -        | |
-| 35  | 権限管理ID               | permissionManagementId               |     |     |     | ○  |     |     | -      | string  | -        | |
-| 36  | 権限承認ID               | permissionApprovalId                 |     |     |     | ○  |     |     | -      | string  | -        | |
-| 37  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID|
+| No. | 項目名                   | 物理名                               | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性    | Nullable | レスポンス設定要領                                                  |
+| :-- | :----------------------- | :----------------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- |:-----------------------------------------------------------|
+| 1   | 検索結果                 | searchResults                        | ○  |     |     |     |     |     | -      | object  | -        |                                                            |
+| 2   | 件数                     | count                                |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                                     |
+| 3   | 操作ログ情報             | results                              |     | ○  |     |     |     |     | ○     | array   | -        |                                                            |
+| 4   | 操作ログID               | operationLogId                       |     |     | ○  |     |     |     | -      | string  | -        |                                                            |
+| 5   | 操作者区分               | operatorKbn                          |     |     | ○  |     |     |     | -      | string  | -        | [操作者区分](../../../../API/API_parameter_definition_table.md) |
+| 6   | 医療機関ID               | organizationId                       |     |     | ○  |     |     |     | -      | string  | 〇       |                                                            |
+| 7   | 医療機関名称             | organizationName                     |     |     | ○  |     |     |     | -      | string  | 〇       |                                                            |
+| 8   | 診療科ID                 | departmentId                         |     |     | ○  |     |     |     | -      | string  | 〇       |                                                            |
+| 9   | 診療科名称               | departmentName                       |     |     | ○  |     |     |     | -      | string  | 〇       |                                                            |
+| 10  | 操作者                   | operatorId                           |     |     | ○  |     |     |     | -      | string  | 〇       | PLATID/スタッフID                                              |
+| 11  | 操作者名称（漢字）       | operatorNameKanji                    |     |     | ○  |     |     |     | -      | string  | 〇       |                                                            |
+| 12  | 操作日時                 | operationDatetime                    |     |     | ○  |     |     |     | -      | string  | -        |                                                            |
+| 13  | 操作内容                 | operationDetails                     |     |     | ○  |     |     |     | -      | string  | -        | 自動承認/医療機関情報取得・・・                                           |
+| 14  | 操作結果                 | operationResult                      |     |     | ○  |     |     |     | -      | string  | -        | [操作結果](../../../../API/API_parameter_definition_table.md)  |
+| 15  | 操作デバイス（UserAgent）| userAgent                            |     |     | ○  |     |     |     | -      | string  | -        |                                                            |
+| 18  | 登録日時                 | registedDatetime                     |     |     | ○  |     |     |     | -      | string  | -        |                                                            |
+| 19  | 操作対象者情報           | resultsOperationTargetUserInfo       |     |     | ○  |     |     |     | ○     | array   | -        |                                                            |
+| 20  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID                                              |
+| 21  | 操作対象者区分           | operationTargetUserKbn               |     |     |     | ○  |     |     | -      | string  | 〇       | スタッフ/患者                                                    |
+| 22  | 操作対象者医療機関ID     | operationTargeOrganizationId         |     |     |     | ○  |     |     | -      | string  | 〇       |                                                            |
+| 23  | 操作対象者医療機関名称   | operationTargeOrganizationName       |     |     |     | ○  |     |     | -      | string  | 〇       |                                                            |
+| 24  | 操作対象者診療科ID       | operationTargeDepartmentId           |     |     |     | ○  |     |     | -      | string  | 〇       |                                                            |
+| 25  | 操作対象者診療科名称     | operationTargeDepartmentName         |     |     |     | ○  |     |     | -      | string  | 〇       |                                                            |
+| 26  | 操作対象者名称（漢字）   | operationTargetUserNameKanji         |     |     |     | ○  |     |     | -      | string  | 〇       |                                                            |
+| 27  | 通知タイプ               | notificationType                     |     |     |     | ○  |     |     | -      | integer | -        | [通知タイプ](../../../../API/API_parameter_definition_table.md) |
+| 28  | 操作対象文書情報         | resultsOperationTargetDocumentInfo   |     |     | ○  |     |     |     | ○     | array   | -        |                                                            |
+| 29  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        |                                                            |
+| 30  | 文書種別                 | document_type                        |     |     |     | ○  |     |     | -      | string  | -        |                                                            |
+| 31  | 文書バージョン           | documentVersion                      |     |     |     | ○  |     |     | -      | string  | -        |                                                            |
+| 32  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID                                              |
+| 33  | 対象保管先               | targetLocation                       |     |     |     | ○  |     |     | -      | string  | -        | 病院A、患者管理・・・                                                |
+| 34  | 操作対象権限情報         | resultsOperationTargetPermissionInfo |     |     | ○  |     |     |     | ○     | array   | -        |                                                            |
+| 35  | 権限管理ID               | permissionManagementId               |     |     |     | ○  |     |     | -      | string  | -        |                                                            |
+| 36  | 権限承認ID               | permissionApprovalId                 |     |     |     | ○  |     |     | -      | string  | -        |                                                            |
+| 37  | 操作対象者ID             | operationTargetUserId                |     |     |     | ○  |     |     | -      | string  | -        | PLATID/スタッフID                                              |
 
 
 | エラー条件                                                        |

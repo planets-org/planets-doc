@@ -14,7 +14,7 @@ PLAT 上にスタッフ情報を登録し、同時に認証情報を作成し紐
 
 | No. | 項目名           | 物理名        |  属性  | Nullable | 設定要領                               |
 | :-- | :--------------- | :------------ | :----: | :------: | :------------------------------------- |
-| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定 |
+| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定|
 
 ### リクエスト（クエリ）
 
@@ -30,24 +30,24 @@ PLAT 上にスタッフ情報を登録し、同時に認証情報を作成し紐
 
 ### リクエスト(Body)
 
-| No. | 項目名                   | 物理名         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | リクエスト設定要領                                  |
-| :-- | :----------------------- | :------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :-------------------------------------------------- |
-| 1   | ユーザ名                 | username       |  ○  |     |     |     |     |     |        | string | -        | KeyCloak に登録する username                        |
-| 2   | 仮パスワード             | password       |  ○  |     |     |     |     |     |        | string | -        | KeyCloak の認証用仮パスワード                       |
-| 3   | メールアドレス           | email          |  ○  |     |     |     |     |     |        | string | -        | KeyCloak に登録するメールアドレス情報               |
-| 4   | 組織 ID                  | organizationId |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 5   | 診療科 ID                | departmentId   |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 6   | 職業                     | occupation     |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 7   | スタッフ情報オブジェクト | staffResource  |  ○  |     |     |     |     |     |        | object | -        |                                                     |
-| 8   | リソース種別             | resourceType   |     |  ○  |     |     |     |     |        | string | -        | "Staff"固定                                         |
-| 9   | 救急フラグ               | emergencyFlg   |     |  ○  |     |     |     |     |        | string | -        | 0:通常、1:救急                                      |
-| 10  | 名称リスト               | name           |     |  ○  |     |     |     |     |        | object | -        |                                                     |
-| 11  | 拡張リスト               | extension      |     |     |  ○  |     |     |     |        | object | -        |                                                     |
-| 12  | URL                      | url            |     |     |     |  ○  |     |     |        | string | -        |                                                     |
-| 13  | 値コード                 | valueCode      |     |     |     |  ○  |     |     |        | string | -        | IDE：漢字、SYL：カナ　※認証情報には漢字が登録される |
-| 14  | 姓                       | family         |     |     |  ○  |     |     |     |        | string | -        |                                                     |
-| 15  | 名リスト                 | given          |     |     |  ○  |     |     |     |        | object | -        |                                                     |
-| 16  | 名                       | -              |     |     |     |  ○  |     |     |        | string | -        |                                                     |
+| No. | 項目名                   | 物理名         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | リクエスト設定要領                                                  |
+| :-- | :----------------------- | :------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- |:-----------------------------------------------------------|
+| 1   | ユーザ名                 | username       |  ○  |     |     |     |     |     |        | string | -        | KeyCloak に登録する username                                    |
+| 2   | 仮パスワード             | password       |  ○  |     |     |     |     |     |        | string | -        | KeyCloak の認証用仮パスワード                                        |
+| 3   | メールアドレス           | email          |  ○  |     |     |     |     |     |        | string | -        | KeyCloak に登録するメールアドレス情報                                    |
+| 4   | 組織 ID                  | organizationId |  ○  |     |     |     |     |     |        | string | -        |                                                            |
+| 5   | 診療科 ID                | departmentId   |  ○  |     |     |     |     |     |        | string | -        |                                                            |
+| 6   | 職業                     | occupation     |  ○  |     |     |     |     |     |        | string | -        |                                                            |
+| 7   | スタッフ情報オブジェクト | staffResource  |  ○  |     |     |     |     |     |        | object | -        |                                                            |
+| 8   | リソース種別             | resourceType   |     |  ○  |     |     |     |     |        | string | -        | "Staff"固定                                                  |
+| 9   | 救急フラグ               | emergencyFlg   |     |  ○  |     |     |     |     |        | string | -        | [緊急フラグ](../../../../API/API_parameter_definition_table.md) |
+| 10  | 名称リスト               | name           |     |  ○  |     |     |     |     |        | object | -        |                                                            |
+| 11  | 拡張リスト               | extension      |     |     |  ○  |     |     |     |        | object | -        |                                                            |
+| 12  | URL                      | url            |     |     |     |  ○  |     |     |        | string | -        |                                                            |
+| 13  | 値コード                 | valueCode      |     |     |     |  ○  |     |     |        | string | -        | [値コード](../../../../API/API_parameter_definition_table.md)                               |
+| 14  | 姓                       | family         |     |     |  ○  |     |     |     |        | string | -        |                                                            |
+| 15  | 名リスト                 | given          |     |     |  ○  |     |     |     |        | object | -        |                                                            |
+| 16  | 名                       | -              |     |     |     |  ○  |     |     |        | string | -        |                                                            |
 
 ### サンプル（リクエスト）
 
