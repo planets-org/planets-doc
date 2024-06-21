@@ -21,14 +21,13 @@
 
 | No. | 項目名            | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :---------------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
-| 2   | 対象指定          | TargetDesignation | integer |   -      | 0:自分、1:自分以外 |
-| 3   | 操作者名称（漢字）| operatorNameKanji | string  |    〇    | 操作者名称（漢字）のキーワード(部分一致) |
-| 4   | 医療機関名称      | organizationName | string  |    〇    | 医療機関名称のキーワード(部分一致) |
-| 5   | 診療科名称        | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致) |
-| 6   | 操作内容          | operationDetails | string  |    〇    | API論理名で検索(部分一致) |
-| 7   | 操作日時From      | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
-| 8   | 操作日時To        | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 1   | 対象指定          | TargetDesignation | integer |   -      | 0:自分、1:自分以外 |
+| 2   | 操作者名称（漢字）| operatorNameKanji | string  |    〇    | 操作者名称（漢字）のキーワード(部分一致) |
+| 3   | 医療機関名称      | organizationName | string  |    〇    | 医療機関名称のキーワード(部分一致) |
+| 4   | 診療科名称        | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致) |
+| 5   | 操作内容          | operationDetails | string  |    〇    | API論理名で検索(部分一致) |
+| 6   | 操作日時From      | operationDayFrom | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
+| 7   | 操作日時To        | operationDayTo   | string  |    -     | yyyyMMddHHmmss 形式(24時間表記) |
 
 ### リクエスト（パスパラメータ）
 
