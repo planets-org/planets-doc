@@ -14,7 +14,7 @@ PLAT 上にスタッフ情報を登録する。
 
 | No. | 項目名           | 物理名        |  属性  | Nullable | 設定要領                               |
 | :-- | :--------------- | :------------ | :----: | :------: | :------------------------------------- |
-| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定 |
+| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定|
 
 ### リクエスト（クエリ）
 
@@ -30,21 +30,21 @@ PLAT 上にスタッフ情報を登録する。
 
 ### リクエスト(Body)
 
-| No. | 項目名                   | 物理名         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | リクエスト設定要領                                  |
-| :-- | :----------------------- | :------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :-------------------------------------------------- |
-| 1   | 組織 ID                  | organizationId |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 2   | 診療科 ID                | departmentId   |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 3   | 職業                     | occupation     |  ○  |     |     |     |     |     |        | string | -        |                                                     |
-| 4   | スタッフ情報オブジェクト | staffResource  |  ○  |     |     |     |     |     |        | object | -        |                                                     |
-| 5   | リソース種別             | resourceType   |     |  ○  |     |     |     |     |        | string | -        | "Staff"固定                                         |
-| 6   | 救急フラグ               | emergencyFlg   |     |  ○  |     |     |     |     |        | string | -        | 0:通常、1:救急                                      |
-| 7   | 名称リスト               | name           |     |  ○  |     |     |     |     |        | object | -        |                                                     |
-| 8   | 拡張リスト               | extension      |     |     |  ○  |     |     |     |        | object | -        |                                                     |
-| 9   | URL                      | url            |     |     |     |  ○  |     |     |        | string | -        |                                                     |
-| 10  | 値コード                 | valueCode      |     |     |     |  ○  |     |     |        | string | -        | IDE：漢字、SYL：カナ　※認証情報には漢字が登録される |
-| 11  | 姓                       | family         |     |     |  ○  |     |     |     |        | string | -        |                                                     |
-| 12  | 名リスト                 | given          |     |     |  ○  |     |     |     |        | object | -        |                                                     |
-| 13  | 名                       | -              |     |     |     |  ○  |     |     |        | string | -        |                                                     |
+| No. | 項目名                   | 物理名         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | リクエスト設定要領                                                  |
+| :-- | :----------------------- | :------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- |:-----------------------------------------------------------|
+| 1   | 組織 ID                  | organizationId |  ○  |     |     |     |     |     |        | string | -        |                                                            |
+| 2   | 診療科 ID                | departmentId   |  ○  |     |     |     |     |     |        | string | -        |                                                            |
+| 3   | 職業                     | occupation     |  ○  |     |     |     |     |     |        | string | -        |                                                            |
+| 4   | スタッフ情報オブジェクト | staffResource  |  ○  |     |     |     |     |     |        | object | -        |                                                            |
+| 5   | リソース種別             | resourceType   |     |  ○  |     |     |     |     |        | string | -        | "Staff"固定                                                  |
+| 6   | 救急フラグ               | emergencyFlg   |     |  ○  |     |     |     |     |        | string | -        | [緊急フラグ](../../../../API/API_parameter_definition_table.md) |
+| 7   | 名称リスト               | name           |     |  ○  |     |     |     |     |        | object | -        |                                                            |
+| 8   | 拡張リスト               | extension      |     |     |  ○  |     |     |     |        | object | -        |                                                            |
+| 9   | URL                      | url            |     |     |     |  ○  |     |     |        | string | -        |                                                            |
+| 10  | 値コード                 | valueCode      |     |     |     |  ○  |     |     |        | string | -        | [値コード](../../../../API/API_parameter_definition_table.md)                               |
+| 11  | 姓                       | family         |     |     |  ○  |     |     |     |        | string | -        |                                                            |
+| 12  | 名リスト                 | given          |     |     |  ○  |     |     |     |        | object | -        |                                                            |
+| 13  | 名                       | -              |     |     |     |  ○  |     |     |        | string | -        |                                                            |
 
 ### サンプル（リクエスト）
 

@@ -14,7 +14,7 @@
 
 | No. | 項目名           | 物理名        |  属性  | Nullable | 設定要領                               |
 | :-- | :--------------- | :------------ | :----: | :------: | :------------------------------------- |
-| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定 |
+| 1   | アクセストークン | Authorization | string |    -     |  認証処理で取得した Bearer Token を設定|
 
 ### リクエスト（クエリ）
 
@@ -30,23 +30,23 @@
 
 ### リクエスト(Body)
 
-| No. | 項目名                    | 物理名                  | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | リクエスト設定要領                                                                                                                |
-| :-- | :------------------------ | :---------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | コメント                  | comment                 |  ○  |     |     |     |     |     | -      | string | -        | 権限承認の際のコメント                                                                                                            |
-| 2   | 権限要求リスト            | permissionApproval      |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                                                                   |
-| 3   | 許可可能者 ID（医療機関） | allowableOrganizationId |     |  ○  |     |     |     |     | -      | string | -        | 組織単位で設定する際は必須                                                                                                        |
-| 4   | 許可可能者 ID（診療科）   | allowableDepartmentId   |     |  ○  |     |     |     |     | -      | string | ○        | 組織単位で設定する際に診療科まで許可者を絞る際は設定                                                                              |
-| 5   | 許可可能者 ID（個人）     | allowablePersonalId     |     |  ○  |     |     |     |     | -      | string | -        | 個人単位で設定する際は必須                                                                                                        |
-| 6   | 権限リスト                | permissionList          |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                                                                   |
-| 7   | 権限保持対象区分          | classification          |     |  ○  |     |     |     |     | -      | string | -        | 1:個人、2:組織                                                                                                                    |
-| 8   | 許可者 ID                 | permissionId            |     |  ○  |     |     |     |     | -      | string | -        | 付与する対象者の PLAT_ID または STAFF_ID を設定                                                                                   |
-| 9   | 権限種別                  | type                    |     |  ○  |     |     |     |     | -      | string | -        | "01:ReadOnly(参照のみ)<br/>02:UpdateOnly(参照、更新、削除)<br/>03:FullAccess(参照、登録、更新、削除)<br/>04:AccessDeny(権限無し)" |
-| 10  | 有効期限（開始）          | expirationFrom          |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（FROM）                                                                                                            |
-| 11  | 有効期限（終了）          | expirationTo            |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（TO）                                                                                                              |
-| 12  | 権限詳細リスト            | detailList              |     |  ○  |     |     |     |     | ○      | array  | -        |                                                                                                                                   |
-| 13  | 対象パス                  | path                    |     |     |  ○  |     |     |     | -      | string | ○        | 権限チェック対象の階層パス                                                                                                        |
-| 14  | 演算子                    | operator                |     |     |  ○  |     |     |     | -      | string | ○        | "パスに対して値をどうチェックするか<br/>01:＝ ※ 現時点では「＝」のみ"                                                             |
-| 15  | 値                        | value                   |     |     |  ○  |     |     |     | -      | string | ○        | 階層パスのチェックする値                                                                                                          |
+| No. | 項目名                    | 物理名                  | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | リクエスト設定要領                                                     |
+| :-- | :------------------------ | :---------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- |:--------------------------------------------------------------|
+| 1   | コメント                  | comment                 |  ○  |     |     |     |     |     | -      | string | -        |  権限承認の際のコメント                                                |
+| 2   | 権限要求リスト            | permissionApproval      |  ○  |     |     |     |     |     | ○      | array  | -        |                                                               |
+| 3   | 許可可能者 ID（医療機関） | allowableOrganizationId |     |  ○  |     |     |     |     | -      | string | -        | 組織単位で設定する際は必須                                                |
+| 4   | 許可可能者 ID（診療科）   | allowableDepartmentId   |     |  ○  |     |     |     |     | -      | string | ○        | 組織単位で設定する際に診療科まで許可者を絞る際は設定                                   |
+| 5   | 許可可能者 ID（個人）     | allowablePersonalId     |     |  ○  |     |     |     |     | -      | string | -        | 個人単位で設定する際は必須                                                |
+| 6   | 権限リスト                | permissionList          |  ○  |     |     |     |     |     | ○      | array  | -        |                                                               |
+| 7   | 権限保持対象区分          | classification          |     |  ○  |     |     |     |     | -      | string | -        | [権限保持対象区分](../../../../API/API_parameter_definition_table.md) |
+| 8   | 許可者 ID                 | permissionId            |     |  ○  |     |     |     |     | -      | string | -        | 付与する対象者の PLAT_ID または STAFF_ID を設定                             |
+| 9   | 権限種別                  | type                    |     |  ○  |     |     |     |     | -      | string | -        | [権限種別](../../../../API/API_parameter_definition_table.md)     |
+| 10  | 有効期限（開始）          | expirationFrom          |     |  ○  |     |     |     |     | -      | date   | -        |権限の有効期限（FROM）                                                 |
+| 11  | 有効期限（終了）          | expirationTo            |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（TO）                                              |
+| 12  | 権限詳細リスト            | detailList              |     |  ○  |     |     |     |     | ○      | array  | -        |                                                               |
+| 13  | 対象パス                  | path                    |     |     |  ○  |     |     |     | -      | string | ○        |  権限チェック対象の階層パス                                               |
+| 14  | 演算子                    | operator                |     |     |  ○  |     |     |     | -      | string | ○        |  "パスに対して値をどうチェックするか<br/>01:＝ ※ 現時点では「＝」のみ"                      |
+| 15  | 値                        | value                   |     |     |  ○  |     |     |     | -      | string | ○        |  階層パスのチェックする値                                                  |
 
 ### サンプル（リクエスト）
 
@@ -86,37 +86,37 @@
 
 ### レスポンス
 
-| No. | 項目名                    | 物理名                  | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | レスポンス設定要領                                                                                                              |
-| :-- | :------------------------ | :---------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| 1   | 権限管理オブジェクト      | permissonGroup          |  ○  |     |     |     |     |     | -      | object | -        |                                                                                                                                 |
-| 2   | 権限グループ管理 ID       | permissionGroupId       |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 3   | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ                                      |
-| 4   | 権限要求者 ID（医療機関） | requestedOrganizationId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 5   | 権限要求者 ID（診療科）   | requestedDepartmentId   |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 6   | 権限要求者 ID（個人）     | requestedPersonalId     |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 7   | 権限要求日時              | requestedDatetime       |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 8   | 権限リスト                | permissionList          |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                                                                 |
-| 9   | 権限管理 ID               | permissionManagementId  |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 10  | 権限保持対象区分          | classification          |     |  ○  |     |     |     |     | -      | string | -        | 1:個人、2:組織                                                                                                                  |
-| 11  | 許可者 ID                 | permissionId            |     |  ○  |     |     |     |     | -      | string | -        | 付与する対象者の PLAT_ID または STAFF_ID を設定                                                                                 |
-| 12  | 権限種別                  | type                    |     |  ○  |     |     |     |     | -      | string | -        | 01:ReadOnly(参照のみ)<br/>02:UpdateOnly(参照、更新、削除)<br/>03:FullAccess(参照、登録、更新、削除)<br/>04:AccessDeny(権限無し) |
-| 13  | 有効期限（開始）          | expirationFrom          |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（FROM）                                                                                                          |
-| 14  | 有効期限（終了）          | expirationTo            |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（TO）                                                                                                            |
-| 15  | 権限詳細リスト            | detailList              |     |  ○  |     |     |     |     | ○      | array  | -        |                                                                                                                                 |
-| 16  | 対象パス                  | path                    |     |     |  ○  |     |     |     | -      | string | -        | 権限チェック対象の階層パス                                                                                                      |
-| 17  | 演算子                    | operator                |     |     |  ○  |     |     |     | -      | string | -        | パスに対して値をどうチェックするか<br/>01:＝ ※ 現時点では「＝」のみ                                                             |
-| 18  | 値                        | value                   |     |     |  ○  |     |     |     | -      | string | -        | 階層パスのチェックする値                                                                                                        |
-| 19  | 権限承認リスト            | permissionApproval      |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                                                                 |
-| 20  | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ                                      |
-| 21  | 権限承認者 ID（医療機関） | allowableOrganizationId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 22  | 権限承認者 ID（診療科）   | allowableDepartmentId   |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 23  | 権限承認者 ID（個人）     | allowablePersonalId     |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 24  | 承認日時                  | approvedDatetime        |     |  ○  |     |     |     |     | ○      | date   | -        |                                                                                                                                 |
-| 25  | 権限コメントリスト        | permissionComment       |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                                                                 |
-| 26  | 医療機関 ID               | organizationId          |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 27  | 診療科 ID                 | departmentId            |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 28  | 個人 ID                   | personalId              |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 29  | コメント                  | comment                 |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
+| No. | 項目名                    | 物理名                  | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | レスポンス設定要領                                                     |
+| :-- | :------------------------ | :---------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- |:--------------------------------------------------------------|
+| 1   | 権限管理オブジェクト      | permissonGroup          |  ○  |     |     |     |     |     | -      | object | -        |                                                               |
+| 2   | 権限グループ管理 ID       | permissionGroupId       |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 3   | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | [権限承認状態](../../../../API/API_parameter_definition_table.md)   |
+| 4   | 権限要求者 ID（医療機関） | requestedOrganizationId |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 5   | 権限要求者 ID（診療科）   | requestedDepartmentId   |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 6   | 権限要求者 ID（個人）     | requestedPersonalId     |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 7   | 権限要求日時              | requestedDatetime       |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 8   | 権限リスト                | permissionList          |  ○  |     |     |     |     |     | ○      | array  | -        |                                                               |
+| 9   | 権限管理 ID               | permissionManagementId  |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 10  | 権限保持対象区分          | classification          |     |  ○  |     |     |     |     | -      | string | -        | [権限保持対象区分](../../../../API/API_parameter_definition_table.md) |
+| 11  | 許可者 ID                 | permissionId            |     |  ○  |     |     |     |     | -      | string | -        | 付与する対象者の PLAT_ID または STAFF_ID を設定                              |
+| 12  | 権限種別                  | type                    |     |  ○  |     |     |     |     | -      | string | -        | [権限種別](../../../../API/API_parameter_definition_table.md)     |
+| 13  | 有効期限（開始）          | expirationFrom          |     |  ○  |     |     |     |     | -      | date   | -        |権限の有効期限（FROM）                                                 |
+| 14  | 有効期限（終了）          | expirationTo            |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（TO）                                              |
+| 15  | 権限詳細リスト            | detailList              |     |  ○  |     |     |     |     | ○      | array  | -        |                                                               |
+| 16  | 対象パス                  | path                    |     |     |  ○  |     |     |     | -      | string | -        |  権限チェック対象の階層パス                                               |
+| 17  | 演算子                    | operator                |     |     |  ○  |     |     |     | -      | string | -        |  "パスに対して値をどうチェックするか<br/>01:＝ ※ 現時点では「＝」のみ"                       |
+| 18  | 値                        | value                   |     |     |  ○  |     |     |     | -      | string | -        |  階層パスのチェックする値                                                  |
+| 19  | 権限承認リスト            | permissionApproval      |  ○  |     |     |     |     |     | ○      | array  | -        |                                                               |
+| 20  | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | [権限種別](../../../../API/API_parameter_definition_table.md)     |
+| 21  | 権限承認者 ID（医療機関） | allowableOrganizationId |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 22  | 権限承認者 ID（診療科）   | allowableDepartmentId   |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 23  | 権限承認者 ID（個人）     | allowablePersonalId     |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 24  | 承認日時                  | approvedDatetime        |     |  ○  |     |     |     |     | ○      | date   | -        |                                                               |
+| 25  | 権限コメントリスト        | permissionComment       |  ○  |     |     |     |     |     | ○      | array  | -        |                                                               |
+| 26  | 医療機関 ID               | organizationId          |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 27  | 診療科 ID                 | departmentId            |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 28  | 個人 ID                   | personalId              |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
+| 29  | コメント                  | comment                 |     |  ○  |     |     |     |     | -      | string | -        |                                                               |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
