@@ -108,7 +108,7 @@
 | 11  | 許可要求日時              | requestedDatetime              |     |  ○  |     |     |     |     | -     | string | -        |                                                                                                                                 |
 | 12  | 文書所有者ID              | documentOwnerId                |     |  ○  |     |     |     |     | -     | string | -        | リクエストで設定した値と同一値                                                                                                  |                                                                                                                                |
 | 13  | 権限保持対象区分          | classification                 |     |  ○  |     |     |     |     | -     | string | -        | 1:個人、2:組織                                                                                                                  |
-| 14  | 権限保持者ID              | permissionId                   |     |  ○  |     |     |     |     | -     | string | -        | 対象者の PLAT_ID または STAFF_ID を設定                                                                                         |
+| 14  | 権限保持者ID              | permissionId                   |     |  ○  |     |     |     |     | -     | string | -        | リクエストで設定した値と同一値                                                                                         |
 | 15  | 権限種別                  | type                           |     |  ○  |     |     |     |     | -     | string | -        | 01:ReadOnly(参照のみ)<br/>02:UpdateOnly(参照、更新、削除)<br/>03:FullAccess(参照、登録、更新、削除)<br/>04:AccessDeny(権限無し) |
 | 16  | 有効期限（開始）          | expirationFrom                 |     |  ○  |     |     |     |     | -     | date   | -        | 権限の有効期限（FROM）                                                                                                          |
 | 17  | 有効期限（終了）          | expirationTo                   |     |  ○  |     |     |     |     | -     | date   | -        | 権限の有効期限（TO）                                                                                                            |
@@ -150,6 +150,7 @@
       "permissionManagementId": "c42e5ca3-fb57-4e5a-9b75-a9b08aeddda4",
       "status": "0",
       "requestedOrganizationId": "1310000001",
+      "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
       "requestedDatetime": "Oct 6, 2021, 9:44:07 PM",
       "documentOwnerId": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2",
       "classification": "2",
