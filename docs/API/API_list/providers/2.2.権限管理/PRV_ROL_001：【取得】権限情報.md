@@ -20,7 +20,7 @@
 
 | No. | 項目名       | 物理名         |  属性  | Nullable | 設定要領                                                                     |
 | :-- | :----------- | :------------- | :----: | :------: | :--------------------------------------------------------------------------- |
-| 1   | 権限保持区分 | classification | string |    -     | 権限保持区分を設定する。（1:個人、2:組織）                                   |
+| 1   | 権限保持区分 | classification | string |    -     | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                                   |
 | 2   | 許可者 ID    | permissionId   | string |    -     | 許可者 ID を設定する。（個人の場合は PLAT 共通 ID、組織の場合は医療機関 ID） |
 | 3   | 基準日       | defaultdate    |  date  |    -     | 権限の有効期限 From ～ To の条件を設定する。                                 |
 
@@ -59,13 +59,13 @@
 | 3   | 権限詳細 ID         | permissionDetailId     |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
 | 4   | 権限管理 ID         | permissionManagementId |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
 | 5   | 対象パス            | path                   |     |     |  ○  |     |     |     | -      | string | -        | 権限チェック対象の階層パス                                                                                                      |
-| 6   | 演算子              | operator               |     |     |  ○  |     |     |     | -      | string | -        | パスに対して値をどうチェックするか<br/>01:＝ ※ 現時点では「＝」のみ                                                             |
+| 6   | 演算子              | operator               |     |     |  ○  |     |     |     | -      | string | -        | [演算子](../../../API_Domain_Definition_Table.md)                                                              |
 | 7   | 値                  | value                  |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
 | 8   | 権限管理 ID         | permissionManagementId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
 | 9   | 権限グループ管理 ID | permissionGroupId      |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 10  | 権限保持対象区分    | classification         |     |  ○  |     |     |     |     | -      | string | -        | 1:個人、2:組織                                                                                                                  |
+| 10  | 権限保持対象区分    | classification         |     |  ○  |     |     |     |     | -      | string | -        | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                                                                                                                  |
 | 11  | 許可者 ID           | permissionId           |     |  ○  |     |     |     |     | -      | string | -        | 付与する対象者の PLAT_ID または STAFF_ID を設定                                                                                 |
-| 12  | 権限種別            | type                   |     |  ○  |     |     |     |     | -      | string | -        | 01:ReadOnly(参照のみ)<br/>02:UpdateOnly(参照、更新、削除)<br/>03:FullAccess(参照、登録、更新、削除)<br/>04:AccessDeny(権限無し) |
+| 12  | 権限種別            | type                   |     |  ○  |     |     |     |     | -      | string | -        | [権限種別](../../../API_Domain_Definition_Table.md)  |
 | 13  | 有効期限（開始）    | expirationFrom         |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（FROM）                                                                                                          |
 | 14  | 有効期限（終了）    | expirationTo           |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（TO）                                                                                                            |
 

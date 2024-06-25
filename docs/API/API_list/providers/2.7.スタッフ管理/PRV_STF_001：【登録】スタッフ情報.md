@@ -37,11 +37,11 @@ PLAT 上にスタッフ情報を登録する。
 | 3   | 職業                     | occupation     |  ○  |     |     |     |     |     |        | string | -        |                                                     |
 | 4   | スタッフ情報オブジェクト | staffResource  |  ○  |     |     |     |     |     |        | object | -        |                                                     |
 | 5   | リソース種別             | resourceType   |     |  ○  |     |     |     |     |        | string | -        | "Staff"固定                                         |
-| 6   | 救急フラグ               | emergencyFlg   |     |  ○  |     |     |     |     |        | string | -        | 0:通常、1:救急                                      |
+| 6   | 救急フラグ               | emergencyFlg   |     |  ○  |     |     |     |     |        | string | -        | [救急フラグ](../../../API_Domain_Definition_Table.md)                                       |
 | 7   | 名称リスト               | name           |     |  ○  |     |     |     |     |        | object | -        |                                                     |
 | 8   | 拡張リスト               | extension      |     |     |  ○  |     |     |     |        | object | -        |                                                     |
 | 9   | URL                      | url            |     |     |     |  ○  |     |     |        | string | -        |                                                     |
-| 10  | 値コード                 | valueCode      |     |     |     |  ○  |     |     |        | string | -        | IDE：漢字、SYL：カナ　※認証情報には漢字が登録される |
+| 10  | 値コード                 | valueCode      |     |     |     |  ○  |     |     |        | string | -        | [値コード](../../../API_Domain_Definition_Table.md)  |
 | 11  | 姓                       | family         |     |     |  ○  |     |     |     |        | string | -        |                                                     |
 | 12  | 名リスト                 | given          |     |     |  ○  |     |     |     |        | object | -        |                                                     |
 | 13  | 名                       | -              |     |     |     |  ○  |     |     |        | string | -        |                                                     |
@@ -91,7 +91,7 @@ PLAT 上にスタッフ情報を登録する。
 | 3   | 名称リスト   | name         |  ○  |     |     |     |     |     |        | array  | -        |                    |
 | 4   | 拡張リスト   | extension    |     |  ○  |     |     |     |     |        | array  | -        |                    |
 | 5   | URL          | url          |     |     |  ○  |     |     |     |        | string | -        |                    |
-| 6   | 値コード     | valueCode    |     |     |  ○  |     |     |     |        | string | -        |                    |
+| 6   | 値コード     | valueCode    |     |     |  ○  |     |     |     |        | string | -        | [値コード](../../../API_Domain_Definition_Table.md)                    |
 | 7   | 姓           | family       |     |  ○  |     |     |     |     |        | string | -        |                    |
 | 8   | 名リスト     | given        |     |  ○  |     |     |     |     |        | array  | -        |                    |
 | 9   | 名           | -            |     |     |  ○  |     |     |     |        | string | -        |                    |

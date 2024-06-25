@@ -50,7 +50,7 @@
 | 4   | 操作者ID       | operatorId                     |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
 | 5   | 操作対象者ID   | operatorTargetId               |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
 | 6   | ロールコード   | roleCode                       |     |     | ○  |     |     |     | -      | string  | -        | |
-| 7   | 通知フラグ     | notificationFlg                |     |     | ○  |     |     |     | -      | integer |          | (0：通知しない/1：通知) |
+| 7   | 通知フラグ     | notificationFlg                |     |     | ○  |     |     |     | -      | integer |          | [通知フラグ](../../../API_Domain_Definition_Table.md)  |
 
 
 | エラー条件                                                        |

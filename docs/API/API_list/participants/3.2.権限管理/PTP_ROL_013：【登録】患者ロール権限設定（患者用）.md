@@ -33,7 +33,7 @@
 | :-- | :------------- | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
 | 1   | 操作対象者ID   | operatorTargetId               | ○  |     |     |     |     |     | -      | string  | -        | PLATID |
 | 2   | ロールコード   | roleCode                       | ○  |     |     |     |     |     | -      | string  | -        | |
-| 3   | 通知フラグ     | notificationFlg                | ○  |     |     |     |     |     | -      | integer | -        | (0：通知しない/1：通知) |
+| 3   | 通知フラグ     | notificationFlg                | ○  |     |     |     |     |     | -      | integer | -        | [通知フラグ](../../../API_Domain_Definition_Table.md)  |
 
 
 ### サンプル（リクエスト）
@@ -55,7 +55,7 @@
 | 2   | 操作者ID       | operatorId                     |     | ○  |     |     |     |     | -      | string  | -        | PLATID |
 | 3   | 操作対象者ID   | operatorTargetId               |     | ○  |     |     |     |     | -      | string  | -        | PLATID |
 | 4   | ロールコード   | roleCode                       |     | ○  |     |     |     |     | -      | string  | -        | |
-| 5   | 通知フラグ     | notificationFlg                |     | ○  |     |     |     |     | -      | integer | -        | |
+| 5   | 通知フラグ     | notificationFlg                |     | ○  |     |     |     |     | -      | integer | -        |[通知フラグ](../../../API_Domain_Definition_Table.md)  |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
