@@ -20,7 +20,7 @@
 
 | No. | 項目名     | 物理名              |  属性  | Nullable | 設定要領                                                                           |
 | :-- | :--------- | :------------------ | :----: | :------: | :--------------------------------------------------------------------------------- |
-| 1   | 参照先     | location            | string |    ○     | [参照先](../../../API_Domain_Definition_Table.md)  |
+| 1   | 参照先     | location            | string |    ○     |[参照先（文書管理）](../../../API_Domain_Definition_Table.md)  |
 | 2   | 検索開始日 | consultationDayFrom | string |    ○     | 診療日の検索開始日　 YYYY-MMM-DD 形式                                              |
 | 3   | 検索開始日 | consultationDayTo   | string |    ○     | 診療日の検索終了日　 YYYY-MMM-DD 形式                                              |
 | 4   | タイトル   | title               | string |    ○     | URL エンコードを行う                                                               |
