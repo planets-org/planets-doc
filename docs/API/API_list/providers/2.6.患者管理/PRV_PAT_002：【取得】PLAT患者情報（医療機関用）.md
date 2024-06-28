@@ -18,19 +18,23 @@
 
 ### リクエスト（クエリ）
 
+クエリパラメータとパスパラメータが指定されていない場合は、一覧を返却する。
+
 | No. | 項目名   | 物理名    |  属性  | Nullable | 設定要領                                  |
 | :-- | :------- | :-------- | :----: | :------: | :---------------------------------------- |
-| 1   | 名前     | name      | string |    ○     | 漢字もしくはカナの前方一致検索            |
-| 2   | 住所     | address   | string |    ○     | 住所を前方一致検索                        |
-| 3   | 電話番号 | telecom   | string |    ○     | 電話番号を完全一致検索                    |
-| 4   | 性別     | gender    | string |    ○     |[性別](../../../API_Domain_Definition_Table.md)                   |
-| 5   | 生年月日 | birthDate |  date  |    ○     | 生年月日を完全一致検索（YYYY-MM-DD 形式） |
+| 1   | 参照先     | location            | string |    ○     | [参照先(患者管理）](../../../API_Domain_Definition_Table.md)  |
+| 2   | 名前     | name      | string |    ○     | 漢字もしくはカナの前方一致検索            |
+| 3   | 住所     | address   | string |    ○     | 住所を前方一致検索                        |
+| 4   | 電話番号 | telecom   | string |    ○     | 電話番号を完全一致検索                    |
+| 5   | 性別     | gender    | string |    ○     | [性別](../../../API_Domain_Definition_Table.md)                   |
+| 6   | 生年月日 | birthDate |  date  |    ○     | 生年月日を完全一致検索（YYYY-MM-DD 形式） |
+
 
 ### リクエスト（パスパラメータ）
 
 | No. | 項目名  | 物理名    |  属性  | Nullable | 設定要領                                         |
 | :-- | :------ | :-------- | :----: | :------: | :----------------------------------------------- |
-| 1   | 患者 ID | patientId | string |    ○     | クエリパラメータ指定が無い場合は必須入力となる。 |
+| 1   | 患者 ID | patientId | string |    ○     | |
 
 ### リクエスト(Body)
 
@@ -125,7 +129,7 @@
           "address": [
             {
               "use": "home",
-              "line": ["玉手町 18-50"],
+              "line": ["玉手町 23-10"],
               "city": "柏原市",
               "district": "大阪府",
               "postalCode": "5820001"

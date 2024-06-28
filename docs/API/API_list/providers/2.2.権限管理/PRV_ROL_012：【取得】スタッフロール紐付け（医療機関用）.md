@@ -20,8 +20,9 @@
 
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | スタッフID   | staffId          | string  |    〇    | PLATID |
-| 2   | ロールコード | roleCode         | string  |    〇    | |
+| 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
+| 2   | スタッフID   | staffId          | string  |    〇    | PLATID |
+| 3   | ロールコード | roleCode         | string  |    〇    | |
 
 
 ### リクエスト（パスパラメータ）
