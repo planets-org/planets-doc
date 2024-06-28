@@ -23,6 +23,7 @@
 | 1   | 検索開始日 | consultationDayFrom | string |    ○     | 診療日の検索開始日　 YYYY-MMM-DD 形式                                              |
 | 2   | 検索開始日 | consultationDayTo   | string |    ○     | 診療日の検索終了日　 YYYY-MMM-DD 形式                                              |
 
+
 ### リクエスト（パスパラメータ）
 
 | No. | 項目名  | 物理名    |  属性  | Nullable | 設定要領                                 |

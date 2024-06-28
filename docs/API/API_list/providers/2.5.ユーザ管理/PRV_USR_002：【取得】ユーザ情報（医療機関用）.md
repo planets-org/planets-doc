@@ -22,12 +22,13 @@ PLAT 上で管理しているユーザの[Patient リソース](../../../../Plat
 
 | No. | 項目名   | 物理名    |  属性  | Nullable | 設定要領                                  |
 | :-- | :------- | :-------- | :----: | :------: | :---------------------------------------- |
-| 1   | 参照先 | location | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
+| 1   | 参照先 | location | string |    ○     | [参照先(ユーザ管理）](../../../API_Domain_Definition_Table.md)  |
 | 2   | 名前     | name      | string |    ○     | 漢字もしくはカナの前方一致検索            |
 | 3   | 住所     | address   | string |    ○     | 住所を前方一致検索                        |
 | 4   | 電話番号 | telecom   | string |    ○     | 電話番号を完全一致検索                    |
-| 5   | 性別     | gender    | string |    ○     | "male" か "famale"で検索                  |
+| 5   | 性別     | gender    | string |    ○     | [性別](../../../API_Domain_Definition_Table.md)                   |
 | 6   | 生年月日 | birthDate |  date  |    ○     | 生年月日を完全一致検索（YYYY-MM-DD 形式） |
+
 
 ### リクエスト（パスパラメータ）
 

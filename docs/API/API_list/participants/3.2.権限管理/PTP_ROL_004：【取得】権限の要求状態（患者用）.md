@@ -22,7 +22,7 @@
 
 | No. | 項目名     | 物理名 |  属性  | Nullable | 設定要領                                                                         |
 | :-- | :--------- | :----- | :----: | :------: | :------------------------------------------------------------------------------- |
-| 1   | ステータス | status | string |    -     | 権限の承認状態を設定する。（0:承認要求中、1:承認済み、2:承認拒否、3:承認取下げ） |
+| 1   | ステータス | status | string |    -     | [権限承認状態](../../../API_Domain_Definition_Table.md)  |
 
 ### リクエスト（パスパラメータ）
 
@@ -56,14 +56,14 @@
 | :-- | :------------------------ | :---------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :----------------------------------------------------------------------------------------- |
 | 1   | 権限管理オブジェクト      | permissonGroup          |  ○  |     |     |     |     |     | ○      | object | -        |                                                                                            |
 | 2   | 権限グループ管理 ID       | permissionGroupId       |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 3   | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
+| 3   | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | [権限承認状態](../../../API_Domain_Definition_Table.md)  |
 | 4   | 権限要求者 ID（医療機関） | requestedOrganizationId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
 | 5   | 権限要求者 ID（診療科）   | requestedDepartmentId   |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
 | 6   | 権限要求者 ID（個人）     | requestedPersonalId     |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
 | 7   | 権限要求日時              | requestedDatetime       |     |  ○  |     |     |     |     | -      | date   | -        |                                                                                            |
 | 8   | 権限承認リスト            | permissionApproval      |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                            |
 | 9   | 権限承認 ID               | permissionApprovalId    |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
-| 10  | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
+| 10  | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string | -        | [権限承認状態](../../../API_Domain_Definition_Table.md)  |
 | 11  | 権限承認者 ID（医療機関） | allowableOrganizationId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
 | 12  | 権限承認者 ID（診療科）   | allowableDepartmentId   |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |
 | 13  | 権限承認者 ID（個人）     | allowablePersonalId     |     |  ○  |     |     |     |     | -      | string | -        |                                                                                            |

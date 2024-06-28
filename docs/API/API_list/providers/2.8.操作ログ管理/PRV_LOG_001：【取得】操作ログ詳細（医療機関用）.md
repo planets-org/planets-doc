@@ -57,7 +57,7 @@
 | 2   | 件数                     | count                                |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
 | 3   | 操作ログ情報             | results                              |     | ○  |     |     |     |     | ○     | array   | -        | |
 | 4   | 操作ログID               | operationLogId                       |     |     | ○  |     |     |     | -      | string  | -        | |
-| 5   | 操作者区分               | operatorKbn                          |     |     | ○  |     |     |     | -      | string  | -        | 0:医療機関/1:スタッフ/2:患者 |
+| 5   | 操作者区分               | operatorKbn                          |     |     | ○  |     |     |     | -      | string  | -        | [操作者区分](../../../API_Domain_Definition_Table.md) |
 | 6   | 医療機関ID               | organizationId                       |     |     | ○  |     |     |     | -      | string  | 〇       | |
 | 7   | 医療機関名称             | organizationName                     |     |     | ○  |     |     |     | -      | string  | 〇       | |
 | 8   | 診療科ID                 | departmentId                         |     |     | ○  |     |     |     | -      | string  | 〇       | |
@@ -66,7 +66,7 @@
 | 11  | 操作者名称（漢字）       | operatorNameKanji                    |     |     | ○  |     |     |     | -      | string  | 〇       | |
 | 12  | 操作日時                 | operationDatetime                    |     |     | ○  |     |     |     | -      | string  | -        | |
 | 13  | 操作内容                 | operationDetails                     |     |     | ○  |     |     |     | -      | string  | -        | 自動承認/医療機関情報取得・・・|
-| 14  | 操作結果                 | operationResult                      |     |     | ○  |     |     |     | -      | string  | -        | 0:成功/1:失敗|
+| 14  | 操作結果                 | operationResult                      |     |     | ○  |     |     |     | -      | string  | -        | [操作結果](../../../API_Domain_Definition_Table.md)|
 | 15  | 操作デバイス（UserAgent）| userAgent                            |     |     | ○  |     |     |     | -      | string  | -        | |
 | 18  | 登録日時                 | registedDatetime                     |     |     | ○  |     |     |     | -      | string  | -        | |
 | 19  | 操作対象者情報           | resultsOperationTargetUserInfo       |     |     | ○  |     |     |     | ○     | array   | -        | |
@@ -77,7 +77,7 @@
 | 24  | 操作対象者診療科ID       | operationTargeDepartmentId           |     |     |     | ○  |     |     | -      | string  | 〇       | |
 | 25  | 操作対象者診療科名称     | operationTargeDepartmentName         |     |     |     | ○  |     |     | -      | string  | 〇       | |
 | 26  | 操作対象者名称（漢字）   | operationTargetUserNameKanji         |     |     |     | ○  |     |     | -      | string  | 〇       | |
-| 27  | 通知タイプ               | notificationType                     |     |     |     | ○  |     |     | -      | integer | -        | 0:通知なし/1:リアルタイム通知/2:集約通知|
+| 27  | 通知タイプ               | notificationType                     |     |     |     | ○  |     |     | -      | integer | -        | [通知タイプ](../../../API_Domain_Definition_Table.md)|
 | 28  | 操作対象文書情報         | resultsOperationTargetDocumentInfo   |     |     | ○  |     |     |     | ○     | array   | -        | |
 | 29  | 文書キー                 | documentKey                          |     |     |     | ○  |     |     | -      | string  | -        | |
 | 30  | 文書種別                 | document_type                        |     |     |     | ○  |     |     | -      | string  | -        | |

@@ -25,6 +25,7 @@
 | 3 | 検索条件       | conditions          | string |    ○     | OpenFRUCtoS 固有の検索文字列　{パラメータ名}={パラメータ値}を”&”でつなげて URL エンコードを行い指定 |
 | 4   | リソースタイプ | resourceType        | string |    ○     | Bundle リソース内のリソースタイプを指定                                                             |
 
+
 ### リクエスト（パスパラメータ）
 
 | No. | 項目名  | 物理名    |  属性  | Nullable | 設定要領                                 |
