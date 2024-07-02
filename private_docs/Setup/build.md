@@ -33,11 +33,11 @@ sidebar_position: 1
 
 ### 3.1. 簡易構成
 
-![image.png](../.attachments/image-c9dffbbe-12a7-4552-8e63-4963392936fc.png)
+![image.png](../../docs/.attachments/image-c9dffbbe-12a7-4552-8e63-4963392936fc.png)
 
 ### 3.2. 詳細構成
 
-![image.png](../.attachments/image-9cccddd2-45b1-4469-822b-1da946e5888c.png)
+![image.png](../../docs/.attachments/image-9cccddd2-45b1-4469-822b-1da946e5888c.png)
 
 ## 4. 環境情報
 

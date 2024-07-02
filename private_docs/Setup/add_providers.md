@@ -15,11 +15,11 @@ sidebar_position: 2
 
 ### 2.1. 簡易構成
 
-![image.png](../.attachments/image-76a94113-e391-4406-b9ac-cf8b8a0c9e3e.png)
+![image.png](../../docs/.attachments/image-76a94113-e391-4406-b9ac-cf8b8a0c9e3e.png)
 
 ### 2.2. 詳細構成
 
-![image.png](../.attachments/image-d053624d-496c-421b-96e9-868e8a22a73b.png)
+![image.png](../../docs/.attachments/image-d053624d-496c-421b-96e9-868e8a22a73b.png)
 
 ## 3. 環境情報
 

@@ -58,13 +58,13 @@ sidebar_position: 3
 ### 1.2. Docker コンテナ自体を完全に初期化する場合
 
 - Docker for Desktop の上部にある虫アイコンを押下し、Troubleshoot 画面を開く。  
-  ![image.png](../.attachments/image-fae3f9dd-ebba-4110-abcb-b05d8edea370.png)
+  ![image.png](../../docs/.attachments/image-fae3f9dd-ebba-4110-abcb-b05d8edea370.png)
 
 - [Clean / Purge data]を押下  
-  ![image.png](../.attachments/image-009f8087-367b-45da-b66d-7b38ecae8c3d.png)
+  ![image.png](../../docs/.attachments/image-009f8087-367b-45da-b66d-7b38ecae8c3d.png)
 
 - 全てチェックし、[Delete]を押下  
-  ![image.png](../.attachments/image-9148308a-a4e9-45f6-9a39-89760e5c3838.png)
+  ![image.png](../../docs/.attachments/image-9148308a-a4e9-45f6-9a39-89760e5c3838.png)
 
 :::note
 
