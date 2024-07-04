@@ -21,7 +21,6 @@
 
 | No. | 項目名 | 物理名 | 属性 | Nullable | 設定要領 |
 | :-- | :----- | :----- | :--: | :------: | :------- |
-| -   |        |        |      |          |          |
 
 ### リクエスト（パスパラメータ）
 
@@ -49,16 +48,16 @@
 | :-- | :------------------------ | :---------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :----------------------------------------------------------------------------------------- |
 | 1   | 権限管理オブジェクト      | permissonGroup          |  ○  |     |     |     |     |     | -      | object  | ○        |                                                                                            |
 | 2   | 権限グループ管理 ID       | permissionGroupId       |     |  ○  |     |     |     |     | -      | string  | -        |                                                                                            |
-| 3   | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string  | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
-| 4   | 論理削除フラグ            | deletedFlg              |     |  ○  |     |     |     |     | -      | integer | -        | 権限の削除状態を設定する。<br/>0:未削除<br/>1:削除済み                                     |
+| 3   | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string  | -        | [権限承認状態](../../../API_Domain_Definition_Table.md)  |
+| 4   | 論理削除フラグ            | deletedFlg              |     |  ○  |     |     |     |     | -      | integer | -        |[論理削除フラグ](../../../API_Domain_Definition_Table.md)                                    |
 | 5   | 権限要求者 ID（医療機関） | requestedOrganizationId |     |  ○  |     |     |     |     | -      | string  | -        |                                                                                            |
 | 6   | 権限要求者 ID（診療科）   | requestedDepartmentId   |     |  ○  |     |     |     |     | -      | string  | -        |                                                                                            |
 | 7   | 権限要求者 ID（個人）     | requestedPersonalId     |     |  ○  |     |     |     |     | -      | string  | -        |                                                                                            |
 | 8   | 権限要求日時              | requestedDatetime       |     |  ○  |     |     |     |     | -      | date    | -        |                                                                                            |
 | 9   | 権限承認リスト            | permissionApproval      |  ○  |     |     |     |     |     | ○      | array   | -        |                                                                                            |
 | 10  | 権限承認 ID               | permissionApprovalId    |     |  ○  |     |     |     |     | -      | string  | -        |                                                                                            |
-| 11  | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string  | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ |
-| 12  | 論理削除フラグ            | deletedFlg              |     |  ○  |     |     |     |     | -      | integer | -        | 権限の削除状態を設定する。<br/>0:未削除<br/>1:削除済み                                     |
+| 11  | ステータス                | status                  |     |  ○  |     |     |     |     | -      | string  | -        | [権限承認状態](../../../API_Domain_Definition_Table.md)  |
+| 12  | 論理削除フラグ            | deletedFlg              |     |  ○  |     |     |     |     | -      | integer | -        |[論理削除フラグ](../../../API_Domain_Definition_Table.md)                                    |
 | 13  | 権限承認者 ID（医療機関） | allowableOrganizationId |     |  ○  |     |     |     |     | -      | string  | -        |                                                                                            |
 | 14  | 権限承認者 ID（診療科）   | allowableDepartmentId   |     |  ○  |     |     |     |     | -      | string  | -        |                                                                                            |
 | 15  | 権限承認者 ID（個人）     | allowablePersonalId     |     |  ○  |     |     |     |     | -      | string  | -        |                                                                                            |

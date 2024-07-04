@@ -20,10 +20,9 @@
 
 | No. | 項目名     | 物理名              |  属性  | Nullable | 設定要領                                                                           |
 | :-- | :--------- | :------------------ | :----: | :------: | :--------------------------------------------------------------------------------- |
-| 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
-| 2   | 検索開始日 | consultationDayFrom | string |    ○     | 診療日の検索開始日　 YYYY-MMM-DD 形式                                              |
-| 3   | 検索開始日 | consultationDayTo   | string |    ○     | 診療日の検索終了日　 YYYY-MMM-DD 形式                                              |
-| 4   | タイトル   | title               | string |    ○     | URL エンコードを行う                                                               |
+| 1   | 検索開始日 | consultationDayFrom | string |    ○     | 診療日の検索開始日　 YYYY-MMM-DD 形式                                              |
+| 2   | 検索開始日 | consultationDayTo   | string |    ○     | 診療日の検索終了日　 YYYY-MMM-DD 形式                                              |
+| 3   | タイトル   | title               | string |    ○     | URL エンコードを行う                                                               |
 
 ### リクエスト（パスパラメータ）
 

@@ -18,7 +18,7 @@ PLAT 環境の構築後に動作確認をするための手順を記載する。
 ### 3.1. Postman に設定ファイルを読み込む
 
 1. Postman を起動し[File] [Import] を押下する。  
-   ![image.png](../.attachments/image-1b663dd4-3541-409a-bf16-64ffc8dda1d7.png)
+   ![image.png](../../docs/.attachments/image-1b663dd4-3541-409a-bf16-64ffc8dda1d7.png)
 
 2. [Upload Files] を押下し、処理定義（planets-lib/postman/collection 配下）のファイルをインポートする。
 
@@ -56,7 +56,7 @@ PLAT 環境の構築後に動作確認をするための手順を記載する。
    ```
 
    1.4. Postman の [PLAT 疎通確認] - [LocalX] - [②COM_ATH_003.【認証】トークン取得] を開き、Body タブの code（下図!!!replace_me!!!の箇所）に 1.3. で取得した認可コードを設定して Send ボタンを押下する。  
-   ![image.png](../.attachments/image-postman0001.png)
+   ![image.png](../../docs/.attachments/image-postman0001.png)
 
 2. スタッフの登録  
    2.1. Postman の [PLAT 疎通確認] - [LocalX] - [③PRV_STF_003.【登録】スタッフ管理（認証情報まで一括登録）] を開き、Send ボタンを押下する。  
@@ -78,7 +78,7 @@ PLAT 環境の構築後に動作確認をするための手順を記載する。
    ```
 
    3.4. Postman の [PLAT 疎通確認] - [LocalX] - [⑤COM_ATH_003.【認証】トークン取得] を開き、Body タブの code（下図!!!replace_me!!!の箇所）に 3.3. で取得した認可コードを設定して Send ボタンを押下する。  
-    ![image.png](../.attachments/image-postman0002.png)
+    ![image.png](../../docs/.attachments/image-postman0002.png)
 
 4. 組織一覧を取得  
    Postman の [PLAT 疎通確認] - [LocalX] - [⑥PRV_ORG_001.【取得】文書情報が存在する医療機関リスト] を開き、Send ボタンを押下する。  
