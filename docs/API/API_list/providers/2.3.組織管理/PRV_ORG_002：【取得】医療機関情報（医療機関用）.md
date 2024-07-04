@@ -22,7 +22,7 @@
 
 | No. | 項目名   | 物理名  |  属性  | Nullable | 設定要領 |
 | :-- | :------- | :------ | :----: | :------: | :------- |
-| 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
+| 1   | 参照先     | location            | string |    ○     |  [参照先（組織管理）](../../../API_Domain_Definition_Table.md)  |
 | 2   | 名前     | name    | string |          |          |
 | 3   | 住所     | address | string |          |          |
 | 4   | 電話番号 | telecom | string |          |          |
