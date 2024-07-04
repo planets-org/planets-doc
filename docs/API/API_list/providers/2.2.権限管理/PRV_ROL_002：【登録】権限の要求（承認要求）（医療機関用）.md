@@ -124,45 +124,50 @@
 
 ```json title="正常終了"
 {
+  "permissionGroup": {
+    "permissionGroupId": "d79650b4-1f72-4ee8-85dd-1aaa049d0da9",
+    "status": "0",
+    "requestedOrganizationId": "1310000001",
+    "requestedDepartmentId": "",
+    "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
+    "requestedDatetime": "Oct 6, 2021, 9:44:07 PM"
+  },
   "permissionList": [
     {
-      "permissionSearchCriteriaList": [
+      "detailList": [
         {
-          "searchCriteria": "hospitalCode",
+          "path": "Composition.subject:Patient.identifier",
           "operator": "01",
-          "value": "2520000009"
+          "value": "https://www.plat.org/|0034fff5-296b-4ece-b2b8-a97e34ae5cf2"
         },
         {
-          "searchCriteria": "documentOwnerId",
-          "operator": "01",
-          "value": "X001"
-        },
-        {
-          "searchCriteria": "documentType",
+          "path": "type.coding.code",
           "operator": "01",
           "value": "01"
         }
-      ]
+      ],
       "permissionManagementId": "c42e5ca3-fb57-4e5a-9b75-a9b08aeddda4",
-      "status": "0",
-      "requestedOrganizationId": "1310000001",
-      "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
-      "requestedDatetime": "Oct 6, 2021, 9:44:07 PM",
-      "documentOwnerId": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2",
-      "classification": "2",
-      "permissionId": "1310000001",
+      "classification": "1",
+      "permissionId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
       "type": "01",
       "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-      "expirationTo": "Mar 2, 2025, 1:00:00 AM",
-      "comment": "患者 1 への権限要求"
+      "expirationTo": "Feb 23, 2022, 1:00:00 AM"
     }
-   ],
+  ],
   "permissionApproval": [
     {
-     "status": "0",
-     "allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"
+      "status": "0",
+      "allowablePersonalId": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2"
     }
-   ]
+  ],
+  "permissionComment": [
+    {
+      "organizationId": "1310000001",
+      "departmentId": "",
+      "personalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
+      "comment": "クリニック X 医師 B への権限承認をお願いします"
+    }
+  ]
 }
 ```
 
