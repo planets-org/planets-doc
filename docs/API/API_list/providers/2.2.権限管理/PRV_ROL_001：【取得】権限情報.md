@@ -20,12 +20,12 @@
 
 クエリパラメータとパスパラメータが指定されていない場合は、自身が保持する権限の一覧を返却する。
 
-| No. | 項目名       | 物理名         |  属性  | Nullable | 設定要領                                                                     |
-| :-- | :----------- | :------------- | :----: | :------: | :--------------------------------------------------------------------------- |
-| 1   | 参照先     | location            | string |    ○     | [参照先(権限管理）](../../../API_Domain_Definition_Table.md)  |
-| 2   | 権限保持区分 | classification | string |    -     | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                                    |
-| 3   | 許可者 ID    | permissionId   | string |    -     | 許可者 ID を設定する。（個人の場合は PLAT 共通 ID、組織の場合は医療機関 ID） |
-| 4   | 基準日       | defaultdate    |  date  |    -     | 権限の有効期限 From ～ To の条件を設定する。                                 |
+| No. | 項目名       | 物理名         |  属性  | Nullable | 設定要領                                                                         |
+| :-- | :----------- | :------------- | :----: | :------: | :------------------------------------------------------------------------------- |
+| 1   | 参照先       | location       | string |    ○    | [参照先(権限管理）](../../../API_Domain_Definition_Table.md)                     |
+| 2   | 権限保持区分 | classification | string |    -     | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                      |
+| 3   | 権限保持者 ID| permissionId   | string |    -     | 権限保持者 ID を設定する。（個人の場合は PLAT 共通 ID、組織の場合は医療機関 ID） |
+| 4   | 基準日       | defaultdate    |  date  |    -     | 権限の有効期限 From ～ To の条件を設定する。                                     |
 
 
 ### リクエスト（パスパラメータ）
@@ -56,22 +56,28 @@
 
 ### レスポンス
 
-| No. | 項目名              | 物理名                 | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | レスポンス設定要領                                                                                                              |
-| :-- | :------------------ | :--------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| 1   | 権限管理リスト      | permissionList         |  ○  |     |     |     |     |     | ○      | array  | -        |                                                                                                                                 |
-| 2   | 権限詳細リスト      | detailList             |     |  ○  |     |     |     |     | ○      | array  | -        |                                                                                                                                 |
-| 3   | 権限詳細 ID         | permissionDetailId     |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
-| 4   | 権限管理 ID         | permissionManagementId |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
-| 5   | 対象パス            | path                   |     |     |  ○  |     |     |     | -      | string | -        | 権限チェック対象の階層パス                                                                                                      |
-| 6   | 演算子              | operator               |     |     |  ○  |     |     |     | -      | string | -        | [演算子](../../../API_Domain_Definition_Table.md)                                                              |
-| 7   | 値                  | value                  |     |     |  ○  |     |     |     | -      | string | -        |                                                                                                                                 |
-| 8   | 権限管理 ID         | permissionManagementId |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 9   | 権限グループ管理 ID | permissionGroupId      |     |  ○  |     |     |     |     | -      | string | -        |                                                                                                                                 |
-| 10  | 権限保持対象区分    | classification         |     |  ○  |     |     |     |     | -      | string | -        | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                                                                                                                  |
-| 11  | 許可者 ID           | permissionId           |     |  ○  |     |     |     |     | -      | string | -        | 付与する対象者の PLAT_ID または STAFF_ID を設定                                                                                 |
-| 12  | 権限種別            | type                   |     |  ○  |     |     |     |     | -      | string | -        | [権限種別](../../../API_Domain_Definition_Table.md)  |
-| 13  | 有効期限（開始）    | expirationFrom         |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（FROM）                                                                                                          |
-| 14  | 有効期限（終了）    | expirationTo           |     |  ○  |     |     |     |     | -      | date   | -        | 権限の有効期限（TO）                                                                                                            |
+| No. | 項目名                    | 物理名                         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性   | Nullable | レスポンス設定要領                                                                                                              |
+| :-- | :------------------------ | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | 権限管理リスト            | permissionManagementList       |  ○  |     |     |     |     |     | ○    | array  | -        |                                                                                                                                 |
+| 2   | 権限検索条件リスト        | permissionSearchCriteriaList   |     |  ○  |     |     |     |     | ○    | array  | -        |                                                                                                                                 |
+| 3   | 権限検索条件ID            | permissionSearchCriteriaId     |     |     |  ○  |     |     |     | -     | serial | -        |                                                                                                                                 |
+| 3   | 検索条件                  | searchCriteria                 |     |     |  ○  |     |     |     | -     | string | -        |                                                                                                                                 |
+| 4   | 演算子                    | operator                       |     |     |  ○  |     |     |     | -     | string | -        | [演算子](../../../API_Domain_Definition_Table.md)                                                                               |
+| 5   | 値                        | value                          |     |     |  ○  |     |     |     | -     | string | -        |                                                                                                                                 |
+| 6   | 権限管理 ID               | permissionManagementId         |     |  ○  |     |     |     |     | -     | string | -        | UUID形式で設定                                                                                                                  |
+| 7   | ステータス                | status                         |     |  ○  |     |     |     |     | -     | string | -        | 権限の承認状態を設定する。<br/>0:承認要求中<br/>1:承認済み<br/>2:承認拒否<br/>3:承認取下げ                                      |
+| 8   | 論理削除フラグ            | deletedFlg                     |     |  ○  |     |     |     |     | -     | integer| -        | 権限の削除状態を設定する。<br/>0:未削除<br/>1:削除済み                                                                          |
+| 9   | 許可要求者 ID（医療機関） | requestedOrganizationId        |     |  ○  |     |     |     |     | -     | string | ○       | API実行者の医療機関ID                                                                                                           |
+| 10  | 許可要求者 ID（診療科）   | requestedDepartmentId          |     |  ○  |     |     |     |     | -     | string | ○       | API実行者の診療科ID                                                                                                             |
+| 11  | 許可要求者 ID（個人）     | requestedPersonalId            |     |  ○  |     |     |     |     | -     | string | ○       | API実行者の個人ID(PLAT_ID)                                                                                                      |
+| 12  | 許可要求日時              | requestedDatetime              |     |  ○  |     |     |     |     | -     | string | -        |                                                                                                                                 |
+| 13  | 文書所有者ID              | documentOwnerId                |     |  ○  |     |     |     |     | -     | string | -        |                                                                                                                                 |                                                                                                                                |
+| 14  | 権限保持対象区分          | classification                 |     |  ○  |     |     |     |     | -     | string | -        | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                                                                     |
+| 15  | 権限保持者ID              | permissionId                   |     |  ○  |     |     |     |     | -     | string | -        | リクエストで設定した値と同一値                                                                                                  |
+| 16  | 権限種別                  | type                           |     |  ○  |     |     |     |     | -     | string | -        | [権限種別](../../../API_Domain_Definition_Table.md)                                                                             |
+| 17  | 有効期限（開始）          | expirationFrom                 |     |  ○  |     |     |     |     | -     | date   | -        | 権限の有効期限（FROM）                                                                                                          |
+| 18  | 有効期限（終了）          | expirationTo                   |     |  ○  |     |     |     |     | -     | date   | -        | 権限の有効期限（TO）                                                                                                            |
+| 19  | コメント                  | comment                        |     |  ○  |     |     |     |     | -     | string | -        |                                                                                                                                 |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
@@ -83,23 +89,41 @@
 {
   "permissionList": [
     {
-      "detailList": [
+      "permissionSearchCriteriaList": [
         {
-          "permissionDetailId": 1,
-          "permissionManagementId": "521f67c7-4eb6-402b-a873-684f9cd5f6b7",
-          "path": "Composition.author:Organization.identifier",
+          "permissionSearchCriteriaId": 1,
+          "searchCriteria": "hospitalCode",
           "operator": "01",
-          "value": "http://hl7.jp/fhir/ePrescription/InsuranceMedicalInstitutionNo|1310000001"
+          "value": "2520000009"
+        },
+        {
+          "permissionSearchCriteriaId": 2,
+          "searchCriteria": "documentOwnerId",
+          "operator": "01",
+          "value": "X001"
+        },
+        {
+          "permissionSearchCriteriaId": 3,
+          "searchCriteria": "documentType",
+          "operator": "01",
+          "value": "01"
         }
-      ],
-      "permissionManagementId": "521f67c7-4eb6-402b-a873-684f9cd5f6b7",
+      ]
+      "permissionManagementId": "3fa04331-85fd-4cb5-819d-d240145a74ca",
+      "status": "0",
+      "deletedFlg": 0,
+      "requestedOrganizationId": "1310000001",
+      "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
+      "requestedDatetime": "Oct 6, 2021, 9:44:07 PM",
+      "documentOwnerId": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2",
       "classification": "2",
       "permissionId": "1310000001",
-      "type": "03",
+      "type": "01",
       "expirationFrom": "Mar 2, 2021, 1:00:00 AM",
-      "expirationTo": "Feb 23, 2022, 1:00:00 AM"
+      "expirationTo": "Mar 2, 2025, 1:00:00 AM",
+      "comment": "患者 1 への権限要求"
     }
-  ]
+   ]
 }
 ```
 
