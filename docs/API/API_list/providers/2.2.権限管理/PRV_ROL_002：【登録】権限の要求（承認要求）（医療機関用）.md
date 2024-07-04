@@ -61,29 +61,23 @@
 　　],
 　　"permissionList": [
 　　　　{
-　　　　　　"permissionSearchCriteriaList": [
-　　　　　　　　{
-　　　　　　　　　　"searchCriteria": "hospitalCode",
-　　　　　　　　　　"operator": "01",
-　　　　　　　　　　"value": "2520000009"
-　　　　　　　　},
-　　　　　　　　{
-　　　　　　　　　　"searchCriteria": "documentOwnerId",
-　　　　　　　　　　"operator": "01",
-　　　　　　　　　　"value": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2"
-　　　　　　　　},
-　　　　　　　　{
-　　　　　　　　　　"searchCriteria": "documentType",
-　　　　　　　　　　"operator": "01",
-　　　　　　　　　　"value": "01"
-　　　　　　　　}
-　　　　　　]
-　　　　　　"documentOwnerId": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2",
 　　　　　　"classification": "2",
 　　　　　　"permissionId": "1310000001", → 医療機関 ID を設定
 　　　　　　"type": "01",
 　　　　　　"expirationFrom": "Mar 2, 2021, 1:00:00 AM",
 　　　　　　"expirationTo": "Mar 2, 2025, 1:00:00 AM",
+　　　　　　"detailList": [
+　　　　　　　　{
+　　　　　　　　　　"path": "Composition.subject:Patient.identifier",
+　　　　　　　　　　"operator": "01",
+　　　　　　　　　　"value": "https://www.plat.org/|6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"
+　　　　　　　　},
+　　　　　　　　{
+　　　　　　　　　　"path": "type.coding.code",　 →Bundle の Path（文書タイプ）
+　　　　　　　　　　"operator": "01",　
+　　　　　　　　　　"value": "01"　 → 文書タイプの値
+　　　　　　　　}
+　　　　　　]
 　　　　}
 　　]
 }
