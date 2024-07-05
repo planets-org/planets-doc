@@ -16,25 +16,25 @@ sidebar_position: 2
 1. ブラウザを開き、下記のどちらかにアクセスし、KeyCloak のトップページを開く。 
 - local：http://localhost:8184
 - remote：http://localhost:8084
-   ![image-2022-05-21 21.12.20.png](../.attachments/image-2022-05-21%2021.12.20-c349d6f0-2a90-4ec0-a164-b092b94c663c.png)
+   ![image-2022-05-21 21.12.20.png](../../docs/.attachments/image-2022-05-21%2021.12.20-c349d6f0-2a90-4ec0-a164-b092b94c663c.png)
 
 2. 「Administration Console」をクリックすると以下の画面が開く。下記の通り入力し「Login」ボタンを押下する。  
     「ユーザ名またはアドレス」：admin  
    　　　　　　「パスワード」：admin  
-    ![image-2022-05-21 21.14.47.png](../.attachments/image-2022-05-21%2021.14.47-4b060870-52ef-48c1-933a-81dab189c004.png)
+    ![image-2022-05-21 21.14.47.png](../../docs/.attachments/image-2022-05-21%2021.14.47-4b060870-52ef-48c1-933a-81dab189c004.png)
 
 3. レルムの中から、該当する番号をクリックする。（医療機関用クライアントは、LocalとRemoteそれぞれにKeycloakサーバを立てているため、両方のKeycloakに登録する必要がある。）
 - 医療機関用(local)：1310000001L
 - 医療機関用(remote)：1310000001R
 - 患者用(remote)：0000000000R
-   ![image-2022-05-21 21.18.10.png](../.attachments/image-2022-05-21%2021.18.10-dd55c6ea-41cc-4a99-a14f-520cc5867292.png)
+   ![image-2022-05-21 21.18.10.png](../../docs/.attachments/image-2022-05-21%2021.18.10-dd55c6ea-41cc-4a99-a14f-520cc5867292.png)
 
 4. 左側のメニューから「Clients」をクリックする。  
    クライアント一覧画面が開くので「Create」を押下する。
 
 5. クライアントの追加画面が開くので以下の通り入力し、「Save」ボタンを押下する。  
    「Client ID」：必須。任意の値を設定  
-   ![image-2022-05-23 2.55.32.png](../.attachments/image-2022-05-23%202.55.32-690326c9-7c3b-474c-ba62-2b641f712212.png)
+   ![image-2022-05-23 2.55.32.png](../../docs/.attachments/image-2022-05-23%202.55.32-690326c9-7c3b-474c-ba62-2b641f712212.png)
 
 6. 追加したクライアントの設定画面（「Settings」タブ）が開くので、以下の通り入力し、「Save」ボタンを押下する。  
    「Name」：Client ID と同様の値  
