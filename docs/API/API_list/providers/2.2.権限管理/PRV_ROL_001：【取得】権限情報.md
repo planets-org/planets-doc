@@ -51,7 +51,7 @@
 ＜クエリパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/providers/permissions?classification=2&permissionId=1310000001&defaultdate=2021-04-01T13:00:00Z
+　　{applicationPath}/providers/permissions?location=self&classification=2&permissionId=1310000001&defaultdate=2021-04-01T13:00:00Z
 ```
 
 ### レスポンス
