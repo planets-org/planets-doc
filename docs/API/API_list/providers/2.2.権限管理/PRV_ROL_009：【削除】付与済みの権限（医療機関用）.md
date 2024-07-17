@@ -5,7 +5,7 @@
 
 | 機能 ID     | API 論理名                           | HTTP メソッド | URI                                                                  |
 | :---------- | :----------------------------------- | :------------ | :------------------------------------------------------------------- |
-| PRV_ROL_010 | 【削除】付与済みの権限（医療機関用） | PUT           | {applicationPath}/providers/permission/delete/{permissionApprovalId} |
+| PRV_ROL_009 | 【削除】付与済みの権限（医療機関用） | PUT           | {applicationPath}/providers/permission/delete/{permissionApprovalId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |

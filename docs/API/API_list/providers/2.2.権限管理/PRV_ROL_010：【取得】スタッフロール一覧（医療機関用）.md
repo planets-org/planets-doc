@@ -1,10 +1,10 @@
 ### 処理概要
 
-スタッフロール紐付けを取得する。
+スタッフロールを取得する。
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PRV_ROL_012 | 【取得】スタッフロール紐付け(医療機関用)| GET           | {applicationPath}/providers/roles/assignment |
+| PRV_ROL_010 | 【取得】スタッフロール(医療機関用)  | GET           | {applicationPath}/providers/roles  |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -21,8 +21,8 @@
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
 | 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
-| 2   | スタッフID   | staffId          | string  |    〇    | PLATID |
-| 3   | ロールコード | roleCode         | string  |    〇    | |
+| 2   | ロールコード | roleCode         | string  |    〇    | |
+| 3   | ロール名     | roleName         | string  |    〇    | |
 
 
 ### リクエスト（パスパラメータ）
@@ -38,9 +38,9 @@
 | -   |        |        |     |     |     |
 
 ### サンプル（リクエスト）
-＜クエリパラメータ指定の場合＞
+＜クエリパラメータ未指定の場合＞
 ```
-{applicationPath}/providers/roles/assignment?staffId=36b65929-6bd6-455d-9533-ba8c70da4e11&roleCode=C001
+{applicationPath}/providers/roles
 ```
 
 ### レスポンス
@@ -49,10 +49,9 @@
 | :-- | :------------- | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
 | 1   | 検索結果       | searchResults                  | ○  |     |     |     |     |     | -      | object  | -        | |
 | 2   | 件数           | count                          |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
-| 3   | スタッフロール紐付け情報     | results                        |     | ○  |     |     |     |     | ○     | array   | -        | |
-| 4   | 医療機関ID     | organizationId                |     |     | ○  |     |     |     | -      | string  | -        | |
-| 5   | スタッフID     | staffId                       |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
-| 6   | ロールコード   | roleCode                      |     |     | ○  |     |     |     | -      | string  | -        | |
+| 3   | ロール情報     | results                        |     | ○  |     |     |     |     | ○     | array   | -        | |
+| 4   | ロールコード   | roleCode                       |     |     | ○  |     |     |     | -      | string  | -        | |
+| 5   | ロール名       | roleName                       |     |     | ○  |     |     |     | -      | string  | -        | |
 
 
 | エラー条件                                                        |
@@ -65,12 +64,27 @@
 ```json title="正常終了"
 {
     "searchResults": {
-        "count": 1,
+        "count": 5,
         "results": [
             {
-                "organizationId": "A001",
-                "staffId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
-                "roleCode": "B001"
+                "roleCode": "A001",
+                "roleName": "システム運用事業者"
+            },
+            {
+                "roleCode": "B001",
+                "roleName": "施設内システム管理者"
+            },
+            {
+                "roleCode": "C001",
+                "roleName": "医療従事者"
+            },
+            {
+                "roleCode": "D001",
+                "roleName": "医療事務"
+            },
+            {
+                "roleCode": "E001",
+                "roleName": "スタッフ管理者"
             }
         ]
     }

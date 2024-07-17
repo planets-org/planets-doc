@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名               | HTTP メソッド | URI                                                               |
 | :---------- | :----------------------- | :------------ | :---------------------------------------------------------------- |
-| PRV_ROL_009 | 検討記録・伝達記録を共有 | POST          | {applicationPath}/providers/patients/document/{documentKey}/share |
+| PRV_ROL_008 | 検討記録・伝達記録を共有 | POST          | {applicationPath}/providers/patients/document/{documentKey}/share |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |

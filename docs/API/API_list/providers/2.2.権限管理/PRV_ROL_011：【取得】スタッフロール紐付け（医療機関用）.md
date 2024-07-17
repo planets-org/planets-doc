@@ -1,10 +1,10 @@
 ### 処理概要
 
-患者ロールを取得する。
+スタッフロール紐付けを取得する。
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PTP_ROL_011 | 【取得】患者ロール一覧(患者用)          | GET           | {applicationPath}/participants/roles        |
+| PRV_ROL_011 | 【取得】スタッフロール紐付け(医療機関用)| GET           | {applicationPath}/providers/roles/assignment |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -20,8 +20,9 @@
 
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | ロールコード | roleCode         | string  |    〇    | |
-| 2   | ロール名     | roleName         | string  |    〇    | |
+| 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
+| 2   | スタッフID   | staffId          | string  |    〇    | PLATID |
+| 3   | ロールコード | roleCode         | string  |    〇    | |
 
 
 ### リクエスト（パスパラメータ）
@@ -37,9 +38,9 @@
 | -   |        |        |     |     |     |
 
 ### サンプル（リクエスト）
-＜クエリパラメータ未指定の場合＞
+＜クエリパラメータ指定の場合＞
 ```
-{applicationPath}/participants/roles
+{applicationPath}/providers/roles/assignment?staffId=36b65929-6bd6-455d-9533-ba8c70da4e11&roleCode=C001
 ```
 
 ### レスポンス
@@ -48,10 +49,10 @@
 | :-- | :------------- | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
 | 1   | 検索結果       | searchResults                  | ○  |     |     |     |     |     | -      | object  | -        | |
 | 2   | 件数           | count                          |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
-| 3   | ロール情報     | results                        |     | ○  |     |     |     |     | ○     | array   | -        | |
-| 4   | ロールコード   | roleCode                       |     |     | ○  |     |     |     | -      | string  | -        | |
-| 5   | ロール名       | roleName                       |     |     | ○  |     |     |     | -      | string  | -        | |
-| 6   | 本人フラグ     | selfFlg                        |     |     | ○  |     |     |     | -      | integer |          | |
+| 3   | スタッフロール紐付け情報     | results                        |     | ○  |     |     |     |     | ○     | array   | -        | |
+| 4   | 医療機関ID     | organizationId                |     |     | ○  |     |     |     | -      | string  | -        | |
+| 5   | スタッフID     | staffId                       |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
+| 6   | ロールコード   | roleCode                      |     |     | ○  |     |     |     | -      | string  | -        | |
 
 
 | エラー条件                                                        |
@@ -64,42 +65,12 @@
 ```json title="正常終了"
 {
     "searchResults": {
-        "count": 7,
+        "count": 1,
         "results": [
             {
-                "roleCode": "A001",
-                "roleName": "本人"
-                "selfFlg": 1
-            },
-            {
-                "roleCode": "A002",
-                "roleName": "本人(権限なし)"
-                "selfFlg": 1
-            },
-            {
-                "roleCode": "A003",
-                "roleName": "本人(本人取得由来記録のみ、参照のみ)"
-                "selfFlg": 1
-            },
-            {
-                "roleCode": "A004",
-                "roleName": "本人(保健医療記録・本人取得由来記録、参照のみ)"
-                "selfFlg": 1
-            },
-            {
-                "roleCode": "B001",
-                "roleName": "本人以外"
-                "selfFlg": 0
-            },
-            {
-                "roleCode": "B002",
-                "roleName": "本人以外(本人取得由来記録のみ、参照のみ)"
-                "selfFlg": 0
-            },
-            {
-                "roleCode": "B003",
-                "roleName": "本人以外(保健医療記録・本人取得由来記録、参照のみ)"
-                "selfFlg": 0
+                "organizationId": "A001",
+                "staffId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
+                "roleCode": "B001"
             }
         ]
     }

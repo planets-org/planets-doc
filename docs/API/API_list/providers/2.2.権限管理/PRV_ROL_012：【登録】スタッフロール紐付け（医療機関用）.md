@@ -1,10 +1,10 @@
 ### 処理概要
 
-患者ロール紐付けを取得する。
+スタッフロール紐付けテーブルに対して登録を行う。一つのスタッフIDに複数の権限(ロールコード)を設定することができる。
 
 | 機能 ID     | API 論理名                          | HTTP メソッド | URI                                              |
 | :---------- | :---------------------------------- | :------------ | :----------------------------------------------- |
-| PTP_ROL_012 | 【取得】患者ロール権限(患者用)| GET           | {applicationPath}/participants/roles/assignment |
+| PRV_ROL_012 | 【登録】スタッフロール紐付け(医療機関用) | POST          | {applicationPath}/providers/roles/assignment |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -20,7 +20,6 @@
 
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
-| 1   | 操作対象者ID | operatorTargetId | string  |    〇    | PLATID |
 
 ### リクエスト（パスパラメータ）
 
@@ -29,29 +28,31 @@
 | -   | | | | | |
 
 ### リクエスト(Body)
-
-| No. | 項目名 | 物理名 | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性 | Nullable | リクエスト設定要領 |
-| :-- | :----- | :----- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :--- | :------- | :----------------- |
-| -   |        |        |     |     |     |
+| No. | 項目名         | 物理名                         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性    | Nullable | リクエスト設定要領                              |
+| :-- | :------------- | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
+| 1   | 医療機関ID     | organizationId                 | ○  |     |     |     |     |     | -      | string  | -        | |
+| 2   | スタッフID     | staffId                        | ○  |     |     |     |     |     | -      | string  | -        | PLATID |
+| 3   | ロールコード   | roleCode                       | ○  |     |     |     |     |     | -      | string  | -        | |
 
 ### サンプル（リクエスト）
-＜クエリパラメータ指定の場合＞
-```
-{applicationPath}/participants/roles/assignment?operatorTargetId=36b65929-6bd6-455d-9533-ba8c70da4e11
+
+```json
+{
+  "organizationId": "A001",
+  "staffId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
+  "roleCode": "C001"
+}
+
 ```
 
 ### レスポンス
 
 | No. | 項目名         | 物理名                         | L1  | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性    | Nullable | レスポンス設定要領                              |
 | :-- | :------------- | :----------------------------- | :-: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
-| 1   | 検索結果       | searchResults                  | ○  |     |     |     |     |     | -      | object  | -        | |
-| 2   | 件数           | count                          |     | ○  |     |     |     |     | -      | integer | -        | 検索結果件数                                    |
-| 3   | 患者ロール紐付け情報     | results              |     | ○  |     |     |     |     | ○     | array   | -        | |
-| 4   | 操作者ID       | operatorId                     |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
-| 5   | 操作対象者ID   | operatorTargetId               |     |     | ○  |     |     |     | -      | string  | -        | PLATID |
-| 6   | ロールコード   | roleCode                       |     |     | ○  |     |     |     | -      | string  | -        | |
-| 7   | 通知フラグ     | notificationFlg                |     |     | ○  |     |     |     | -      | integer |          | [通知フラグ](../../../API_Domain_Definition_Table.md)  |
-
+| 1   | ステータス     | status                         | ○  |     |     |     |     |     | -      | string  | -        | success：正常 |
+| 2   | 医療機関ID     | organizationId                 |     | ○  |     |     |     |     | -      | string  | -        | |
+| 3   | スタッフID     | staffId                        |     | ○  |     |     |     |     | -      | string  | -        | PLATID |
+| 4   | ロールコード   | roleCode                       |     | ○  |     |     |     |     | -      | string  | -        | |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
@@ -62,30 +63,21 @@
 
 ```json title="正常終了"
 {
-    "searchResults": {
-        "count": 2,
-        "results": [
-            {
-                "operatorId": "36b65929-6bd6-455d-9533-ba8c70da4e12",
-                "operatorTargetId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
-                "roleCode": "A001",
-                "notificationFlg": 1
-            },
-            {
-                "operatorId": "36b65929-6bd6-455d-9533-ba8c70da4e13",
-                "operatorTargetId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
-                "roleCode": "B001",
-                "notificationFlg": 1
-            }
-        ]
+  "status": success,
+    {
+      "organizationId": "A001",
+      "staffId": "36b65929-6bd6-455d-9533-ba8c70da4e11",
+      "roleCode": "B001"
     }
 }
 ```
+
 ```json title="異常終了"
 {
   "errorCode": "PLAT500"
 }
 ```
+
 ### 備考
 
 なし

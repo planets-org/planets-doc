@@ -5,7 +5,7 @@
 
 | 機能 ID     | API 論理名                       | HTTP メソッド | URI                                                                     |
 | :---------- | :------------------------------- | :------------ | :---------------------------------------------------------------------- |
-| PTP_ROL_010 | 【削除】付与済みの権限（患者用） | PUT           | {applicationPath}/participants/permission/delete/{permissionApprovalId} |
+| PTP_ROL_009 | 【削除】付与済みの権限（患者用） | PUT           | {applicationPath}/participants/permission/delete/{permissionApprovalId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先 |
 | :------- | :----------------------------------- | :--------------- |
