@@ -87,7 +87,7 @@
 
 ```json title="正常終了"
 {
-  "permissionList": [
+  "permissionManagementList": [
     {
       "permissionSearchCriteriaList": [
         {
