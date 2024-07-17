@@ -39,7 +39,7 @@
 ＜パスパラメータ指定の場合＞
 
 ```
-　　{applicationPath}/participants/permission/approval/3fa04331-85fd-4cb5-819d-d240145a74ca
+　　{applicationPath}/participants/permission/approval/1
 ```
 
 ＜クエリパラメータ指定の場合＞
