@@ -107,16 +107,16 @@
 | 11  | 演算子                    | operator                       |     |     |  ○  |     |     |     | -     | string | -        | リクエストで設定した値と同一値                                                                                                  |
 | 12  | 値                        | value                          |     |     |  ○  |     |     |     | -     | string | -        | リクエストで設定した値と同一値                                                                                                  |
 | 13  | 権限管理 ID               | permissionManagementId         |     |  ○  |     |     |     |     | -     | string | -        | UUID形式で設定                                                                                                                  |
-| 13  | ステータス                | status                         |     |  ○  |     |     |     |     | -     | string | -        | [権限承認状態](../../../API_Domain_Definition_Table.md)                                                                         |
-| 14  | 論理削除フラグ            | deletedFlg                     |     |  ○  |     |     |     |     | -     | integer| -        | [論理削除フラグ](../../../API_Domain_Definition_Table.md)                                                                       |
+| 14  | ステータス                | status                         |     |  ○  |     |     |     |     | -     | string | -        | [権限承認状態](../../../API_Domain_Definition_Table.md)                                                                         |
+| 15  | 論理削除フラグ            | deletedFlg                     |     |  ○  |     |     |     |     | -     | integer| -        | [論理削除フラグ](../../../API_Domain_Definition_Table.md)                                                                       |
 | 16  | 許可要求者 ID（医療機関） | requestedOrganizationId        |     |  ○  |     |     |     |     | -     | string | ○       | API実行者の医療機関ID                                                                                                           |
 | 17  | 許可要求者 ID（診療科）   | requestedDepartmentId          |     |  ○  |     |     |     |     | -     | string | ○       | API実行者の診療科ID                                                                                                             |
 | 18  | 許可要求者 ID（個人）     | requestedPersonalId            |     |  ○  |     |     |     |     | -     | string | ○       | API実行者の個人ID(PLAT_ID)                                                                                                      |
 | 19  | 許可要求日時              | requestedDatetime              |     |  ○  |     |     |     |     | -     | string | -        |                                                                                                                                 |
 | 20  | 文書所有者ID              | documentOwnerId                |     |  ○  |     |     |     |     | -     | string | -        | リクエストで設定した値と同一値                                                                                                  |                                                                                                                                |
-| 20  | 権限保持対象区分          | classification                 |     |  ○  |     |     |     |     | -     | string | -        | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                                                                     |
-| 21  | 権限保持者ID              | permissionId                   |     |  ○  |     |     |     |     | -     | string | -        | リクエストで設定した値と同一値                                                                                                  |
-| 22  | 権限種別                  | type                           |     |  ○  |     |     |     |     | -     | string | -        | [権限種別](../../../API_Domain_Definition_Table.md)                                                                             |
+| 21  | 権限保持対象区分          | classification                 |     |  ○  |     |     |     |     | -     | string | -        | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                                                                     |
+| 22  | 権限保持者ID              | permissionId                   |     |  ○  |     |     |     |     | -     | string | -        | リクエストで設定した値と同一値                                                                                                  |
+| 23  | 権限種別                  | type                           |     |  ○  |     |     |     |     | -     | string | -        | [権限種別](../../../API_Domain_Definition_Table.md)                                                                             |
 | 24  | 有効期限（開始）          | expirationFrom                 |     |  ○  |     |     |     |     | -     | date   | -        | 権限の有効期限（FROM）                                                                                                          |
 | 25  | 有効期限（終了）          | expirationTo                   |     |  ○  |     |     |     |     | -     | date   | -        | 権限の有効期限（TO）                                                                                                            |
 | 26  | コメント                  | comment                        |     |  ○  |     |     |     |     | -     | string | -        |                                                                                                                                 |
@@ -134,7 +134,7 @@
     {
       "permissionApprovalList": [
         {
-         "status": "0",
+         "status": "1",
          "deletedFlg": 0,
          "allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca",
          "approvedDatetime": "Feb 23, 2021, 1:00:00 AM"
@@ -158,7 +158,7 @@
         }
       ],
       "permissionManagementId": "c42e5ca3-fb57-4e5a-9b75-a9b08aeddda4",
-      "status": "0",
+      "status": "1",
       "deletedFlg": 0,
       "requestedOrganizationId": "1310000001",
       "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
