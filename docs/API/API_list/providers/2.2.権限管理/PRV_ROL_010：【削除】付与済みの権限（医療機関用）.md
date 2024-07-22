@@ -88,7 +88,7 @@
       {
        "permissionApprovalId": 1,
        "status": "1",
-       "deletedFlg": 0,
+       "deletedFlg": 1,
        "allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca",
        "approverPersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca",
        "approvedDatetime": "Mar 3, 2021, 1:00:00 AM",
@@ -97,7 +97,7 @@
     ],
     "permissionManagementId": "c42e5ca3-fb57-4e5a-9b75-a9b08aeddda4",
     "status": "0",
-    "deletedFlg": 0,
+    "deletedFlg": 1,
     "requestedOrganizationId": "1310000001",
     "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
     "requestedDatetime": "Oct 6, 2021, 9:44:07 PM",
