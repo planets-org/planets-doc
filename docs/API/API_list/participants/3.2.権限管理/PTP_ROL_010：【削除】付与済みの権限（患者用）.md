@@ -97,7 +97,7 @@
       }
     ],
     "permissionManagementId": "c42e5ca3-fb57-4e5a-9b75-a9b08aeddda4",
-    "status": "0",
+    "status": "1",
     "deletedFlg": 1,
     "requestedOrganizationId": "1310000001",
     "requestedPersonalId": "faab8ced-33ce-4ef9-800a-7c8310020ecc",
