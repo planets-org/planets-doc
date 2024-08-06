@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                           | HTTP メソッド | URI                                                                    |
 | :---------- | :----------------------------------- | :------------ | :--------------------------------------------------------------------- |
-| PRV_ROL_005 | 【更新】権限の要求取消（医療機関用） | PUT           | {applicationPath}/providers/permission/requests/{permissionApprovalId} |
+| PRV_ROL_005 | 【更新】権限の要求取消（医療機関用） | PUT           | {applicationPath}/providers/permission/requests/{permissionManagementId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -24,9 +24,9 @@
 
 ### リクエスト（パスパラメータ）
 
-| No. | 項目名      | 物理名               |  属性  | Nullable | 設定要領                 |
-| :-- | :---------- | :------------------- | :----: | :------: | :----------------------- |
-| 1   | 権限承認 ID | permissionApprovalId | string |    -     | 権限承認 ID を設定する。 |
+| No. | 項目名      | 物理名                 |  属性  | Nullable | 設定要領                 |
+| :-- | :---------- | :--------------------- | :----: | :------: | :----------------------- |
+| 1   | 権限管理 ID | permissionManagementId | string |    -     | 権限承認 ID を設定する。 |
 
 ### リクエスト(Body)
 
@@ -37,7 +37,7 @@
 ### サンプル（リクエスト）
 
 ```
-{applicationPath}/providers/permission/requests/1
+{applicationPath}/providers/permission/requests/c42e5ca3-fb57-4e5a-9b75-a9b08aeddda4
 ```
 
 ### レスポンス
