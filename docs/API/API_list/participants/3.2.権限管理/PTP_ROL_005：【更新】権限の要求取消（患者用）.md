@@ -26,7 +26,7 @@
 
 | No. | 項目名      | 物理名                 |  属性  | Nullable | 設定要領                 |
 | :-- | :---------- | :--------------------- | :----: | :------: | :----------------------- |
-| 1   | 権限管理 ID | permissionManagementId | string |    -     | 権限承認 ID を設定する。 |
+| 1   | 権限管理 ID | permissionManagementId | string |    -     | 権限管理 ID を設定する。 |
 
 ### リクエスト(Body)
 
