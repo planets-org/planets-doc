@@ -51,16 +51,16 @@
 
 ### サンプル（リクエスト）
 
-医療機関が患者へ保険医療記録の閲覧権限を要求する場合
+患者が自身や親族の保険医療記録の閲覧権限を要求する場合
 
 ```json
 {
-　　"comment": "患者 1 への権限要求",
+　　"comment": "患者 1 の文書閲覧権限要求",
 　　"permissionManagementList": [
 　　　　{
 　　　　　　"permissionApprovalList": [
 　　　　　　　　{
-　　　　　　　　　　"allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"　 → 　患者の PLAT 共通 ID を設定
+　　　　　　　　　　"allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"　 → 　閲覧対象である患者の PLAT 共通 ID を設定
 　　　　　　　　}
 　　　　　　],
 　　　　　　"permissionSearchCriteriaList": [
