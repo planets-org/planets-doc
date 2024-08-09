@@ -23,9 +23,9 @@
 | No. | 項目名       | 物理名         |  属性  | Nullable | 設定要領                                                                         |
 | :-- | :----------- | :------------- | :----: | :------: | :------------------------------------------------------------------------------- |
 | 1   | 参照先       | location       | string |    ○    | [参照先(権限管理）](../../../API_Domain_Definition_Table.md)                     |
-| 2   | 権限保持区分 | classification | string |    -     | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                      |
-| 3   | 権限保持者 ID| permissionId   | string |    -     | 権限保持者 ID を設定する。（個人の場合は PLAT 共通 ID、組織の場合は医療機関 ID） |
-| 4   | 基準日       | defaultdate    |  date  |    -     | 権限の有効期限 From ～ To の条件を設定する。                                     |
+| 2   | 権限保持区分 | classification | string |    ○    | [権限保持対象区分](../../../API_Domain_Definition_Table.md)                      |
+| 3   | 権限保持者 ID| permissionId   | string |    ○    | 権限保持者 ID を設定する。（個人の場合は PLAT 共通 ID、組織の場合は医療機関 ID） |
+| 4   | 基準日       | defaultdate    |  date  |    ○    | 権限の有効期限 From ～ To の条件を設定する。                                     |
 
 
 ### リクエスト（パスパラメータ）
