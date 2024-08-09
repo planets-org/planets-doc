@@ -60,7 +60,7 @@
 　　　　{
 　　　　　　"permissionApprovalList": [
 　　　　　　　　{
-　　　　　　　　　　"allowablePersonalId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca"　 → 閲覧対象である患者の PLAT 共通 ID を設定
+　　　　　　　　　　"allowablePersonalId": "aaab8ced-33ce-4ef9-800a-7c8310020ecc"　 → 権限の要求に対し承認・拒否を行う人の PLAT 共通 ID を設定
 　　　　　　　　}
 　　　　　　],
 　　　　　　"permissionSearchCriteriaList": [
@@ -81,8 +81,8 @@
 　　　　　　　　}
 　　　　　　],
 　　　　　　"documentOwnerId": "0034fff5-296b-4ece-b2b8-a97e34ae5cf2",
-　　　　　　"classification": "2",
-　　　　　　"permissionId": "1310000001", → 医療機関 ID を設定
+　　　　　　"classification": "1",
+　　　　　　"permissionId": "6d86c3e2-aa16-6a0c-89df-a4d40bcc83ca", → 権限付与対象のPLAT共通ID を設定
 　　　　　　"type": "01",
 　　　　　　"expirationFrom": "Mar 2, 2021, 1:00:00 AM",
 　　　　　　"expirationTo": "Mar 2, 2025, 1:00:00 AM"
