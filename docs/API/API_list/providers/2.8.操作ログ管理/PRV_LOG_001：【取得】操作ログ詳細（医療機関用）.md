@@ -43,7 +43,7 @@
 ### サンプル（リクエスト）
 ＜クエリパラメータ指定の場合＞
 ```
-　　{applicationPath}/providers/operationlog?operationLogId=36b65929-6bd6-455d-9533-ba8c70da4e11
+　　{applicationPath}/providers/operationlog?operatorId=36b65929-6bd6-455d-9533-ba8c70da4e11
 　　&operationTargetUserId=a94ad575-e822-4280-b66b-3c530e373872
 　　&departmentName=テスト診療科4&operationDetails=承認
 　　&operationDayFrom=20210301123015&operationDayTo=20210401180000
