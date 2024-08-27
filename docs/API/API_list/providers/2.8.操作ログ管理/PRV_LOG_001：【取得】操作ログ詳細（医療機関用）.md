@@ -21,7 +21,7 @@
 | No. | 項目名       | 物理名           | 属性    | Nullable | 設定要領                                        |
 | :-- | :----------- | :--------------- | :-----: | :------: | :---------------------------------------------- |
 | 1   | 参照先     | location            | string |    ○     | ”self”/”remote”/"all"もしくは医療機関 ID のカンマ区切りを URL エンコードを行い指定 |
-| 2   | 操作者       | operationLogId   | string  |    〇    | PLATID/スタッフIDで操作ログを検索 |
+| 2   | 操作者       | operatorId       | string  |    〇    | PLATID/スタッフIDで操作ログを検索 |
 | 3   | 操作対象者   | operationTargetUserId | string  |    〇     | 操作対象者のPLATID |
 | 4   | 診療科名称   | departmentName   | string  |    〇    | 診療科名称のキーワード(部分一致) |
 | 5   | 操作内容     | operationDetails | string  |    〇    | API論理名で検索(部分一致) |
@@ -43,7 +43,7 @@
 ### サンプル（リクエスト）
 ＜クエリパラメータ指定の場合＞
 ```
-　　{applicationPath}/providers/operationlog?operationLogId=36b65929-6bd6-455d-9533-ba8c70da4e11
+　　{applicationPath}/providers/operationlog?operatorId=36b65929-6bd6-455d-9533-ba8c70da4e11
 　　&operationTargetUserId=a94ad575-e822-4280-b66b-3c530e373872
 　　&departmentName=テスト診療科4&operationDetails=承認
 　　&operationDayFrom=20210301123015&operationDayTo=20210401180000
