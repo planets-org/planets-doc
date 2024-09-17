@@ -40,15 +40,15 @@ PLAT 上のスタッフ情報を削除する。
 
 ### レスポンス
 
-| No. | 項目名       | 物理名          | L1   | L2   | L3   | L4  | L5  | L6  | 繰返し | 属性    | Nullable | レスポンス設定要領                                        |
-| :-- | :----------- | :-------------- | :--: | :--: | :--: | :-: | :-: | :-: | :----- | :------ | :------- |:----------------------------------------------------------|
-| 1   | スタッフID   | staffId         |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
-| 2   | 緊急フラグ   | emergencyFlg    |  ○  |      |      |     |     |     |        | integer | -        | [救急フラグ](../../../API_Domain_Definition_Table.md)     |
-| 3   | 名称（漢字） | nameKanji       |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
-| 4   | 名称（カナ） | nameKana        |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
-| 5   | バージョン   | version         |  ○  |      |      |     |     |     |        | integer | -        |                                                           |
-| 6   | 更新日時     | updatedDatetime |  ○  |      |      |     |     |     |        | date    | -        |                                                           |
-| 7   | KeyCloakユーザー削除グラグ |  |  ○  |      |      |     |     |     |        | date    | -        | ０：削除失敗　１：削除成功                                                         |
+| No. | 項目名                      | 物理名                | L1   | L2   | L3   | L4  | L5  | L6  | 繰返し | 属性    | Nullable | レスポンス設定要領                                        |
+| :-- | :-------------------------- | :-------------------- | :--: | :--: | :--: | :-: | :-: | :-: | :----- | :------ | :------- |:----------------------------------------------------------|
+| 1   | スタッフID                  | staffId               |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
+| 2   | 緊急フラグ                  | emergencyFlg          |  ○  |      |      |     |     |     |        | integer | -        | [救急フラグ](../../../API_Domain_Definition_Table.md)     |
+| 3   | 名称（漢字）                | nameKanji             |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
+| 4   | 名称（カナ）                | nameKana              |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
+| 5   | バージョン                  | version               |  ○  |      |      |     |     |     |        | integer | -        |                                                           |
+| 6   | 更新日時                    | updatedDatetime       |  ○  |      |      |     |     |     |        | date    | -        |                                                           |
+| 7   | KeyCloakユーザー削除グラグ  | keyCloakUserDeleteFLG |  ○  |      |      |     |     |     |        | integer | -        | 0：削除失敗(ユーザー存在しない) １：削除成功              |
 
 
 | エラー条件                                                        |
@@ -64,7 +64,8 @@ PLAT 上のスタッフ情報を削除する。
   "nameKanji": "鈴木二郎",
   "nameKana": "スズキジロウ",
   "version": 1,
-  "updatedDatetime": "Oct 7, 2021, 7:50:46 PM"
+  "updatedDatetime": "Oct 7, 2021, 7:50:46 PM",
+  "keyCloakUserDeleteFLG": 1
 }
 ```
 
