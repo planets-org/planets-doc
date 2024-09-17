@@ -1,10 +1,10 @@
 ### 処理概要
 
-自病院に対して PLATユーザを削除する。
+PLATユーザを削除する。
 
 | 機能 ID     | API 論理名                       | HTTP メソッド | URI                                            |
 | :---------- |:---------------------------------| :------------ | :--------------------------------------------- |
-| PTP_USR_004 | 【削除】ユーザ情報（医療機関用） | DELETE        | {applicationPath}/participants/users/{staffId} |
+| PTP_USR_004 | 【削除】ユーザ情報（患者用） | DELETE        | {applicationPath}/participants/users/{platId}  |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -33,7 +33,7 @@
 ### サンプル（リクエスト）
 
 ```
-{applicationPath}/providers/staffs/8a9cfd63-9e05-4e0a-9fa3-d892ee5b3678
+{applicationPath}/participants/users/8a9cfd63-9e05-4e0a-9fa3-d892ee5b3678
 ```
 
 ### レスポンス

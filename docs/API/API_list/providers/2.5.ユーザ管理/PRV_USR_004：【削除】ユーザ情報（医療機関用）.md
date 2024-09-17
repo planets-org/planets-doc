@@ -4,7 +4,7 @@
 
 | 機能 ID     | API 論理名                       | HTTP メソッド | URI                                         |
 | :---------- |:---------------------------------| :------------ | :------------------------------------------ |
-| PRV_USR_004 | 【削除】ユーザ情報（医療機関用） | DELETE        | {applicationPath}/providers/users/{staffId} |
+| PRV_USR_004 | 【削除】ユーザ情報（医療機関用） | DELETE        | {applicationPath}/providers/users/{platId} |
 
 | 連携方式 | データ形式                           | 利用可能な接続先   |
 | :------- | :----------------------------------- | :----------------- |
@@ -33,7 +33,7 @@
 ### サンプル（リクエスト）
 
 ```
-{applicationPath}/providers/staffs/8a9cfd63-9e05-4e0a-9fa3-d892ee5b3678
+{applicationPath}/providers/users/8a9cfd63-9e05-4e0a-9fa3-d892ee5b3678
 ```
 
 ### レスポンス
