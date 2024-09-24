@@ -59,7 +59,7 @@ PLAT 上のスタッフ情報を削除する。
 
 ```json title="正常終了"
 {
-  "id": "8a9cfd63-9e05-4e0a-9fa3-d892ee5b3678",
+  "staffId": "8a9cfd63-9e05-4e0a-9fa3-d892ee5b3678",
   "emergencyFlg": 0,
   "nameKanji": "鈴木二郎",
   "nameKana": "スズキジロウ",
