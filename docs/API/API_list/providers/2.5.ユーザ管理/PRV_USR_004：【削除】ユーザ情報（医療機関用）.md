@@ -38,14 +38,15 @@ PLAT 上で管理しているユーザを削除する。
 
 ### レスポンス
 
-| No. | 項目名           | 物理名                  | L1   | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性    | Nullable | リクエスト設定要領                              |
-| :-- | :--------------- | :---------------------- | :--: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
-| 1   | PLATID           | platId                  |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 2   | 患者ID管理リスト | patientIdManagementList |  ○  |     |     |     |     |     | -      | array   | -        |                                                 |
-| 3   | 医療機関ID       | organizationId          |      | ○  |     |     |     |     | -      | String  | ○       |                                                 |
-| 4   | 患者ID           | patientId               |      | ○  |     |     |     |     | -      | String  | ○       |                                                 |
-| 5   | ステータス       | status                  |  ○  |     |     |     |     |     | -      | String  | ○       |                                                 |
-| 6   | 仮名化ID         | pseudoId                |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
+| No. | 項目名                      | 物理名                  | L1   | L2  | L3  | L4  | L5  | L6  | 繰返し | 属性    | Nullable | リクエスト設定要領                              |
+| :-- | :-------------------------- | :---------------------- | :--: | :-: | :-: | :-: | :-: | :-: | :----- | :------ | :------- | :---------------------------------------------- |
+| 1   | PLATID                      | platId                  |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
+| 2   | 患者ID管理リスト            | patientIdManagementList |  ○  |     |     |     |     |     | -      | array   | -        |                                                 |
+| 3   | 医療機関ID                  | organizationId          |      | ○  |     |     |     |     | -      | String  | ○       |                                                 |
+| 4   | 患者ID                      | patientId               |      | ○  |     |     |     |     | -      | String  | ○       |                                                 |
+| 5   | ステータス                  | status                  |  ○  |     |     |     |     |     | -      | String  | ○       | success：正常                                   |
+| 6   | 仮名化ID                    | pseudoId                |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
+| 7   | KeyCloakユーザー削除フラグ  | keycloakDeleteFlg       |  ○  |     |     |     |     |     | -      | integer | -        | 0:削除失敗（ユーザー存在しない）１：削除成功    |
 
 
 | エラー条件                                                        |
@@ -64,7 +65,8 @@ PLAT 上で管理しているユーザを削除する。
 　　　　}
 　　],
 　　"status": "success",
-　　"pseudoId": ""
+　　"pseudoId": "",
+　　"keycloakDeleteFlg": 1
 }
 ```
 
