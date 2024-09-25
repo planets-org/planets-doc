@@ -44,15 +44,8 @@ PLAT 上で管理しているユーザを削除する。
 | 2   | 患者ID管理リスト | patientIdManagementList |  ○  |     |     |     |     |     | -      | array   | -        |                                                 |
 | 3   | 医療機関ID       | organizationId          |      | ○  |     |     |     |     | -      | String  | ○       |                                                 |
 | 4   | 患者ID           | patientId               |      | ○  |     |     |     |     | -      | String  | ○       |                                                 |
-| 5   | ステータス       | deceasedBoolean         |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 6   | 名称（漢字）     | nameKanji               |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 7   | 名称（カナ）     | nameKana                |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 8   | 郵便番号         | postalCode              |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 9   | 住所             | address                 |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 10  | 電話番号         | telecom                 |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 11  | 性別             | gender                  |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 12  | 生年月日         | birthDate               |  ○  |     |     |     |     |     | -      | date    | -        |                                                 |
-| 13  | 仮名化ID         | pseudoId                |  ○  |     |     |     |     |     | -      | String  | 〇       |                                                 |
+| 5   | ステータス       | status                  |  ○  |     |     |     |     |     | -      | String  | ○       |                                                 |
+| 6   | 仮名化ID         | pseudoId                |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
 
 
 | エラー条件                                                        |
@@ -70,14 +63,7 @@ PLAT 上で管理しているユーザを削除する。
 　　　　　　"patientId":"a62c1902-37db-2809-1670-ac665e47e673"
 　　　　}
 　　],
-　　"deceasedBoolean": "false",
-　　"nameKanji": "TISサンプル患者4",
-　　"nameKana": "TISサンプルカンジャ4",
-　　"postalCode": "163-0490",
-　　"address": "東京都新宿区西新宿2-1-1",
-　　"telecom": "03-0000-0004",
-　　"gender": "male",
-　　"birthDate": "2001/04/01",
+　　"status": "success",
 　　"pseudoId": ""
 }
 ```
