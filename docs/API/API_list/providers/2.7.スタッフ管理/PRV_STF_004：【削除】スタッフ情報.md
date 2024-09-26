@@ -61,7 +61,7 @@ PLAT 上のスタッフ情報を削除する。
   "nameKanji": "鈴木二郎",
   "nameKana": "スズキジロウ",
   "status": "success",
-  "keyCloakUserDeleteFLG": 1
+  "keyCloakUserDeleteFlg": 1
 }
 ```
 
