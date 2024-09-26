@@ -48,7 +48,7 @@ PLAT 上のスタッフ情報を削除する。
 | 4   | 名称（カナ）                | nameKana              |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
 | 5   | バージョン                  | version               |  ○  |      |      |     |     |     |        | integer | -        |                                                           |
 | 6   | 更新日時                    | updatedDatetime       |  ○  |      |      |     |     |     |        | date    | -        |                                                           |
-| 7   | KeyCloakユーザー削除グラグ  | keyCloakUserDeleteFLG |  ○  |      |      |     |     |     |        | integer | -        | 0：削除失敗(ユーザー存在しない) １：削除成功              |
+| 7   | KeyCloakユーザー削除フラグ  | keyCloakUserDeleteFlg |  ○  |      |      |     |     |     |        | integer | -        | 0：削除失敗(ユーザー存在しない) １：削除成功              |
 
 
 | エラー条件                                                        |

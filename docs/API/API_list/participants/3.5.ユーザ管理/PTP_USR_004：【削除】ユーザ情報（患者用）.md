@@ -46,8 +46,7 @@ PLAT 上で管理しているユーザを削除する。
 | 3   | 医療機関ID                  | organizationId          |      | ○  |     |     |     |     | -      | String  | ○       |                                                 |
 | 4   | 患者ID                      | patientId               |      | ○  |     |     |     |     | -      | String  | ○       |                                                 |
 | 5   | ステータス                  | status                  |  ○  |     |     |     |     |     | -      | String  | ○       | success：正常                                   |
-| 6   | 仮名化ID                    | pseudoId                |  ○  |     |     |     |     |     | -      | String  | -        |                                                 |
-| 7   | KeyCloakユーザー削除フラグ  | keycloakDeleteFlg       |  ○  |     |     |     |     |     | -      | integer | -        | 0:削除失敗（ユーザー存在しない）１：削除成功    |
+| 6   | KeyCloakユーザー削除フラグ  | keycloakDeleteFlg       |  ○  |     |     |     |     |     | -      | integer | -        | 0:削除失敗（ユーザー存在しない）１：削除成功    |
 
 | エラー条件                                                        |
 | :---------------------------------------------------------------- |
@@ -65,7 +64,6 @@ PLAT 上で管理しているユーザを削除する。
 　　　　}
 　　],
 　　"status": "success",
-　　"pseudoId": "",
 　　"keycloakDeleteFlg": 1
 }
 ```
