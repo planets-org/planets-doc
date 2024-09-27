@@ -45,7 +45,7 @@ PLAT 上のスタッフ情報を削除する。
 | 1   | スタッフID                  | staffId               |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
 | 2   | 名称（漢字）                | nameKanji             |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
 | 3   | 名称（カナ）                | nameKana              |  ○  |      |      |     |     |     |        | string  | -        |                                                           |
-| 4   | ステータス                  | status                |  ○  |      |      |     |     |     |        | integer | -        | success：正常                                             |
+| 4   | ステータス                  | status                |  ○  |      |      |     |     |     |        | string | -        | success：正常                                             |
 | 5   | KeyCloakユーザー削除フラグ  | keyCloakUserDeleteFlg |  ○  |      |      |     |     |     |        | integer | -        | 0：削除失敗(ユーザー存在しない) １：削除成功              |
 
 
