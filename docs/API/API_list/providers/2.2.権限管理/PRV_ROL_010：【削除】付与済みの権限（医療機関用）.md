@@ -37,10 +37,8 @@
 
 ### サンプル（リクエスト）
 
-```json
-{
-  "comment": "〜のため削除します"
-}
+```
+{applicationPath}/providers/permission/delete/16
 ```
 
 ### レスポンス
