@@ -53,6 +53,7 @@
 医療機関が患者へ保険医療記録の閲覧権限を要求する場合
 
 ```json
+{
 　　"comment": "患者 1 への権限要求",
 　　"permissionApproval": [
 　　　　{
