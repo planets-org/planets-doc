@@ -36,9 +36,15 @@
 | 1   | コメント | comment |  ○  |     |     |     |     |     | -      | string | -        | 削除理由を記載する。 |
 
 ### サンプル（リクエスト）
-
+パスパラメータ指定
 ```
 {applicationPath}/providers/permission/delete/16
+```
+ボディ
+```json
+{
+  "comment": "〜のため削除します"
+}
 ```
 
 ### レスポンス
