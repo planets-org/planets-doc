@@ -12,9 +12,10 @@
 
 ### リクエスト（認証）
 
-| No. | 項目名           | 物理名        |  属性  | Nullable | 設定要領                               |
-| :-- | :--------------- | :------------ | :----: | :------: | :------------------------------------- |
-| 1   | アクセストークン | Authorization | string |    -     | 認証処理で取得した Bearer Token を設定 |
+| No. | 項目名           | 物理名                      |  属性  | Nullable | 設定要領                               |
+| :-- | :--------------- | :-------------------------- | :----: | :------: | :------------------------------------- |
+| 1   | アクセストークン | Authorization               | string |    -     | 認証処理で取得した Bearer Token を設定 |
+| 2   | 操作対象者       | X-OPERATION-TARGET-USER-ID  | string |    〇    | Nullの場合は操作者のPLATIDで、指定ありの場合は指定されたPLATIDで処理 |
 
 ### リクエスト（クエリ）
 
@@ -44,7 +45,7 @@
 | 10  | 値                        | value                          |     |     |  ○  |     |     |     | -     | string | -        | 階層パスのチェックする値                                                                                                           |
 | 11  | 文書所有者ID              | documentOwnerId                |     |  ○  |     |     |     |     | -     | string | -        | 要求を行う文書の所有者のID(PLAT_ID)                                                                                                |                                                                                                                                |
 | 12  | 権限保持対象区分          | classification                 |     |  ○  |     |     |     |     | -     | string | -        |[権限保持対象区分](../../../API_Domain_Definition_Table.md)                                                                         |
-| 13  | 権限保持者ID              | permissionId                   |     |  ○  |     |     |     |     | -     | string | -        | 個人の場合、付与対象者の PLAT 共通 ID もしくはスタッフ ID、医療機関の場合、付与対象の医療機関 ID                                   |
+| 13  | 権限保持者ID              | permissionId                   |     |  ○  |     |     |     |     | -     | string | -        | 個人の場合、付与対象者の PLAT 共通 ID もしくはスタッフ ID ※本人以外(後見人や両親)のAPI実行の場合は後見人や両親のPLAT共通IDを設定  |
 | 14  | 権限種別                  | type                           |     |  ○  |     |     |     |     | -     | string | -        | [権限種別](../../../API_Domain_Definition_Table.md)                                                                                |
 | 15  | 有効期限（開始）          | expirationFrom                 |     |  ○  |     |     |     |     | -     | date   | -        | 権限の有効期限（FROM）                                                                                                             |
 | 16  | 有効期限（終了）          | expirationTo                   |     |  ○  |     |     |     |     | -     | date   | -        | 権限の有効期限（TO）                                                                                                               |
